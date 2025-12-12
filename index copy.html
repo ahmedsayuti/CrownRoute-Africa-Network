@@ -1,0 +1,1721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrownRoute Africa Network - Africa's Leading Media House</title>
+        <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+
+    <!-- Apple Touch Icons -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="apple-touch-icon-180x180.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="apple-touch-icon-152x152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="apple-touch-icon-144x144.png"
+    />
+
+    <!-- Android Chrome -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="android-chrome-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="512x512"
+      href="android-chrome-512x512.png"
+    />
+
+    <!-- Microsoft Tiles -->
+    <meta name="msapplication-TileColor" content="#7ed321" />
+    <meta name="msapplication-TileImage" content="mstile-144x144.png" />
+
+    <!-- Theme colors -->
+    <meta name="theme-color" content="#7ed321" />
+
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="site.webmanifest" />
+
+    <!-- External Libraries -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary-color: #197872; /* Dark blue from logo */
+            --secondary-color: #D4AF37; /* Gold from crown in logo */
+            --accent-color: #C41E3A; /* Red accent */
+            --light-color: #F8F9FA;
+            --dark-color: #121212;
+            --gray-color: #6C757D;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: var(--dark-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Header and Navigation */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .top-bar {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 0;
+            font-size: 0.9rem;
+        }
+        
+        .top-bar-content {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .date-time {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .social-icons a {
+            color: white;
+            margin-left: 15px;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .main-header {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+        
+        .logo-img {
+            height: 120px;
+            width: auto;
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo-text h1 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            line-height: 1.2;
+        }
+        
+        .logo-text span {
+            font-size: 0.9rem;
+            color: var(--gray-color);
+            font-weight: 500;
+        }
+        
+        .search-container {
+            display: flex;
+            width: 350px;
+        }
+        
+        .search-container input {
+            flex: 1;
+            padding: 12px 15px;
+            border: 2px solid var(--primary-color);
+            border-right: none;
+            border-radius: 4px 0 0 4px;
+            font-size: 1rem;
+            outline: none;
+        }
+        
+        .search-container button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0 20px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: background-color 0.3s;
+        }
+        
+        .search-container button:hover {
+            background-color: #0a1e4e;
+        }
+        
+        /* Moving Headlines Banner */
+        .headlines-banner {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 0;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .banner-label {
+            background-color: var(--accent-color);
+            padding: 12px 20px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+            z-index: 2;
+        }
+        
+        .headlines-container {
+            width: 100%;
+            overflow: hidden;
+            padding-left: 140px;
+        }
+        
+        .headlines-track {
+            display: flex;
+            white-space: nowrap;
+            animation: scrollHeadlines 80s linear infinite;
+        }
+        
+        .headline-item {
+            padding: 0 30px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .headline-item:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .headline-item:not(:last-child) {
+            border-right: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .headline-category {
+            background-color: var(--secondary-color);
+            color: var(--dark-color);
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            border-radius: 3px;
+            margin-right: 10px;
+            font-weight: 600;
+        }
+        
+        .headline-text {
+            font-size: 1rem;
+            font-weight: 500;
+        }
+        
+        @keyframes scrollHeadlines {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+        
+        /* Navigation Menu */
+        nav {
+            background-color: white;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .nav-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .main-menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .main-menu li {
+            position: relative;
+        }
+        
+        .main-menu a {
+            display: block;
+            padding: 18px 20px;
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 600;
+            transition: all 0.3s;
+            border-bottom: 3px solid transparent;
+        }
+        
+        .main-menu a:hover, .main-menu a.active {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--secondary-color);
+            background-color: rgba(212, 175, 55, 0.05);
+        }
+        
+        /* Swiper Featured News */
+        .featured-swiper {
+            height: 500px;
+            width: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .swiper-slide {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+        
+        .swiper-slide:hover img {
+            transform: scale(1.05);
+        }
+        
+        .slide-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            color: white;
+            padding: 40px;
+            transform: translateY(20px);
+            transition: transform 0.5s ease;
+        }
+        
+        .swiper-slide:hover .slide-content {
+            transform: translateY(0);
+        }
+        
+        .slide-category {
+            background-color: var(--secondary-color);
+            color: var(--dark-color);
+            display: inline-block;
+            padding: 6px 15px;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        
+        .slide-title {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            line-height: 1.3;
+            font-weight: 700;
+        }
+        
+        .slide-excerpt {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 20px;
+            max-width: 800px;
+        }
+        
+        .slide-meta {
+            display: flex;
+            gap: 20px;
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+        
+        /* Main Content */
+        .container {
+            max-width: 1300px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+        
+        /* News Categories */
+        .categories-section {
+            margin-bottom: 50px;
+        }
+        
+        .section-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+        
+        .section-title h2 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            position: relative;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: -17px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent-color);
+        }
+        
+        .view-all {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.3s;
+        }
+        
+        .view-all:hover {
+            gap: 10px;
+        }
+        
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+        
+        .category-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            text-align: center;
+            padding: 30px 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .category-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background-color: var(--secondary-color);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+            z-index: -1;
+        }
+        
+        .category-card:hover:before {
+            transform: scaleX(1);
+        }
+        
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .category-icon {
+            font-size: 2.8rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            transition: all 0.3s;
+        }
+        
+        .category-card:hover .category-icon {
+            color: var(--secondary-color);
+            transform: scale(1.1);
+        }
+        
+        .category-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .category-card p {
+            color: var(--gray-color);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        /* Latest News */
+        .latest-news {
+            margin-bottom: 50px;
+        }
+        
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .news-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            height: 100%;
+        }
+        
+        .news-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .news-img {
+            height: 220px;
+            width: 100%;
+            overflow: hidden;
+        }
+        
+        .news-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .news-card:hover .news-img img {
+            transform: scale(1.05);
+        }
+        
+        .news-content {
+            padding: 25px;
+        }
+        
+        .news-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .news-category {
+            background-color: var(--accent-color);
+            color: white;
+            font-size: 0.8rem;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+        
+        .news-date {
+            color: var(--gray-color);
+            font-size: 0.85rem;
+        }
+        
+        .news-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            line-height: 1.4;
+            color: var(--dark-color);
+        }
+        
+        .news-content p {
+            color: var(--gray-color);
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        .read-more {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+        }
+        
+        .read-more:hover {
+            color: var(--accent-color);
+            gap: 12px;
+        }
+        
+        /* Regional News */
+        .regional-news {
+            margin-bottom: 50px;
+        }
+        
+        .regional-tabs {
+            display: flex;
+            border-bottom: 2px solid #eee;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .tab-btn {
+            padding: 15px 30px;
+            background: none;
+            border: none;
+            font-weight: 600;
+            color: var(--gray-color);
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s;
+        }
+        
+        .tab-btn:after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary-color);
+            transition: width 0.3s;
+        }
+        
+        .tab-btn:hover, .tab-btn.active {
+            color: var(--primary-color);
+        }
+        
+        .tab-btn:hover:after, .tab-btn.active:after {
+            width: 100%;
+        }
+        
+        .regional-content {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .region-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+        
+        .region-news-item {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .region-news-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+        
+        .region-news-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+        
+        .region-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: var(--gray-color);
+        }
+        
+        /* Sidebar */
+        .content-with-sidebar {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .sidebar-widget {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+        }
+        
+        .widget-title {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--secondary-color);
+            position: relative;
+        }
+        
+        .widget-title:after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--accent-color);
+        }
+        
+        .trending-list, .popular-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .trending-item, .popular-item {
+            display: flex;
+            gap: 15px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .trending-item:last-child, .popular-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        
+        .trending-number {
+            background-color: var(--primary-color);
+            color: white;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+        
+        .trending-content h4, .popular-content h4 {
+            font-size: 1.05rem;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+        
+        .popular-item img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 5px;
+            flex-shrink: 0;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            margin-top: 80px;
+        }
+        
+        .footer-main {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 50px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            color: var(--secondary-color);
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-column ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-column ul li a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .newsletter-form {
+            margin-top: 20px;
+        }
+        
+        .newsletter-form input {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+        
+        .newsletter-form button {
+            width: 100%;
+            padding: 14px;
+            background-color: var(--secondary-color);
+            color: var(--dark-color);
+            border: none;
+            border-radius: 4px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 1rem;
+        }
+        
+        .newsletter-form button:hover {
+            background-color: #e6c12e;
+        }
+        
+        .footer-bottom {
+            background-color: #0a1e4e;
+            padding: 25px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.95rem;
+        }
+        
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--secondary-color);
+            color: var(--dark-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 999;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background-color: #e6c12e;
+            transform: translateY(-5px);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .categories-grid, .news-grid, .region-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-main {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 40px;
+            }
+            
+            .content-with-sidebar {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .main-header {
+                flex-direction: column;
+                gap: 25px;
+            }
+            
+            .search-container {
+                width: 100%;
+            }
+            
+            .featured-swiper {
+                height: 400px;
+            }
+            
+            .slide-title {
+                font-size: 1.8rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .categories-grid, .news-grid, .region-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .main-menu {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .main-menu a {
+                padding: 15px 12px;
+                font-size: 0.95rem;
+            }
+            
+            .headlines-container {
+                padding-left: 0;
+                padding-top: 40px;
+            }
+            
+            .banner-label {
+                width: 100%;
+                justify-content: center;
+                height: auto;
+                padding: 8px 0;
+            }
+            
+            .featured-swiper {
+                height: 350px;
+            }
+            
+            .slide-content {
+                padding: 25px;
+            }
+            
+            .slide-title {
+                font-size: 1.5rem;
+            }
+            
+            .footer-main {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .top-bar-content {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            
+            .social-icons {
+                margin-top: 5px;
+            }
+            
+            .logo {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+            
+            .logo-img {
+                height: 80px;
+            }
+            
+            .featured-swiper {
+                height: 300px;
+            }
+            
+            .slide-content {
+                padding: 20px;
+            }
+            
+            .slide-title {
+                font-size: 1.3rem;
+            }
+            
+            .regional-tabs {
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar with Date and Social -->
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <div class="date-time">
+                <span id="current-date"></span>
+                <span id="current-time"></span>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Main Header with Logo and Search -->
+    <header>
+        <div class="main-header">
+            <div class="logo-container">
+                <a href="#" class="logo">
+                    <!-- Replace with your actual logo path -->
+                    <img src="assets/img/logo/crownroute-logo.png" alt="CrownRoute Africa Network Logo" class="logo-img">
+                </a>
+            </div>
+            
+            <div class="search-container">
+                <input type="text" placeholder="Search for news, topics, or journalists...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Moving Headlines Banner -->
+    <div class="headlines-banner">
+        <div class="banner-label">
+            <i class="fas fa-bolt"></i>
+            <span>BREAKING NEWS</span>
+        </div>
+        <div class="headlines-container">
+            <div class="headlines-track">
+                <!-- Duplicated for seamless scrolling -->
+                <div class="headline-item" onclick="window.location.href='article.html?id=1'">
+                    <span class="headline-category">POLITICS</span>
+                    <span class="headline-text">Nigeria's Supreme Court Upholds President's Election Victory</span>
+                </div>
+                <div class="headline-item" onclick="window.location.href='article.html?id=2'">
+                    <span class="headline-category">ECONOMY</span>
+                    <span class="headline-text">Kenya's Inflation Drops to 6.8% as Shilling Strengthens</span>
+                </div>
+                <div class="headline-item" onclick="window.location.href='article.html?id=3'">
+                    <span class="headline-category">SPORTS</span>
+                    <span class="headline-text">South Africa Wins Rugby World Cup 2023 in Paris Final</span>
+                </div>
+                <div class="headline-item" onclick="window.location.href='article.html?id=4'">
+                    <span class="headline-category">TECH</span>
+                    <span class="headline-text">Egypt's Swvl Expands to Europe After $150M Funding Round</span>
+                </div>
+                <div class="headline-item" onclick="window.location.href='article.html?id=5'">
+                    <span class="headline-category">HEALTH</span>
+                    <span class="headline-text">Ghana Launches Africa's First Malaria Vaccine Manufacturing Plant</span>
+                </div>
+                <div class="headline-item" onclick="window.location.href='article.html?id=6'">
+                    <span class="headline-category">CLIMATE</span>
+                    <span class="headline-text">COP28: African Nations Secure $2B Climate Adaptation Fund</span>
+                </div>
+                <!-- Duplicate items for seamless scrolling -->
+                <div class="headline-item" onclick="window.location.href='article.html?id=1'">
+                    <span class="headline-category">POLITICS</span>
+                    <span class="headline-text">Nigeria's Supreme Court Upholds President's Election Victory</span>
+                </div>
+                <div class="headline-item" onclick="window.location.href='article.html?id=2'">
+                    <span class="headline-category">ECONOMY</span>
+                    <span class="headline-text">Kenya's Inflation Drops to 6.8% as Shilling Strengthens</span>
+                </div>
+                <div class="headline-item" onclick="window.location.href='article.html?id=3'">
+                    <span class="headline-category">SPORTS</span>
+                    <span class="headline-text">South Africa Wins Rugby World Cup 2023 in Paris Final</span>
+                </div>
+                <div class="headline-item" onclick="window.location.href='article.html?id=4'">
+                    <span class="headline-category">TECH</span>
+                    <span class="headline-text">Egypt's Swvl Expands to Europe After $150M Funding Round</span>
+                </div>
+                <div class="headline-item" onclick="window.location.href='article.html?id=5'">
+                    <span class="headline-category">HEALTH</span>
+                    <span class="headline-text">Ghana Launches Africa's First Malaria Vaccine Manufacturing Plant</span>
+                </div>
+                <div class="headline-item" onclick="window.location.href='article.html?id=6'">
+                    <span class="headline-category">CLIMATE</span>
+                    <span class="headline-text">COP28: African Nations Secure $2B Climate Adaptation Fund</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Navigation Menu -->
+    <nav>
+        <div class="nav-container">
+            <ul class="main-menu">
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="category.html?cat=politics">Politics</a></li>
+                <li><a href="category.html?cat=business">Business</a></li>
+                <li><a href="category.html?cat=technology">Technology</a></li>
+                <li><a href="category.html?cat=health">Health</a></li>
+                <li><a href="category.html?cat=education">Education</a></li>
+                <li><a href="category.html?cat=entertainment">Entertainment</a></li>
+                <li><a href="category.html?cat=sports">Sports</a></li>
+                <li><a href="category.html?cat=lifestyle">Lifestyle</a></li>
+                <li><a href="category.html?cat=opinion">Opinion</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Swiper Featured News -->
+    <div class="container">
+        <div class="featured-swiper swiper" data-aos="fade-up">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="https://images.unsplash.com/photo-1588681664899-f142ff2dc9b1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="AU Summit">
+                    <div class="slide-content">
+                        <span class="slide-category">POLITICS</span>
+                        <h2 class="slide-title">African Union Launches Continental Free Trade Area Implementation</h2>
+                        <p class="slide-excerpt">The historic agreement aims to create a single market of 1.3 billion people with a combined GDP of $3.4 trillion, boosting intra-African trade by 52% by 2025.</p>
+                        <div class="slide-meta">
+                            <span><i class="far fa-clock"></i> 3 hours ago</span>
+                            <span><i class="far fa-user"></i> by Amina Jalloh</span>
+                            <span><i class="far fa-eye"></i> 15,230 views</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="African Economy">
+                    <div class="slide-content">
+                        <span class="slide-category">ECONOMY</span>
+                        <h2 class="slide-title">East Africa Records Highest Economic Growth in Continent at 5.7%</h2>
+                        <p class="slide-excerpt">Driven by technology, agriculture and manufacturing, the region outperforms continental average of 3.8% despite global economic challenges.</p>
+                        <div class="slide-meta">
+                            <span><i class="far fa-clock"></i> 6 hours ago</span>
+                            <span><i class="far fa-user"></i> by David Okafor</span>
+                            <span><i class="far fa-eye"></i> 12,450 views</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://images.unsplash.com/photo-1556012018-50c5c0da73bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Women in Tech">
+                    <div class="slide-content">
+                        <span class="slide-category">TECHNOLOGY</span>
+                        <h2 class="slide-title">African Women in Tech Secure Record $700M in Funding This Year</h2>
+                        <p class="slide-excerpt">Female-led startups across the continent are breaking barriers, with fintech and healthtech companies leading the way in innovation and investment.</p>
+                        <div class="slide-meta">
+                            <span><i class="far fa-clock"></i> 1 day ago</span>
+                            <span><i class="far fa-user"></i> by Sarah Mensah</span>
+                            <span><i class="far fa-eye"></i> 18,750 views</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </div>
+    
+    <!-- Main Content Container -->
+    <div class="container">
+        <!-- News Categories Section -->
+        <section class="categories-section" data-aos="fade-up">
+            <div class="section-title">
+                <h2>Explore News Categories</h2>
+                <a href="categories.html" class="view-all">All Categories <i class="fas fa-arrow-right"></i></a>
+            </div>
+            
+            <div class="categories-grid">
+                <a href="category.html?cat=politics" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-landmark"></i>
+                    </div>
+                    <h3>Politics & Governance</h3>
+                    <p>Elections, policy changes, diplomatic relations and government affairs across all African nations</p>
+                </a>
+                
+                <a href="category.html?cat=business" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Business & Economy</h3>
+                    <p>Market trends, financial news, entrepreneurship and economic developments shaping Africa's future</p>
+                </a>
+                
+                <a href="category.html?cat=technology" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Technology & Innovation</h3>
+                    <p>Digital transformation, startup ecosystem, groundbreaking innovations and tech policy updates</p>
+                </a>
+                
+                <a href="category.html?cat=health" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>Health & Wellness</h3>
+                    <p>Medical breakthroughs, public health initiatives, nutrition advice and healthcare system developments</p>
+                </a>
+                
+                <a href="category.html?cat=education" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Education & Research</h3>
+                    <p>Academic news, educational reforms, scientific discoveries and skills development across the continent</p>
+                </a>
+                
+                <a href="category.html?cat=sports" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-futbol"></i>
+                    </div>
+                    <h3>Sports & Athletics</h3>
+                    <p>Football, athletics, rugby, basketball and all major sporting events featuring African talent</p>
+                </a>
+                
+                <a href="category.html?cat=entertainment" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-theater-masks"></i>
+                    </div>
+                    <h3>Entertainment & Arts</h3>
+                    <p>Nollywood, Afrobeats, literature, visual arts and cultural events showcasing African creativity</p>
+                </a>
+                
+                <a href="category.html?cat=spotlight" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Spotlight Achievements</h3>
+                    <p>Celebrating African excellence, record-breaking accomplishments and inspirational success stories</p>
+                </a>
+            </div>
+        </section>
+        
+        <!-- Latest News Section -->
+        <section class="latest-news" data-aos="fade-up">
+            <div class="section-title">
+                <h2>Latest News Stories</h2>
+                <a href="latest.html" class="view-all">View All News <i class="fas fa-arrow-right"></i></a>
+            </div>
+            
+            <div class="news-grid">
+                <div class="news-card" onclick="window.location.href='article.html?id=7'">
+                    <div class="news-img">
+                        <img src="https://images.unsplash.com/photo-1589652043056-ba1a2c4830a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Morocco Solar Plant">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-category">ENERGY</span>
+                            <span class="news-date">Nov 5, 2023</span>
+                        </div>
+                        <h3>Morocco's Noor Solar Complex Now World's Largest, Powering 2.3M Homes</h3>
+                        <p>The expanded solar facility in Ouarzazate covers 3,000 hectares and provides 580 MW of clean energy, setting new global standards for renewable infrastructure.</p>
+                        <a href="article.html?id=7" class="read-more">Read Full Story <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="news-card" onclick="window.location.href='article.html?id=8'">
+                    <div class="news-img">
+                        <img src="https://images.unsplash.com/photo-1551836026-d5c2c5af78e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Agriculture Ghana">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-category">AGRICULTURE</span>
+                            <span class="news-date">Nov 4, 2023</span>
+                        </div>
+                        <h3>Ghana's AI-Powered Farming Initiative Increases Cocoa Yield by 40%</h3>
+                        <p>Using drone technology and machine learning, farmers can now monitor crop health and predict yields with unprecedented accuracy, revolutionizing agriculture.</p>
+                        <a href="article.html?id=8" class="read-more">Read Full Story <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="news-card" onclick="window.location.href='article.html?id=9'">
+                    <div class="news-img">
+                        <img src="https://images.unsplash.com/photo-1576675466969-38eeae4b41f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Rwanda Drone Delivery">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-category">HEALTHCARE</span>
+                            <span class="news-date">Nov 3, 2023</span>
+                        </div>
+                        <h3>Rwanda's Drone Network Delivers 1 Million Medical Packages, Saving Thousands</h3>
+                        <p>The innovative delivery system has reduced emergency medical supply transport from 4 hours to 15 minutes in remote areas, becoming a model for other nations.</p>
+                        <a href="article.html?id=9" class="read-more">Read Full Story <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="news-card" onclick="window.location.href='article.html?id=10'">
+                    <div class="news-img">
+                        <img src="https://images.unsplash.com/photo-1589656966895-2f33e7653819?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Kenya Tech Hub">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-category">TECHNOLOGY</span>
+                            <span class="news-date">Nov 2, 2023</span>
+                        </div>
+                        <h3>Kenya's Silicon Savannah Attracts $500M in Q3 Tech Investments</h3>
+                        <p>Nairobi's burgeoning tech ecosystem continues to draw global investors, with fintech and agritech startups leading the funding rounds and creating 15,000 new jobs.</p>
+                        <a href="article.html?id=10" class="read-more">Read Full Story <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="news-card" onclick="window.location.href='article.html?id=11'">
+                    <div class="news-img">
+                        <img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="African Film Festival">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-category">ENTERTAINMENT</span>
+                            <span class="news-date">Nov 1, 2023</span>
+                        </div>
+                        <h3>African Films Dominate Awards at Cannes, Toronto and Venice Festivals</h3>
+                        <p>With 12 major awards this season, African cinema is experiencing a renaissance, telling authentic stories that resonate with global audiences and critics alike.</p>
+                        <a href="article.html?id=11" class="read-more">Read Full Story <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="news-card" onclick="window.location.href='article.html?id=12'">
+                    <div class="news-img">
+                        <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Education Africa">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-category">EDUCATION</span>
+                            <span class="news-date">Oct 31, 2023</span>
+                        </div>
+                        <h3>STEM Education Enrollment Jumps 65% Across African Universities</h3>
+                        <p>Driven by digital transformation initiatives, more African students are pursuing science and technology degrees, with women comprising 45% of the increase.</p>
+                        <a href="article.html?id=12" class="read-more">Read Full Story <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Regional News Section -->
+        <section class="regional-news" data-aos="fade-up">
+            <div class="section-title">
+                <h2>Regional News Coverage</h2>
+                <a href="regional.html" class="view-all">All Regions <i class="fas fa-arrow-right"></i></a>
+            </div>
+            
+            <div class="regional-tabs">
+                <button class="tab-btn active" data-region="west">West Africa</button>
+                <button class="tab-btn" data-region="east">East Africa</button>
+                <button class="tab-btn" data-region="south">Southern Africa</button>
+                <button class="tab-btn" data-region="north">North Africa</button>
+                <button class="tab-btn" data-region="central">Central Africa</button>
+            </div>
+            
+            <div class="regional-content">
+                <div class="region-grid" id="west-region">
+                    <div class="region-news-item">
+                        <h4>Nigeria's Digital Economy Contributes 18.5% to GDP in 2023</h4>
+                        <div class="region-meta">
+                            <span>ECONOMY</span>
+                            <span>Nov 5</span>
+                        </div>
+                    </div>
+                    <div class="region-news-item">
+                        <h4>Ghana Becomes First African Nation to Launch Central Bank Digital Currency</h4>
+                        <div class="region-meta">
+                            <span>FINANCE</span>
+                            <span>Nov 4</span>
+                        </div>
+                    </div>
+                    <div class="region-news-item">
+                        <h4>Senegal's New Oil Production to Create 10,000 Jobs, Boost Economy</h4>
+                        <div class="region-meta">
+                            <span>ENERGY</span>
+                            <span>Nov 3</span>
+                        </div>
+                    </div>
+                    <div class="region-news-item">
+                        <h4>Côte d'Ivoire's Cocoa Farmers See Record Prices After Supply Chain Reform</h4>
+                        <div class="region-meta">
+                            <span>AGRICULTURE</span>
+                            <span>Nov 2</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="region-grid" id="east-region" style="display: none;">
+                    <div class="region-news-item">
+                        <h4>Kenya's M-Pesa Processes Record $35B in Transactions This Quarter</h4>
+                        <div class="region-meta">
+                            <span>FINTECH</span>
+                            <span>Nov 5</span>
+                        </div>
+                    </div>
+                    <div class="region-news-item">
+                        <h4>Ethiopia's Grand Renaissance Dam Begins Full Electricity Generation</h4>
+                        <div class="region-meta">
+                            <span>INFRASTRUCTURE</span>
+                            <span>Nov 4</span>
+                        </div>
+                    </div>
+                    <div class="region-news-item">
+                        <h4>Tanzania's Tourism Revenue Jumps 45% with New Conservation Initiatives</h4>
+                        <div class="region-meta">
+                            <span>TOURISM</span>
+                            <span>Nov 3</span>
+                        </div>
+                    </div>
+                    <div class="region-news-item">
+                        <h4>Uganda's Coffee Exports Reach Historic High of 6.5M Bags</h4>
+                        <div class="region-meta">
+                            <span>EXPORTS</span>
+                            <span>Nov 2</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Sidebar Content -->
+        <div class="content-with-sidebar">
+            <div>
+                <!-- More news can go here -->
+            </div>
+            
+            <aside>
+                <div class="sidebar-widget" data-aos="fade-left">
+                    <h3 class="widget-title">Trending Now</h3>
+                    <div class="trending-list">
+                        <div class="trending-item" onclick="window.location.href='article.html?id=13'">
+                            <div class="trending-number">1</div>
+                            <div class="trending-content">
+                                <h4>South Africa's Digital Rand Adoption Exceeds 2 Million Users</h4>
+                                <span class="news-meta">FINTECH • 8,450 views</span>
+                            </div>
+                        </div>
+                        
+                        <div class="trending-item" onclick="window.location.href='article.html?id=14'">
+                            <div class="trending-number">2</div>
+                            <div class="trending-content">
+                                <h4>African Fashion Week Paris: Designers Secure $15M in Orders</h4>
+                                <span class="news-meta">FASHION • 7,810 views</span>
+                            </div>
+                        </div>
+                        
+                        <div class="trending-item" onclick="window.location.href='article.html?id=15'">
+                            <div class="trending-number">3</div>
+                            <div class="trending-content">
+                                <h4>Kenyan Marathoner Breaks 2-Hour Barrier in Berlin Race</h4>
+                                <span class="news-meta">SPORTS • 6,550 views</span>
+                            </div>
+                        </div>
+                        
+                        <div class="trending-item" onclick="window.location.href='article.html?id=16'">
+                            <div class="trending-number">4</div>
+                            <div class="trending-content">
+                                <h4>Egypt's New Grand Museum Welcomes 1.5 Million Visitors</h4>
+                                <span class="news-meta">CULTURE • 5,980 views</span>
+                            </div>
+                        </div>
+                        
+                        <div class="trending-item" onclick="window.location.href='article.html?id=17'">
+                            <div class="trending-number">5</div>
+                            <div class="trending-content">
+                                <h4>Zimbabwe's Lithium Discovery Could Power Electric Car Revolution</h4>
+                                <span class="news-meta">MINING • 5,750 views</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="sidebar-widget" data-aos="fade-left" data-aos-delay="100">
+                    <h3 class="widget-title">Most Popular</h3>
+                    <div class="popular-list">
+                        <div class="popular-item" onclick="window.location.href='article.html?id=18'">
+                            <img src="https://images.unsplash.com/photo-1519474225-8c66363d72c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="African Fashion">
+                            <div class="popular-content">
+                                <h4>African Designers Dominate Paris Fashion Week 2023</h4>
+                                <span class="news-meta">LIFESTYLE • 22,450 views</span>
+                            </div>
+                        </div>
+                        
+                        <div class="popular-item" onclick="window.location.href='article.html?id=19'">
+                            <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Space Agency">
+                            <div class="popular-content">
+                                <h4>African Space Agency Launches 5-Satellite Constellation</h4>
+                                <span class="news-meta">SCIENCE • 19,870 views</span>
+                            </div>
+                        </div>
+                        
+                        <div class="popular-item" onclick="window.location.href='article.html?id=20'">
+                            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Wildlife Conservation">
+                            <div class="popular-content">
+                                <h4>Conservation Success: Rhino Population Doubles in Kenya</h4>
+                                <span class="news-meta">ENVIRONMENT • 18,920 views</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-main">
+            <div class="footer-column">
+                <h3>CrownRoute Africa Network</h3>
+                <p style="color: #ddd; margin-bottom: 20px; line-height: 1.6;">Africa's foremost media network delivering comprehensive, trusted journalism across the continent. We are dedicated to accurate, timely and transformative reporting.</p>
+                <div class="social-icons" style="margin-top: 20px;">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                    <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                    <li><a href="careers.html"><i class="fas fa-chevron-right"></i> Careers</a></li>
+                    <li><a href="advertise.html"><i class="fas fa-chevron-right"></i> Advertise</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>News Categories</h3>
+                <ul>
+                    <li><a href="category.html?cat=politics"><i class="fas fa-chevron-right"></i> Politics</a></li>
+                    <li><a href="category.html?cat=business"><i class="fas fa-chevron-right"></i> Business</a></li>
+                    <li><a href="category.html?cat=technology"><i class="fas fa-chevron-right"></i> Technology</a></li>
+                    <li><a href="category.html?cat=health"><i class="fas fa-chevron-right"></i> Health</a></li>
+                    <li><a href="category.html?cat=sports"><i class="fas fa-chevron-right"></i> Sports</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Newsletter</h3>
+                <p style="color: #ddd; margin-bottom: 20px;">Subscribe to our daily newsletter for the latest news delivered to your inbox.</p>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Your email address">
+                    <button>Subscribe</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2023 CrownRoute Africa Network. All rights reserved. | <a href="privacy.html" style="color: #ddd;">Privacy Policy</a> | <a href="terms.html" style="color: #ddd;">Terms of Service</a></p>
+            <p style="margin-top: 10px; font-size: 0.9rem; color: #aaa;">Headquarters: Nairobi, Kenya | Bureaus: Lagos, Accra, Johannesburg, Cairo, Addis Ababa</p>
+        </div>
+    </footer>
+    
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- External JS Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+        // Initialize Swiper
+        const swiper = new Swiper('.featured-swiper', {
+            loop: true,
+            speed: 800,
+            autoplay: {
+                delay: 6000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            effect: 'fade',
+            fadeEffect: {
+                crossFade: true
+            },
+        });
+        
+        // Initialize AOS (Animate On Scroll)
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100,
+        });
+        
+        // Update date and time
+        function updateDateTime() {
+            const now = new Date();
+            const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const timeOptions = { hour: '2-digit', minute: '2-digit', second: '2-digit' };
+            
+            document.getElementById('current-date').textContent = now.toLocaleDateString('en-US', dateOptions);
+            document.getElementById('current-time').textContent = now.toLocaleTimeString('en-US', timeOptions);
+        }
+        
+        setInterval(updateDateTime, 1000);
+        updateDateTime();
+        
+        // Regional tabs functionality
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const regionContents = {
+            'west': document.getElementById('west-region'),
+            'east': document.getElementById('east-region'),
+            'south': document.getElementById('south-region'),
+            'north': document.getElementById('north-region'),
+            'central': document.getElementById('central-region')
+        };
+        
+        // Initialize other regions (in a real site, these would be populated)
+        for (const region in regionContents) {
+            if (region !== 'west' && regionContents[region]) {
+                regionContents[region].style.display = 'none';
+            }
+        }
+        
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Remove active class from all buttons
+                tabBtns.forEach(b => b.classList.remove('active'));
+                
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                // Hide all region content
+                for (const region in regionContents) {
+                    if (regionContents[region]) {
+                        regionContents[region].style.display = 'none';
+                    }
+                }
+                
+                // Show selected region content
+                const region = this.getAttribute('data-region');
+                if (regionContents[region]) {
+                    regionContents[region].style.display = 'grid';
+                }
+            });
+        });
+        
+        // Back to top button
+        const backToTopBtn = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        });
+        
+        backToTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Search functionality
+        const searchInput = document.querySelector('.search-container input');
+        const searchBtn = document.querySelector('.search-container button');
+        
+        searchBtn.addEventListener('click', function() {
+            const query = searchInput.value.trim();
+            if (query) {
+                // In a real implementation, this would redirect to search results
+                alert(`Searching for: "${query}"\n\nIn a real implementation, this would redirect to search results page.`);
+                // window.location.href = `search.html?q=${encodeURIComponent(query)}`;
+            }
+        });
+        
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchBtn.click();
+            }
+        });
+        
+        // Add hover effect to headlines
+        const headlineItems = document.querySelectorAll('.headline-item');
+        headlineItems.forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.backgroundColor = 'rgba(255, 255, 255, 0.15)';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.backgroundColor = 'transparent';
+            });
+        });
+        
+        // Simulate dynamic content loading
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add loading animation to news cards
+            const newsCards = document.querySelectorAll('.news-card');
+            newsCards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
+                card.classList.add('animate__animated', 'animate__fadeInUp');
+            });
+            
+            // Add animation to category cards
+            const categoryCards = document.querySelectorAll('.category-card');
+            categoryCards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.05}s`;
+                card.classList.add('animate__animated', 'animate__fadeIn');
+            });
+        });
+    </script>
+</body>
+</html>

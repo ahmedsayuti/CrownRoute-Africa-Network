@@ -1,0 +1,1338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - CrownRoute Africa Network</title>
+        <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+
+    <!-- Apple Touch Icons -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="apple-touch-icon-180x180.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="apple-touch-icon-152x152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="apple-touch-icon-144x144.png"
+    />
+
+    <!-- Android Chrome -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="android-chrome-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="512x512"
+      href="android-chrome-512x512.png"
+    />
+
+    <!-- Microsoft Tiles -->
+    <meta name="msapplication-TileColor" content="#7ed321" />
+    <meta name="msapplication-TileImage" content="mstile-144x144.png" />
+
+    <!-- Theme colors -->
+    <meta name="theme-color" content="#7ed321" />
+
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="site.webmanifest" />
+
+    <!-- External Libraries -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary-color: #197872;
+            --secondary-color: #D4AF37;
+            --accent-color: #C41E3A;
+            --light-color: #F8F9FA;
+            --dark-color: #121212;
+            --gray-color: #6C757D;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: var(--dark-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Header and Navigation - Same as homepage */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .top-bar {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 0;
+            font-size: 0.9rem;
+        }
+        
+        .top-bar-content {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .date-time {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .social-icons a {
+            color: white;
+            margin-left: 15px;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .main-header {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+        
+        .logo-img {
+            height: 120px;
+            width: auto;
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo-text h1 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            line-height: 1.2;
+        }
+        
+        .logo-text span {
+            font-size: 0.9rem;
+            color: var(--gray-color);
+            font-weight: 500;
+        }
+        
+        .search-container {
+            display: flex;
+            width: 350px;
+        }
+        
+        .search-container input {
+            flex: 1;
+            padding: 12px 15px;
+            border: 2px solid var(--primary-color);
+            border-right: none;
+            border-radius: 4px 0 0 4px;
+            font-size: 1rem;
+            outline: none;
+        }
+        
+        .search-container button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0 20px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: background-color 0.3s;
+        }
+        
+        .search-container button:hover {
+            background-color: #0a1e4e;
+        }
+        
+        /* Navigation Menu */
+        nav {
+            background-color: white;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .nav-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .main-menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .main-menu li {
+            position: relative;
+        }
+        
+        .main-menu a {
+            display: block;
+            padding: 18px 20px;
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 600;
+            transition: all 0.3s;
+            border-bottom: 3px solid transparent;
+        }
+        
+        .main-menu a:hover, .main-menu a.active {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--secondary-color);
+            background-color: rgba(212, 175, 55, 0.05);
+        }
+        
+        /* About Hero Section */
+        .about-hero {
+            background: linear-gradient(rgba(25, 120, 114, 0.9), rgba(25, 120, 114, 0.8)), 
+                        url('https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+        
+        .hero-content p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        
+        /* Main Content Container */
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 20px 60px;
+        }
+        
+        /* About Section Styles */
+        .about-section {
+            margin-bottom: 80px;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-header h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary-color);
+        }
+        
+        .section-header p {
+            font-size: 1.2rem;
+            color: var(--gray-color);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Our Story Section */
+        .story-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+        
+        .story-text h3 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+        }
+        
+        .story-text p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+        
+        .story-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Mission & Vision */
+        .mission-vision {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+        
+        .mission-card, .vision-card {
+            background-color: white;
+            padding: 50px 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .mission-card:hover, .vision-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .mission-card {
+            border-top: 5px solid var(--secondary-color);
+        }
+        
+        .vision-card {
+            border-top: 5px solid var(--accent-color);
+        }
+        
+        .mission-vision .icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+        }
+        
+        .mission-vision h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .mission-vision p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+        
+        /* Our Values */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+        
+        .value-card {
+            background-color: white;
+            padding: 40px 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+        }
+        
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            background-color: rgba(25, 120, 114, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+        }
+        
+        .value-icon i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+        }
+        
+        .value-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .value-card p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--gray-color);
+        }
+        
+        /* Leadership Team */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+        
+        .team-member {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        
+        .member-img {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .member-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .team-member:hover .member-img img {
+            transform: scale(1.05);
+        }
+        
+        .member-info {
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .member-info h3 {
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+            color: var(--primary-color);
+        }
+        
+        .member-info p {
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+        
+        .member-info .bio {
+            font-size: 0.95rem;
+            color: var(--gray-color);
+            line-height: 1.6;
+        }
+        
+        /* Statistics Section */
+        .stats-section {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 80px 0;
+            margin-bottom: 80px;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            text-align: center;
+        }
+        
+        .stat-item h3 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            font-weight: 800;
+            color: var(--secondary-color);
+        }
+        
+        .stat-item p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        /* Our Reach */
+        .reach-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+        
+        .reach-map {
+            position: relative;
+        }
+        
+        .reach-map img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .map-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(25, 120, 114, 0.1);
+            border-radius: 10px;
+        }
+        
+        .reach-list h3 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+        }
+        
+        .reach-list ul {
+            list-style: none;
+        }
+        
+        .reach-list ul li {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+        
+        .reach-list ul li i {
+            color: var(--secondary-color);
+            font-size: 1.3rem;
+            margin-top: 3px;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(rgba(25, 120, 114, 0.9), rgba(25, 120, 114, 0.9)), 
+                        url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            border-radius: 10px;
+        }
+        
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .cta-content h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta-content p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 18px 35px;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .btn-primary {
+            background-color: var(--secondary-color);
+            color: var(--dark-color);
+        }
+        
+        .btn-primary:hover {
+            background-color: #e6c12e;
+            transform: translateY(-3px);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .btn-secondary:hover {
+            background-color: white;
+            color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            margin-top: 80px;
+        }
+        
+        .footer-main {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 50px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            color: var(--secondary-color);
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-column ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-column ul li a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .newsletter-form {
+            margin-top: 20px;
+        }
+        
+        .newsletter-form input {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+        
+        .newsletter-form button {
+            width: 100%;
+            padding: 14px;
+            background-color: var(--secondary-color);
+            color: var(--dark-color);
+            border: none;
+            border-radius: 4px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 1rem;
+        }
+        
+        .newsletter-form button:hover {
+            background-color: #e6c12e;
+        }
+        
+        .footer-bottom {
+            background-color: #0a1e4e;
+            padding: 25px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.95rem;
+        }
+        
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--secondary-color);
+            color: var(--dark-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 999;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background-color: #e6c12e;
+            transform: translateY(-5px);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .values-grid, .team-grid, .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-main {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 40px;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .main-header {
+                flex-direction: column;
+                gap: 25px;
+            }
+            
+            .search-container {
+                width: 100%;
+            }
+            
+            .story-content, .mission-vision, .reach-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .values-grid, .team-grid, .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .main-menu {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .main-menu a {
+                padding: 15px 12px;
+                font-size: 0.95rem;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.3rem;
+            }
+            
+            .section-header h2 {
+                font-size: 2rem;
+            }
+            
+            .footer-main {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .top-bar-content {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            
+            .social-icons {
+                margin-top: 5px;
+            }
+            
+            .logo {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+            
+            .logo-img {
+                height: 80px;
+            }
+            
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .mission-card, .vision-card {
+                padding: 40px 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar with Date and Social -->
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <div class="date-time">
+                <span id="current-date"></span>
+                <span id="current-time"></span>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Main Header with Logo and Search -->
+    <header>
+        <div class="main-header">
+            <div class="logo-container">
+                <a href="index.html" class="logo">
+                    <img src="assets/img/logo/crownroute-logo.png" alt="CrownRoute Africa Network Logo" class="logo-img">
+                </a>
+            </div>
+            
+            <div class="search-container">
+                <input type="text" placeholder="Search for news, topics, or journalists...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Navigation Menu -->
+    <nav>
+        <div class="nav-container">
+            <ul class="main-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="category.html?cat=politics">Politics</a></li>
+                <li><a href="category.html?cat=business">Business</a></li>
+                <li><a href="category.html?cat=technology">Technology</a></li>
+                <li><a href="category.html?cat=health">Health</a></li>
+                <li><a href="category.html?cat=education">Education</a></li>
+                <li><a href="category.html?cat=entertainment">Entertainment</a></li>
+                <li><a href="category.html?cat=sports">Sports</a></li>
+                <li><a href="category.html?cat=lifestyle">Lifestyle</a></li>
+                <li><a href="category.html?cat=opinion">Opinion</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- About Hero Section -->
+    <section class="about-hero" data-aos="fade-up">
+        <div class="hero-content">
+            <h1 class="animate__animated animate__fadeInDown">Our Story: Shaping Africa's Narrative</h1>
+            <p class="animate__animated animate__fadeInUp">For over a decade, CrownRoute Africa Network has been at the forefront of African journalism, delivering trusted, comprehensive, and transformative news coverage across the continent.</p>
+            <div class="cta-buttons animate__animated animate__fadeInUp" style="justify-content: center; margin-top: 30px;">
+                <a href="#our-story" class="btn btn-primary"><i class="fas fa-book-open"></i> Read Our Story</a>
+                <a href="#our-team" class="btn btn-secondary"><i class="fas fa-users"></i> Meet Our Team</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Main Content Container -->
+    <div class="container">
+        <!-- Our Story Section -->
+        <section class="about-section" id="our-story" data-aos="fade-up">
+            <div class="section-header">
+                <h2>Our Story</h2>
+                <p>From humble beginnings to becoming Africa's most trusted media network</p>
+            </div>
+            
+            <div class="story-content">
+                <div class="story-text">
+                    <h3>Founded in 2010, Born from a Vision</h3>
+                    <p>CrownRoute Africa Network began as a small digital publication with a bold vision: to create a pan-African media house that would tell Africa's stories from an African perspective. Our founders, veteran journalists from across the continent, saw the need for a media platform that would go beyond stereotypes and showcase Africa's complexity, diversity, and dynamism.</p>
+                    <p>What started as a team of five journalists working from a shared office in Nairobi has grown into a network of over 300 dedicated professionals across 25 African countries. Today, we reach millions of readers daily through our digital platforms, television partnerships, and radio broadcasts.</p>
+                    <p>Our growth has been fueled by a commitment to journalistic integrity, innovative storytelling, and deep investment in African talent. We've pioneered new forms of digital journalism on the continent while maintaining the highest standards of factual reporting.</p>
+                </div>
+                <div class="story-image">
+                    <img src="https://images.unsplash.com/photo-1522881193457-37ae97c905bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="CrownRoute Africa Network Newsroom">
+                </div>
+            </div>
+        </section>
+        
+        <!-- Mission & Vision -->
+        <section class="about-section" data-aos="fade-up">
+            <div class="mission-vision">
+                <div class="mission-card">
+                    <div class="icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>Our Mission</h3>
+                    <p>To deliver accurate, impactful, and comprehensive journalism that informs, empowers, and connects Africans across the continent and diaspora. We strive to be the most trusted source of African news and analysis, fostering informed citizenship and democratic engagement.</p>
+                </div>
+                
+                <div class="vision-card">
+                    <div class="icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Our Vision</h3>
+                    <p>To become Africa's definitive media network, shaping the continent's narrative for global audiences while serving as the primary source of news and information for Africans everywhere. We envision a media ecosystem where African stories are told with depth, nuance, and respect.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Our Values -->
+        <section class="about-section" data-aos="fade-up">
+            <div class="section-header">
+                <h2>Our Core Values</h2>
+                <p>The principles that guide our journalism and operations</p>
+            </div>
+            
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Integrity</h3>
+                    <p>We maintain the highest ethical standards in our reporting, ensuring accuracy, fairness, and transparency in all our journalism. Truth is non-negotiable.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-globe-africa"></i>
+                    </div>
+                    <h3>Pan-Africanism</h3>
+                    <p>We believe in Africa's unity and diversity. Our coverage transcends borders, highlighting both shared challenges and unique successes across the continent.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-microphone"></i>
+                    </div>
+                    <h3>Amplifying Voices</h3>
+                    <p>We prioritize marginalized voices and ensure that women, youth, rural communities, and minority groups are heard in our coverage of African affairs.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Innovation</h3>
+                    <p>We embrace new technologies and storytelling methods to make African journalism more accessible, engaging, and impactful for digital audiences.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3>Collaboration</h3>
+                    <p>We partner with local journalists, media organizations, and civic groups across Africa to deepen our coverage and support media development.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3>Accountability</h3>
+                    <p>We hold power to account while being accountable to our audience. We correct errors promptly and explain our editorial decisions transparently.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Leadership Team -->
+        <section class="about-section" id="our-team" data-aos="fade-up">
+            <div class="section-header">
+                <h2>Leadership Team</h2>
+                <p>The experienced professionals guiding our vision and operations</p>
+            </div>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-img">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="CEO Photo">
+                    </div>
+                    <div class="member-info">
+                        <h3>Amina Jalloh</h3>
+                        <p>Chief Executive Officer</p>
+                        <p class="bio">Former BBC Africa editor with 25 years of journalism experience across West and East Africa. Founded CrownRoute in 2010.</p>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-img">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Editor-in-Chief Photo">
+                    </div>
+                    <div class="member-info">
+                        <h3>David Okafor</h3>
+                        <p>Editor-in-Chief</p>
+                        <p class="bio">Award-winning investigative journalist with expertise in political and economic reporting. Previously worked at The Continent and Reuters.</p>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-img">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Technology Editor Photo">
+                    </div>
+                    <div class="member-info">
+                        <h3>Sarah Mensah</h3>
+                        <p>Technology & Innovation Editor</p>
+                        <p class="bio">Former tech entrepreneur who brings deep understanding of Africa's digital transformation to our technology coverage.</p>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-img">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Operations Director Photo">
+                    </div>
+                    <div class="member-info">
+                        <h3>Kwame Nkrumah</h3>
+                        <p>Director of Operations</p>
+                        <p class="bio">Media operations specialist with experience managing large-scale newsrooms at CNN and Al Jazeera before joining CrownRoute.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Statistics Section -->
+        <section class="stats-section" data-aos="fade-up">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <h3>15M+</h3>
+                        <p>Monthly Readers</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>25</h3>
+                        <p>African Countries Covered</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>300+</h3>
+                        <p>Journalists & Staff</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>45</h3>
+                        <p>International Awards</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Our Reach -->
+        <section class="about-section" data-aos="fade-up">
+            <div class="section-header">
+                <h2>Our Continental Reach</h2>
+                <p>With bureaus across Africa, we deliver hyperlocal reporting with pan-African perspective</p>
+            </div>
+            
+            <div class="reach-content">
+                <div class="reach-map">
+                    <img src="https://images.unsplash.com/photo-1548013146-72479768bada?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Map of Africa">
+                    <div class="map-overlay"></div>
+                </div>
+                <div class="reach-list">
+                    <h3>Our Continental Presence</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> <strong>Headquarters:</strong> Nairobi, Kenya - Our central hub for East African coverage</li>
+                        <li><i class="fas fa-map-marker-alt"></i> <strong>West Africa Bureau:</strong> Lagos, Nigeria - Covering Africa's largest economy and most populous nation</li>
+                        <li><i class="fas fa-map-marker-alt"></i> <strong>Southern Africa Bureau:</strong> Johannesburg, South Africa - Focusing on business, mining, and regional politics</li>
+                        <li><i class="fas fa-map-marker-alt"></i> <strong>North Africa Bureau:</strong> Cairo, Egypt - Covering Arab Africa and Mediterranean affairs</li>
+                        <li><i class="fas fa-map-marker-alt"></i> <strong>Francophone Africa Bureau:</strong> Dakar, Senegal - Serving French-speaking African nations</li>
+                        <li><i class="fas fa-map-marker-alt"></i> <strong>Field Correspondents:</strong> Over 50 journalists based in capital cities and rural areas across 25 countries</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- CTA Section -->
+        <section class="cta-section" data-aos="fade-up">
+            <div class="cta-content">
+                <h2>Join Us in Shaping Africa's Story</h2>
+                <p>Whether you're a reader, advertiser, journalist, or partner, there are many ways to engage with CrownRoute Africa Network as we continue our mission of transformative African journalism.</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn btn-primary"><i class="fas fa-envelope"></i> Contact Our Team</a>
+                    <a href="careers.html" class="btn btn-secondary"><i class="fas fa-briefcase"></i> Explore Careers</a>
+                    <a href="advertise.html" class="btn btn-secondary"><i class="fas fa-chart-line"></i> Advertising Solutions</a>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-main">
+            <div class="footer-column">
+                <h3>CrownRoute Africa Network</h3>
+                <p style="color: #ddd; margin-bottom: 20px; line-height: 1.6;">Africa's foremost media network delivering comprehensive, trusted journalism across the continent. We are dedicated to accurate, timely and transformative reporting.</p>
+                <div class="social-icons" style="margin-top: 20px;">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                    <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                    <li><a href="careers.html"><i class="fas fa-chevron-right"></i> Careers</a></li>
+                    <li><a href="advertise.html"><i class="fas fa-chevron-right"></i> Advertise</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>News Categories</h3>
+                <ul>
+                    <li><a href="category.html?cat=politics"><i class="fas fa-chevron-right"></i> Politics</a></li>
+                    <li><a href="category.html?cat=business"><i class="fas fa-chevron-right"></i> Business</a></li>
+                    <li><a href="category.html?cat=technology"><i class="fas fa-chevron-right"></i> Technology</a></li>
+                    <li><a href="category.html?cat=health"><i class="fas fa-chevron-right"></i> Health</a></li>
+                    <li><a href="category.html?cat=sports"><i class="fas fa-chevron-right"></i> Sports</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Newsletter</h3>
+                <p style="color: #ddd; margin-bottom: 20px;">Subscribe to our daily newsletter for the latest news delivered to your inbox.</p>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Your email address">
+                    <button>Subscribe</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2023 CrownRoute Africa Network. All rights reserved. | <a href="privacy.html" style="color: #ddd;">Privacy Policy</a> | <a href="terms.html" style="color: #ddd;">Terms of Service</a></p>
+            <p style="margin-top: 10px; font-size: 0.9rem; color: #aaa;">Headquarters: Nairobi, Kenya | Bureaus: Lagos, Accra, Johannesburg, Cairo, Addis Ababa</p>
+        </div>
+    </footer>
+    
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- External JS Libraries -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+        // Initialize AOS (Animate On Scroll)
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100,
+        });
+        
+        // Update date and time
+        function updateDateTime() {
+            const now = new Date();
+            const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const timeOptions = { hour: '2-digit', minute: '2-digit', second: '2-digit' };
+            
+            document.getElementById('current-date').textContent = now.toLocaleDateString('en-US', dateOptions);
+            document.getElementById('current-time').textContent = now.toLocaleTimeString('en-US', timeOptions);
+        }
+        
+        setInterval(updateDateTime, 1000);
+        updateDateTime();
+        
+        // Back to top button
+        const backToTopBtn = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        });
+        
+        backToTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Search functionality
+        const searchInput = document.querySelector('.search-container input');
+        const searchBtn = document.querySelector('.search-container button');
+        
+        searchBtn.addEventListener('click', function() {
+            const query = searchInput.value.trim();
+            if (query) {
+                // In a real implementation, this would redirect to search results
+                alert(`Searching for: "${query}"\n\nIn a real implementation, this would redirect to search results page.`);
+                // window.location.href = `search.html?q=${encodeURIComponent(query)}`;
+            }
+        });
+        
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchBtn.click();
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                
+                // Skip if it's just "#"
+                if (href === "#") return;
+                
+                // Check if it's an internal anchor link
+                if (href.startsWith('#') && href.length > 1) {
+                    e.preventDefault();
+                    const targetId = href.substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+        
+        // Add hover effect to team cards
+        const teamMembers = document.querySelectorAll('.team-member');
+        teamMembers.forEach(member => {
+            member.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px)';
+                this.style.boxShadow = '0 15px 35px rgba(0, 0, 0, 0.1)';
+            });
+            
+            member.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.06)';
+            });
+        });
+        
+        // Add animation to value cards on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add loading animation to value cards
+            const valueCards = document.querySelectorAll('.value-card');
+            valueCards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
+                card.classList.add('animate__animated', 'animate__fadeInUp');
+            });
+            
+            // Add animation to team members
+            const teamMembers = document.querySelectorAll('.team-member');
+            teamMembers.forEach((member, index) => {
+                member.style.animationDelay = `${index * 0.1}s`;
+                member.classList.add('animate__animated', 'animate__fadeIn');
+            });
+            
+            // Add animation to stats
+            const statItems = document.querySelectorAll('.stat-item');
+            statItems.forEach((item, index) => {
+                item.style.animationDelay = `${index * 0.2}s`;
+                item.classList.add('animate__animated', 'animate__fadeIn');
+            });
+        });
+    </script>
+</body>
+</html>
