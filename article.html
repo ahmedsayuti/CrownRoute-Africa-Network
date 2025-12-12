@@ -1,0 +1,2265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article - CrownRoute Africa Network</title>
+        <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+
+    <!-- Apple Touch Icons -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="apple-touch-icon-180x180.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="apple-touch-icon-152x152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="apple-touch-icon-144x144.png"
+    />
+
+    <!-- Android Chrome -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="android-chrome-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="512x512"
+      href="android-chrome-512x512.png"
+    />
+
+    <!-- Microsoft Tiles -->
+    <meta name="msapplication-TileColor" content="#7ed321" />
+    <meta name="msapplication-TileImage" content="mstile-144x144.png" />
+
+    <!-- Theme colors -->
+    <meta name="theme-color" content="#7ed321" />
+
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="site.webmanifest" />
+    
+    <!-- External Libraries -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary-color: #197872;
+            --secondary-color: #D4AF37;
+            --accent-color: #C41E3A;
+            --light-color: #F8F9FA;
+            --dark-color: #121212;
+            --gray-color: #6C757D;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: var(--dark-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Header and Navigation - Same as homepage */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .top-bar {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 0;
+            font-size: 0.9rem;
+        }
+        
+        .top-bar-content {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .date-time {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .social-icons a {
+            color: white;
+            margin-left: 15px;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .main-header {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+        
+        .logo-img {
+            height: 120px;
+            width: auto;
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo-text h1 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            line-height: 1.2;
+        }
+        
+        .logo-text span {
+            font-size: 0.9rem;
+            color: var(--gray-color);
+            font-weight: 500;
+        }
+        
+        .search-container {
+            display: flex;
+            width: 350px;
+        }
+        
+        .search-container input {
+            flex: 1;
+            padding: 12px 15px;
+            border: 2px solid var(--primary-color);
+            border-right: none;
+            border-radius: 4px 0 0 4px;
+            font-size: 1rem;
+            outline: none;
+        }
+        
+        .search-container button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0 20px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: background-color 0.3s;
+        }
+        
+        .search-container button:hover {
+            background-color: #0a1e4e;
+        }
+        
+        /* Navigation Menu */
+        nav {
+            background-color: white;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .nav-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .main-menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .main-menu li {
+            position: relative;
+        }
+        
+        .main-menu a {
+            display: block;
+            padding: 18px 20px;
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 600;
+            transition: all 0.3s;
+            border-bottom: 3px solid transparent;
+        }
+        
+        .main-menu a:hover, .main-menu a.active {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--secondary-color);
+            background-color: rgba(212, 175, 55, 0.05);
+        }
+        
+        /* Article Breadcrumb */
+        .article-breadcrumb {
+            background-color: white;
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .breadcrumb-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .breadcrumb a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .breadcrumb span {
+            color: var(--gray-color);
+        }
+        
+        .breadcrumb .separator {
+            color: var(--gray-color);
+            margin: 0 10px;
+        }
+        
+        /* Main Article Container */
+        .article-container {
+            max-width: 1300px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 40px;
+        }
+        
+        /* Article Content */
+        .article-content {
+            background-color: white;
+            border-radius: 10px;
+            padding: 50px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .article-header {
+            margin-bottom: 40px;
+        }
+        
+        .article-category {
+            background-color: var(--accent-color);
+            color: white;
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+        
+        .article-title {
+            font-size: 2.8rem;
+            line-height: 1.3;
+            margin-bottom: 25px;
+            color: var(--primary-color);
+            font-weight: 800;
+        }
+        
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .author-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-details h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+        
+        .author-details p {
+            color: var(--gray-color);
+            font-size: 0.9rem;
+        }
+        
+        .article-stats {
+            display: flex;
+            gap: 25px;
+            color: var(--gray-color);
+        }
+        
+        .article-stats span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .article-hero-img {
+            width: 100%;
+            height: 500px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 40px;
+        }
+        
+        .article-hero-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .article-body {
+            font-size: 1.15rem;
+            line-height: 1.8;
+        }
+        
+        .article-body p {
+            margin-bottom: 25px;
+        }
+        
+        .article-body h2 {
+            font-size: 1.8rem;
+            margin: 40px 0 20px;
+            color: var(--primary-color);
+        }
+        
+        .article-body h3 {
+            font-size: 1.5rem;
+            margin: 30px 0 15px;
+            color: var(--primary-color);
+        }
+        
+        .article-body blockquote {
+            border-left: 4px solid var(--secondary-color);
+            padding-left: 30px;
+            margin: 40px 0;
+            font-style: italic;
+            font-size: 1.3rem;
+            color: var(--primary-color);
+        }
+        
+        .article-body ul, .article-body ol {
+            margin-left: 30px;
+            margin-bottom: 25px;
+        }
+        
+        .article-body li {
+            margin-bottom: 10px;
+        }
+        
+        .article-image {
+            margin: 40px 0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .article-image img {
+            width: 100%;
+            height: auto;
+        }
+        
+        .image-caption {
+            text-align: center;
+            font-style: italic;
+            color: var(--gray-color);
+            margin-top: 10px;
+            font-size: 0.95rem;
+        }
+        
+        .article-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 40px 0;
+            padding-top: 30px;
+            border-top: 1px solid #eee;
+        }
+        
+        .tag {
+            background-color: rgba(25, 120, 114, 0.1);
+            color: var(--primary-color);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .tag:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .article-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid #eee;
+        }
+        
+        .social-share {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .share-text {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        .share-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #f0f0f0;
+            color: var(--primary-color);
+            text-decoration: none;
+            margin-right: 10px;
+            transition: all 0.3s;
+        }
+        
+        .share-icons a:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .article-navigation {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .nav-btn {
+            padding: 12px 25px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+        
+        .nav-btn:hover {
+            background-color: #0a1e4e;
+            transform: translateY(-3px);
+        }
+        
+        /* Article Sidebar */
+        .article-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .sidebar-widget {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .widget-title {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--secondary-color);
+            position: relative;
+        }
+        
+        .widget-title:after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--accent-color);
+        }
+        
+        /* Author Bio */
+        .author-bio {
+            text-align: center;
+        }
+        
+        .author-bio-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 20px;
+        }
+        
+        .author-bio-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-bio h4 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        .author-bio p {
+            color: var(--gray-color);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .author-social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .author-social a {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+        
+        .author-social a:hover {
+            color: var(--accent-color);
+        }
+        
+        /* Related Articles */
+        .related-articles {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .related-item {
+            display: flex;
+            gap: 15px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            text-decoration: none;
+            color: var(--dark-color);
+            transition: all 0.3s;
+        }
+        
+        .related-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        
+        .related-item:hover {
+            color: var(--primary-color);
+        }
+        
+        .related-img {
+            width: 80px;
+            height: 80px;
+            overflow: hidden;
+            border-radius: 5px;
+            flex-shrink: 0;
+        }
+        
+        .related-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        
+        .related-item:hover .related-img img {
+            transform: scale(1.05);
+        }
+        
+        .related-content h4 {
+            font-size: 1rem;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+        
+        .related-meta {
+            font-size: 0.85rem;
+            color: var(--gray-color);
+        }
+        
+        /* Newsletter Widget */
+        .newsletter-widget {
+            background: linear-gradient(rgba(25, 120, 114, 0.9), rgba(25, 120, 114, 0.9));
+            color: white;
+        }
+        
+        .newsletter-widget .widget-title {
+            color: var(--secondary-color);
+            border-bottom-color: var(--secondary-color);
+        }
+        
+        .newsletter-form {
+            margin-top: 20px;
+        }
+        
+        .newsletter-form input {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+        
+        .newsletter-form button {
+            width: 100%;
+            padding: 14px;
+            background-color: var(--secondary-color);
+            color: var(--dark-color);
+            border: none;
+            border-radius: 4px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 1rem;
+        }
+        
+        .newsletter-form button:hover {
+            background-color: #e6c12e;
+        }
+        
+        /* Comments Section */
+        .comments-section {
+            max-width: 1300px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+        
+        .comments-container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 50px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .comments-title {
+            font-size: 1.8rem;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+        
+        .comment-form {
+            margin-bottom: 50px;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+        
+        .submit-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background-color: #0a1e4e;
+        }
+        
+        /* Individual Comments */
+        .comment {
+            padding: 30px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .comment:last-child {
+            border-bottom: none;
+        }
+        
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .comment-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .comment-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        
+        .comment-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .comment-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+        
+        .comment-date {
+            color: var(--gray-color);
+            font-size: 0.9rem;
+        }
+        
+        .comment-reply {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .comment-reply:hover {
+            text-decoration: underline;
+        }
+        
+        .comment-body {
+            line-height: 1.6;
+        }
+        
+        /* Related Articles Section */
+        .related-articles-section {
+            max-width: 1300px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+        
+        .section-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+        
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            position: relative;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: -17px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent-color);
+        }
+        
+        .view-all {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.3s;
+        }
+        
+        .view-all:hover {
+            gap: 10px;
+        }
+        
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .related-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            height: 100%;
+        }
+        
+        .related-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .related-card-img {
+            height: 200px;
+            width: 100%;
+            overflow: hidden;
+        }
+        
+        .related-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .related-card:hover .related-card-img img {
+            transform: scale(1.05);
+        }
+        
+        .related-card-content {
+            padding: 25px;
+        }
+        
+        .related-card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .related-card-category {
+            background-color: var(--accent-color);
+            color: white;
+            font-size: 0.8rem;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+        
+        .related-card-date {
+            color: var(--gray-color);
+            font-size: 0.85rem;
+        }
+        
+        .related-card-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            line-height: 1.4;
+            color: var(--dark-color);
+        }
+        
+        .read-more {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+        }
+        
+        .read-more:hover {
+            color: var(--accent-color);
+            gap: 12px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            margin-top: 80px;
+        }
+        
+        .footer-main {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 50px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            color: var(--secondary-color);
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-column ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-column ul li a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .footer-bottom {
+            background-color: #0a1e4e;
+            padding: 25px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.95rem;
+        }
+        
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--secondary-color);
+            color: var(--dark-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 999;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background-color: #e6c12e;
+            transform: translateY(-5px);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .article-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .related-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-main {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 40px;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .main-header {
+                flex-direction: column;
+                gap: 25px;
+            }
+            
+            .search-container {
+                width: 100%;
+            }
+            
+            .article-title {
+                font-size: 2.3rem;
+            }
+            
+            .article-hero-img {
+                height: 400px;
+            }
+            
+            .article-actions {
+                flex-direction: column;
+                gap: 20px;
+                align-items: flex-start;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .main-menu {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .main-menu a {
+                padding: 15px 12px;
+                font-size: 0.95rem;
+            }
+            
+            .article-content {
+                padding: 30px;
+            }
+            
+            .article-title {
+                font-size: 2rem;
+            }
+            
+            .article-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+            
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-main {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .top-bar-content {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            
+            .social-icons {
+                margin-top: 5px;
+            }
+            
+            .logo {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+            
+            .logo-img {
+                height: 80px;
+            }
+            
+            .article-title {
+                font-size: 1.8rem;
+            }
+            
+            .article-hero-img {
+                height: 300px;
+            }
+            
+            .comments-container {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar with Date and Social -->
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <div class="date-time">
+                <span id="current-date"></span>
+                <span id="current-time"></span>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Main Header with Logo and Search -->
+    <header>
+        <div class="main-header">
+            <div class="logo-container">
+                <a href="index.html" class="logo">
+                    <img src="assets/img/logo/crownroute-logo.png" alt="CrownRoute Africa Network Logo" class="logo-img">
+                </a>
+            </div>
+            
+            <div class="search-container">
+                <input type="text" placeholder="Search for news, topics, or journalists...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Navigation Menu -->
+    <nav>
+        <div class="nav-container">
+            <ul class="main-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="category.html?cat=politics">Politics</a></li>
+                <li><a href="category.html?cat=business">Business</a></li>
+                <li><a href="category.html?cat=technology">Technology</a></li>
+                <li><a href="category.html?cat=health">Health</a></li>
+                <li><a href="category.html?cat=education">Education</a></li>
+                <li><a href="category.html?cat=entertainment">Entertainment</a></li>
+                <li><a href="category.html?cat=sports">Sports</a></li>
+                <li><a href="category.html?cat=lifestyle">Lifestyle</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Article Breadcrumb -->
+    <div class="article-breadcrumb">
+        <div class="breadcrumb-container">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span class="separator">/</span>
+                <a href="#" id="category-link">Category</a>
+                <span class="separator">/</span>
+                <span id="article-breadcrumb-title">Article Title</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Main Article Container -->
+    <div class="article-container">
+        <!-- Article Content -->
+        <main class="article-content" id="article-content">
+            <!-- Article content will be dynamically loaded here -->
+        </main>
+        
+        <!-- Article Sidebar -->
+        <aside class="article-sidebar">
+            <div class="sidebar-widget author-bio">
+                <h3 class="widget-title">About the Author</h3>
+                <div class="author-bio-img">
+                    <img id="author-avatar" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Author">
+                </div>
+                <h4 id="author-name">Amina Jalloh</h4>
+                <p id="author-bio">Chief Executive Officer and Senior Political Analyst with 25 years of journalism experience across West and East Africa.</p>
+                <div class="author-social">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            
+            <div class="sidebar-widget">
+                <h3 class="widget-title">Related Articles</h3>
+                <div class="related-articles" id="sidebar-related-articles">
+                    <!-- Related articles will be dynamically loaded here -->
+                </div>
+            </div>
+            
+            <div class="sidebar-widget newsletter-widget">
+                <h3 class="widget-title">Stay Updated</h3>
+                <p style="color: white; margin-bottom: 20px;">Subscribe to our newsletter for daily updates on African news and analysis.</p>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Your email address">
+                    <button>Subscribe</button>
+                </div>
+            </div>
+        </aside>
+    </div>
+    
+    <!-- Comments Section -->
+    <section class="comments-section">
+        <div class="comments-container">
+            <h2 class="comments-title">Comments (3)</h2>
+            
+            <!-- Comment Form -->
+            <div class="comment-form">
+                <h3 style="margin-bottom: 20px; color: var(--primary-color);">Leave a Comment</h3>
+                <form id="comment-form">
+                    <div class="form-group">
+                        <label for="comment-name">Name</label>
+                        <input type="text" id="comment-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="comment-email">Email</label>
+                        <input type="email" id="comment-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="comment-text">Comment</label>
+                        <textarea id="comment-text" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Post Comment</button>
+                </form>
+            </div>
+            
+            <!-- Comments List -->
+            <div class="comments-list" id="comments-list">
+                <!-- Comments will be dynamically loaded here -->
+            </div>
+        </div>
+    </section>
+    
+    <!-- Related Articles Section -->
+    <section class="related-articles-section">
+        <div class="section-title">
+            <h2>Related Stories</h2>
+            <a href="categories.html" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+        </div>
+        
+        <div class="related-grid" id="related-articles-grid">
+            <!-- Related articles will be dynamically loaded here -->
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-main">
+            <div class="footer-column">
+                <h3>CrownRoute Africa Network</h3>
+                <p style="color: #ddd; margin-bottom: 20px; line-height: 1.6;">Africa's foremost media network delivering comprehensive, trusted journalism across the continent. We are dedicated to accurate, timely and transformative reporting.</p>
+                <div class="social-icons" style="margin-top: 20px;">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                    <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                    <li><a href="careers.html"><i class="fas fa-chevron-right"></i> Careers</a></li>
+                    <li><a href="advertise.html"><i class="fas fa-chevron-right"></i> Advertise</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>News Categories</h3>
+                <ul>
+                    <li><a href="category.html?cat=politics"><i class="fas fa-chevron-right"></i> Politics</a></li>
+                    <li><a href="category.html?cat=business"><i class="fas fa-chevron-right"></i> Business</a></li>
+                    <li><a href="category.html?cat=technology"><i class="fas fa-chevron-right"></i> Technology</a></li>
+                    <li><a href="category.html?cat=health"><i class="fas fa-chevron-right"></i> Health</a></li>
+                    <li><a href="category.html?cat=sports"><i class="fas fa-chevron-right"></i> Sports</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Newsletter</h3>
+                <p style="color: #ddd; margin-bottom: 20px;">Subscribe to our daily newsletter for the latest news delivered to your inbox.</p>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Your email address">
+                    <button>Subscribe</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2023 CrownRoute Africa Network. All rights reserved. | <a href="privacy.html" style="color: #ddd;">Privacy Policy</a> | <a href="terms.html" style="color: #ddd;">Terms of Service</a></p>
+            <p style="margin-top: 10px; font-size: 0.9rem; color: #aaa;">Headquarters: Nairobi, Kenya | Bureaus: Lagos, Accra, Johannesburg, Cairo, Addis Ababa</p>
+        </div>
+    </footer>
+    
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- External JS Libraries -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+        // Initialize AOS (Animate On Scroll)
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100,
+        });
+        
+        // Update date and time
+        function updateDateTime() {
+            const now = new Date();
+            const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const timeOptions = { hour: '2-digit', minute: '2-digit', second: '2-digit' };
+            
+            document.getElementById('current-date').textContent = now.toLocaleDateString('en-US', dateOptions);
+            document.getElementById('current-time').textContent = now.toLocaleTimeString('en-US', timeOptions);
+        }
+        
+        setInterval(updateDateTime, 1000);
+        updateDateTime();
+        
+        // Back to top button
+        const backToTopBtn = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        });
+        
+        backToTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Search functionality
+        const searchInput = document.querySelector('.search-container input');
+        const searchBtn = document.querySelector('.search-container button');
+        
+        searchBtn.addEventListener('click', function() {
+            const query = searchInput.value.trim();
+            if (query) {
+                // In a real implementation, this would redirect to search results
+                alert(`Searching for: "${query}"\n\nIn a real implementation, this would redirect to search results page.`);
+                // window.location.href = `search.html?q=${encodeURIComponent(query)}`;
+            }
+        });
+        
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchBtn.click();
+            }
+        });
+        
+        // Article data - in a real implementation, this would come from a database or API
+        const articles = {
+            '1': {
+                id: 1,
+                title: "Nigeria's Supreme Court Upholds President's Election Victory",
+                excerpt: "The Supreme Court has dismissed all appeals challenging the presidential election results, bringing an end to months of legal battles and political uncertainty in Africa's most populous nation.",
+                category: "politics",
+                categoryName: "Politics & Governance",
+                date: "November 6, 2023",
+                views: "25,430",
+                readTime: "8 min read",
+                author: {
+                    name: "Amina Jalloh",
+                    title: "Chief Political Analyst",
+                    avatar: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                    bio: "Chief Executive Officer and Senior Political Analyst with 25 years of journalism experience across West and East Africa.",
+                    twitter: "#",
+                    linkedin: "#",
+                    email: "#"
+                },
+                heroImage: "https://images.unsplash.com/photo-1588681664899-f142ff2dc9b1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80",
+                content: `
+                    <div class="article-header">
+                        <span class="article-category">POLITICS</span>
+                        <h1 class="article-title">Nigeria's Supreme Court Upholds President's Election Victory</h1>
+                        <div class="article-meta">
+                            <div class="author-info">
+                                <div class="author-avatar">
+                                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Amina Jalloh">
+                                </div>
+                                <div class="author-details">
+                                    <h4>Amina Jalloh</h4>
+                                    <p>Chief Political Analyst</p>
+                                </div>
+                            </div>
+                            <div class="article-stats">
+                                <span><i class="far fa-calendar"></i> November 6, 2023</span>
+                                <span><i class="far fa-clock"></i> 8 min read</span>
+                                <span><i class="far fa-eye"></i> 25,430 views</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="article-hero-img">
+                        <img src="https://images.unsplash.com/photo-1588681664899-f142ff2dc9b1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Nigeria Supreme Court">
+                    </div>
+                    
+                    <div class="article-body">
+                        <p>In a landmark ruling that brings closure to months of political uncertainty, Nigeria's Supreme Court has unanimously upheld the election victory of President Bola Tinubu, dismissing all appeals filed by opposition candidates. The seven-member panel, led by Chief Justice Olukayode Ariwoola, delivered the verdict on Thursday, affirming the earlier decision of the Presidential Election Petition Tribunal.</p>
+                        
+                        <p>The court ruled that the appellants—Atiku Abubakar of the Peoples Democratic Party (PDP) and Peter Obi of the Labour Party—failed to provide sufficient evidence to prove their claims of electoral irregularities, voter suppression, and technical malfunctions in the Independent National Electoral Commission's (INEC) Results Viewing Portal.</p>
+                        
+                        <h2>A Watershed Moment for Nigerian Democracy</h2>
+                        
+                        <p>Legal experts are describing this ruling as a watershed moment for Nigeria's democracy, which has seen significant improvements in electoral processes since the return to civilian rule in 1999. The swift resolution of electoral disputes—within five months of the February 25 election—marks a significant improvement from previous election cycles where legal challenges dragged on for much longer.</p>
+                        
+                        <blockquote>
+                            "This judgment reinforces the resilience of our democratic institutions and provides the stability needed for governance to proceed without distractions."
+                        </blockquote>
+                        
+                        <div class="article-image">
+                            <img src="https://images.unsplash.com/photo-1522881193457-37ae97c905bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Nigerian supporters celebrating">
+                            <p class="image-caption">Supporters of President Bola Tinubu celebrate outside the Supreme Court in Abuja after the verdict was announced.</p>
+                        </div>
+                        
+                        <h2>The Legal Arguments and Ruling</h2>
+                        
+                        <p>The opposition's case centered on three main arguments:</p>
+                        
+                        <ol>
+                            <li><strong>Technical Failures:</strong> Allegations that INEC's failure to electronically transmit results in real-time violated electoral laws and undermined result transparency.</li>
+                            <li><strong>Qualification Issues:</strong> Claims that President Tinubu was not qualified to run due to alleged dual citizenship and an unresolved forfeiture case in the United States.</li>
+                            <li><strong>Electoral Mathematics:</strong> Arguments that Tinubu failed to secure the required 25% of votes in the Federal Capital Territory (FCT), Abuja.</li>
+                        </ol>
+                        
+                        <p>The Supreme Court dismissed all three arguments. On the technical issues, the court ruled that INEC's manual collation process, though imperfect, did not substantially affect the election outcome. Regarding qualification, the justices found that the appellants failed to prove their allegations with credible evidence. On the FCT argument, the court established that Abuja does not hold a special status requiring separate consideration beyond the constitutional requirements.</p>
+                        
+                        <h2>Regional and International Reactions</h2>
+                        
+                        <p>The ruling has elicited varied responses across Nigeria's geopolitical zones and the international community:</p>
+                        
+                        <div class="article-image">
+                            <img src="https://images.unsplash.com/photo-1589652043056-ba1a2c4830a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="International observers">
+                            <p class="image-caption">International election observers had raised concerns about logistical challenges during the February elections.</p>
+                        </div>
+                        
+                        <p><strong>Northern Nigeria:</strong> Mixed reactions with some expressing disappointment while others called for national unity and moving forward.</p>
+                        
+                        <p><strong>Southern Nigeria:</strong> Widespread celebrations in Lagos and other southwestern states, which form Tinubu's political base.</p>
+                        
+                        <p><strong>International Community:</strong> The United States, United Kingdom, and European Union issued statements acknowledging the court's decision while urging continued electoral reforms. The African Union praised Nigeria's judicial process as a model for other African nations.</p>
+                        
+                        <h2>Economic Implications</h2>
+                        
+                        <p>Financial markets responded positively to the ruling, with Nigeria's stock exchange recording its biggest single-day gain in six months. The Nigerian Naira also strengthened against the dollar in parallel market trading.</p>
+                        
+                        <p>"The certainty provided by this ruling allows the government to fully implement its economic agenda, particularly the much-needed petroleum subsidy removal and exchange rate unification policies," said financial analyst Chinedu Okonkwo.</p>
+                        
+                        <p>However, some economists caution that political stability alone won't solve Nigeria's economic challenges, which include inflation exceeding 25%, high unemployment, and mounting debt obligations.</p>
+                        
+                        <h2>The Path Forward</h2>
+                        
+                        <p>With the legal challenges settled, President Tinubu faces the daunting task of addressing Nigeria's multifaceted challenges:</p>
+                        
+                        <ul>
+                            <li><strong>Security:</strong> Continuing insurgencies in the northeast, banditry in the northwest, and separatist agitation in the southeast.</li>
+                            <li><strong>Economy:</strong> Soaring inflation, currency instability, and low foreign investment.</li>
+                            <li><strong>Infrastructure:</strong> Inadequate power supply, poor road networks, and limited access to clean water.</li>
+                            <li><strong>Unity:</strong> Deepening ethnic and religious divisions that threaten national cohesion.</li>
+                        </ul>
+                        
+                        <p>Political analysts suggest that Tinubu's first priority should be forming a government of national unity that includes representation from opposition strongholds to heal political divisions.</p>
+                        
+                        <p>As Nigeria moves forward from this electoral contest, the Supreme Court's ruling represents not just a victory for one candidate, but a test of the country's democratic institutions. How the government addresses the nation's challenges in the coming months will determine whether this legal resolution translates into tangible progress for Africa's largest democracy.</p>
+                    </div>
+                    
+                    <div class="article-tags">
+                        <a href="#" class="tag">Nigeria</a>
+                        <a href="#" class="tag">Supreme Court</a>
+                        <a href="#" class="tag">Election 2023</a>
+                        <a href="#" class="tag">Bola Tinubu</a>
+                        <a href="#" class="tag">Democracy</a>
+                        <a href="#" class="tag">African Politics</a>
+                    </div>
+                    
+                    <div class="article-actions">
+                        <div class="social-share">
+                            <span class="share-text">Share this article:</span>
+                            <div class="share-icons">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fab fa-whatsapp"></i></a>
+                            </div>
+                        </div>
+                        <div class="article-navigation">
+                            <a href="article.html?id=2" class="nav-btn"><i class="fas fa-chevron-left"></i> Previous</a>
+                            <a href="article.html?id=3" class="nav-btn">Next <i class="fas fa-chevron-right"></i></a>
+                        </div>
+                    </div>
+                `,
+                tags: ["Nigeria", "Supreme Court", "Election 2023", "Bola Tinubu", "Democracy", "African Politics"],
+                relatedArticles: [2, 3, 4],
+                comments: [
+                    {
+                        id: 1,
+                        name: "Chukwuemeka Okoro",
+                        date: "November 7, 2023",
+                        avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+                        text: "This ruling brings much-needed stability to Nigeria. While I didn't vote for Tinubu, I respect the court's decision and hope the government will now focus on addressing our pressing economic challenges."
+                    },
+                    {
+                        id: 2,
+                        name: "Fatima Bello",
+                        date: "November 6, 2023",
+                        avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+                        text: "Excellent analysis by Amina Jalloh. The point about forming a government of national unity is crucial. Nigeria needs healing, not further division."
+                    },
+                    {
+                        id: 3,
+                        name: "Kwame Asante",
+                        date: "November 6, 2023",
+                        avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+                        text: "As a Ghanaian following Nigerian politics closely, this ruling sets an important precedent for West African democracy. The peaceful resolution of electoral disputes is vital for regional stability."
+                    }
+                ]
+            },
+            '2': {
+                id: 2,
+                title: "Kenya's Inflation Drops to 6.8% as Shilling Strengthens",
+                excerpt: "Economic indicators show positive trends with inflation falling and the Kenyan shilling gaining against major currencies, signaling recovery from recent economic challenges.",
+                category: "business",
+                categoryName: "Business & Economy",
+                date: "November 5, 2023",
+                views: "18,750",
+                readTime: "6 min read",
+                author: {
+                    name: "David Okafor",
+                    title: "Economic Editor",
+                    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                    bio: "Economic Editor with 15 years of experience covering African markets, previously with Bloomberg Africa.",
+                    twitter: "#",
+                    linkedin: "#",
+                    email: "#"
+                },
+                heroImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80",
+                content: `
+                    <div class="article-header">
+                        <span class="article-category">BUSINESS</span>
+                        <h1 class="article-title">Kenya's Inflation Drops to 6.8% as Shilling Strengthens Against Dollar</h1>
+                        <div class="article-meta">
+                            <div class="author-info">
+                                <div class="author-avatar">
+                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="David Okafor">
+                                </div>
+                                <div class="author-details">
+                                    <h4>David Okafor</h4>
+                                    <p>Economic Editor</p>
+                                </div>
+                            </div>
+                            <div class="article-stats">
+                                <span><i class="far fa-calendar"></i> November 5, 2023</span>
+                                <span><i class="far fa-clock"></i> 6 min read</span>
+                                <span><i class="far fa-eye"></i> 18,750 views</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="article-hero-img">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Kenyan Economy">
+                    </div>
+                    
+                    <div class="article-body">
+                        <p>Kenya's economy is showing signs of robust recovery as latest data from the Kenya National Bureau of Statistics (KNBS) reveals that inflation has dropped to 6.8% in October, down from 8.0% in September. This marks the third consecutive month of declining inflation and brings the rate closer to the government's target range of 2.5% to 7.5%.</p>
+                        
+                        <p>Simultaneously, the Kenyan shilling has appreciated against the US dollar, trading at KSh 148 to the dollar, a significant improvement from the KSh 160 recorded in September. This dual positive development is being attributed to prudent fiscal policies, improved agricultural output, and successful negotiations with international creditors.</p>
+                        
+                        <h2>Factors Driving Economic Improvement</h2>
+                        
+                        <p>Several key factors have contributed to Kenya's improving economic outlook:</p>
+                        
+                        <ol>
+                            <li><strong>Agricultural Recovery:</strong> Favorable weather conditions have led to bumper harvests, particularly for maize, tea, and coffee, reducing food prices that account for approximately one-third of the inflation basket.</li>
+                            <li><strong>Monetary Policy:</strong> The Central Bank of Kenya's decision to maintain a tight monetary stance with a benchmark interest rate of 10.5% has helped curb inflationary pressures.</li>
+                            <li><strong>Diaspora Remittances:</strong> Inflows from Kenyans abroad reached a record $4.2 billion in the past 12 months, providing crucial foreign exchange support.</li>
+                            <li><strong>Tourism Revival:</strong> The sector has recovered to 95% of pre-pandemic levels, with 2.1 million international arrivals recorded in the past year.</li>
+                        </ol>
+                        
+                        <blockquote>
+                            "The combination of declining inflation and a strengthening shilling provides the Central Bank with policy flexibility to support economic growth without sacrificing price stability."
+                        </blockquote>
+                        
+                        <div class="article-image">
+                            <img src="https://images.unsplash.com/photo-1589652043056-ba1a2c4830a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Nairobi Stock Exchange">
+                            <p class="image-caption">Traders at the Nairobi Securities Exchange have responded positively to the economic indicators.</p>
+                        </div>
+                        
+                        <h2>Sectoral Performance and Outlook</h2>
+                        
+                        <p><strong>Agriculture:</strong> The sector grew by 5.8% in the third quarter, driven by improved tea and horticulture exports. The coffee sub-sector saw particularly strong performance with exports increasing by 22% year-on-year.</p>
+                        
+                        <p><strong>Manufacturing:</strong> Industrial production expanded by 3.2%, supported by increased local raw material availability and improved energy supply following above-average rainfall that boosted hydropower generation.</p>
+                        
+                        <p><strong>Technology:</strong> Kenya's Silicon Savannah continues to attract investment, with fintech companies raising $320 million in venture capital during the third quarter alone.</p>
+                        
+                        <h2>Challenges and Risks</h2>
+                        
+                        <p>Despite the positive indicators, economists caution that several challenges remain:</p>
+                        
+                        <ul>
+                            <li><strong>Public Debt:</strong> Kenya's debt-to-GDP ratio stands at 68%, with significant repayments due to China's Exim Bank in the coming year.</li>
+                            <li><strong>Youth Unemployment:</strong> Despite overall economic growth, youth unemployment remains stubbornly high at 13.5%.</li>
+                            <li><strong>Regional Instability:</strong> Conflicts in neighboring Ethiopia and Sudan could disrupt regional trade routes.</li>
+                            <li><strong>Climate Vulnerability:</strong> Kenya remains susceptible to climate shocks that could affect agricultural output.</li>
+                        </ul>
+                        
+                        <h2>International Perspective</h2>
+                        
+                        <p>The International Monetary Fund (IMF) has revised Kenya's growth projection upward to 5.3% for 2024, citing improved macroeconomic stability. The World Bank similarly projects 5.1% growth, highlighting Kenya's resilient services sector and digital innovation as key drivers.</p>
+                        
+                        <div class="article-image">
+                            <img src="https://images.unsplash.com/photo-1589656966895-2f33e7653819?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Economic growth chart">
+                            <p class="image-caption">Economic indicators show sustained growth across multiple sectors in Kenya.</p>
+                        </div>
+                        
+                        <h2>Policy Implications and Future Direction</h2>
+                        
+                        <p>The improving economic conditions provide the Kenyan government with an opportunity to implement structural reforms that could ensure sustainable growth:</p>
+                        
+                        <p><strong>Fiscal Consolidation:</strong> Economists recommend using the improved economic conditions to reduce the budget deficit through enhanced revenue collection rather than expenditure cuts that could slow growth.</p>
+                        
+                        <p><strong>Export Diversification:</strong> While traditional exports like tea and coffee remain important, there's growing emphasis on expanding manufacturing exports, particularly in pharmaceuticals, textiles, and automotive components.</p>
+                        
+                        <p><strong>Green Energy Transition:</strong> Kenya's geothermal and wind energy potential positions it as a leader in Africa's green energy transition, attracting climate-focused investments.</p>
+                        
+                        <p>As Kenya navigates the remainder of 2023, the dual achievement of falling inflation and a strengthening currency provides a foundation for accelerated economic recovery. However, sustained progress will require continued prudent policy management and addressing structural challenges that could undermine recent gains.</p>
+                    </div>
+                    
+                    <div class="article-tags">
+                        <a href="#" class="tag">Kenya</a>
+                        <a href="#" class="tag">Economy</a>
+                        <a href="#" class="tag">Inflation</a>
+                        <a href="#" class="tag">Shilling</a>
+                        <a href="#" class="tag">Business</a>
+                        <a href="#" class="tag">East Africa</a>
+                    </div>
+                    
+                    <div class="article-actions">
+                        <div class="social-share">
+                            <span class="share-text">Share this article:</span>
+                            <div class="share-icons">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fab fa-whatsapp"></i></a>
+                            </div>
+                        </div>
+                        <div class="article-navigation">
+                            <a href="article.html?id=1" class="nav-btn"><i class="fas fa-chevron-left"></i> Previous</a>
+                            <a href="article.html?id=3" class="nav-btn">Next <i class="fas fa-chevron-right"></i></a>
+                        </div>
+                    </div>
+                `,
+                tags: ["Kenya", "Economy", "Inflation", "Shilling", "Business", "East Africa"],
+                relatedArticles: [1, 3, 5],
+                comments: [
+                    {
+                        id: 1,
+                        name: "James Mwangi",
+                        date: "November 6, 2023",
+                        avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+                        text: "As a small business owner in Nairobi, I can confirm things are improving. Our input costs have decreased by about 15% in the last two months. Good analysis of the economic indicators."
+                    },
+                    {
+                        id: 2,
+                        name: "Susan Kamau",
+                        date: "November 5, 2023",
+                        avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+                        text: "While the headline numbers look good, I worry about the debt situation. We need to see concrete plans for debt management to ensure this recovery is sustainable."
+                    }
+                ]
+            },
+            '3': {
+                id: 3,
+                title: "South Africa Wins Rugby World Cup 2023 in Paris Final",
+                excerpt: "The Springboks secure back-to-back World Cup victories with a dramatic 12-11 win over New Zealand in the final, becoming the first team to win four Rugby World Cups.",
+                category: "sports",
+                categoryName: "Sports & Athletics",
+                date: "November 4, 2023",
+                views: "32,150",
+                readTime: "7 min read",
+                author: {
+                    name: "Thando Nkosi",
+                    title: "Sports Editor",
+                    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                    bio: "Sports Editor specializing in rugby and athletics, with 12 years of experience covering major sporting events across Africa.",
+                    twitter: "#",
+                    linkedin: "#",
+                    email: "#"
+                },
+                heroImage: "https://images.unsplash.com/photo-1575361204480-aadea25e6e68?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80",
+                content: `
+                    <div class="article-header">
+                        <span class="article-category">SPORTS</span>
+                        <h1 class="article-title">Springboks Make History with Dramatic World Cup Final Victory Over All Blacks</h1>
+                        <div class="article-meta">
+                            <div class="author-info">
+                                <div class="author-avatar">
+                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Thando Nkosi">
+                                </div>
+                                <div class="author-details">
+                                    <h4>Thando Nkosi</h4>
+                                    <p>Sports Editor</p>
+                                </div>
+                            </div>
+                            <div class="article-stats">
+                                <span><i class="far fa-calendar"></i> November 4, 2023</span>
+                                <span><i class="far fa-clock"></i> 7 min read</span>
+                                <span><i class="far fa-eye"></i> 32,150 views</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="article-hero-img">
+                        <img src="https://images.unsplash.com/photo-1575361204480-aadea25e6e68?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Rugby World Cup Final">
+                    </div>
+                    
+                    <div class="article-body">
+                        <p>In one of the most dramatic finals in Rugby World Cup history, South Africa's Springboks defeated New Zealand's All Blacks 12-11 at the Stade de France in Paris to claim their fourth World Cup title. The victory makes South Africa the first nation to win four Rugby World Cups (1995, 2007, 2019, 2023) and marks their second consecutive championship after their 2019 triumph in Japan.</p>
+                        
+                        <p>The match was a tense, physical affair that saw All Blacks captain Sam Cane receive a red card in the 28th minute for a high tackle, leaving New Zealand to play with 14 men for the majority of the game. Despite the numerical disadvantage, the All Blacks fought valiantly, coming within one point of what would have been a remarkable victory.</p>
+                        
+                        <h2>A Match of Inches and Moments</h2>
+                        
+                        <p>The final was decided by the narrowest of margins, with Handré Pollard's four penalties (12 points) just edging out Richie Mo'unga's conversion and three penalties from Beauden Barrett (11 points). The game's only try came in the 58th minute when Beauden Barrett touched down after a brilliant break by Will Jordan, giving New Zealand a brief 11-9 lead.</p>
+                        
+                        <blockquote>
+                            "This team represents more than just rugby. We play for 60 million South Africans who face challenges every day. When we pull on this jersey, we carry their hopes with us."
+                        </blockquote>
+                        
+                        <div class="article-image">
+                            <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Springboks celebrating victory">
+                            <p class="image-caption">Springboks captain Siya Kolisi lifts the Webb Ellis Cup as confetti rains down at Stade de France.</p>
+                        </div>
+                        
+                        <h2>The Turning Point: Cane's Red Card</h2>
+                        
+                        <p>The match's pivotal moment came in the 28th minute when All Blacks captain Sam Cane made a high tackle on Springboks center Jesse Kriel. After a lengthy review by the Television Match Official (TMO), referee Wayne Barnes showed Cane a red card, reducing New Zealand to 14 players.</p>
+                        
+                        <p>Despite playing with a man advantage for 52 minutes, South Africa struggled to break down a determined New Zealand defense. The Springboks' much-vaunted "Bomb Squad" — their impact substitutes — made crucial contributions in the final quarter, with replacement flyhalf Handré Pollard slotting the winning penalty in the 73rd minute.</p>
+                        
+                        <h2>Kolisi's Leadership and Legacy</h2>
+                        
+                        <p>Springboks captain Siya Kolisi, who became South Africa's first Black captain in 2019, has now led the team to back-to-back World Cup victories. His leadership both on and off the field has made him a national icon and symbol of post-apartheid South Africa.</p>
+                        
+                        <p>"Siya represents the best of South Africa," said President Cyril Ramaphosa, who was in attendance at the final. "His journey from the township of Zwide to lifting the World Cup twice shows what is possible when talent meets opportunity."</p>
+                        
+                        <div class="article-image">
+                            <img src="https://images.unsplash.com/photo-1547949003-9792a18a2601?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Siya Kolisi with trophy">
+                            <p class="image-caption">Captain Siya Kolisi celebrates with the Webb Ellis Cup surrounded by teammates.</p>
+                        </div>
+                        
+                        <h2>Impact on South African Society</h2>
+                        
+                        <p>The Springboks' victory has ignited celebrations across South Africa, with thousands taking to the streets in cities from Cape Town to Johannesburg. In a country still grappling with economic challenges and social divisions, the rugby team has consistently served as a unifying force.</p>
+                        
+                        <p>Sports sociologist Dr. Lindiwe Dlamini notes: "The 1995 World Cup victory helped heal a nation fresh from apartheid. The 2023 victory comes at another critical juncture, reminding South Africans of what can be achieved through diversity, resilience, and shared purpose."</p>
+                        
+                        <h2>Tactical Analysis: How South Africa Won</h2>
+                        
+                        <p>South Africa's victory was built on several key tactical elements:</p>
+                        
+                        <ol>
+                            <li><strong>Set Piece Dominance:</strong> The Springboks won 100% of their lineouts and exerted significant pressure in the scrum, earning several crucial penalties.</li>
+                            <li><strong>Defensive Resilience:</strong> South Africa made 246 tackles at a 92% success rate, with Pieter-Steph du Toit making a tournament-record 28 tackles in the final alone.</li>
+                            <li><strong>Bench Impact:</strong> The "Bomb Squad" lived up to its reputation, with all seven substitutes making significant contributions in the final quarter.</li>
+                            <li><strong>Game Management:</strong> Despite playing against 14 men, South Africa showed patience, kicking for territory and waiting for scoring opportunities rather than forcing play.</li>
+                        </ol>
+                        
+                        <h2>African Rugby on the Global Stage</h2>
+                        
+                        <p>South Africa's victory, coupled with strong performances from other African nations in the tournament, signals the continent's growing influence in world rugby:</p>
+                        
+                        <ul>
+                            <li><strong>Namibia:</strong> Showed significant improvement despite not winning a match, scoring their first-ever try against New Zealand.</li>
+                            <li><strong>Zimbabwe:</strong> Qualified for the 2027 World Cup after winning the Africa Cup.</li>
+                            <li><strong>Kenya:</strong> Continues to develop its rugby sevens program, with eyes on the 2024 Paris Olympics.</li>
+                        </ul>
+                        
+                        <p>World Rugby Chairman Bill Beaumont commented: "South Africa's success is inspirational for the global game. Their commitment to developing rugby across Africa is creating pathways for talent throughout the continent."</p>
+                        
+                        <h2>Looking Ahead: Legacy and Future</h2>
+                        
+                        <p>The Springboks' victory is expected to have significant long-term benefits for South African rugby and society:</p>
+                        
+                        <p><strong>Development Programs:</strong> Increased funding and interest in grassroots rugby, particularly in historically disadvantaged communities.</p>
+                        
+                        <p><strong>Economic Impact:</strong> Tourism boost and commercial opportunities from the world champion brand.</p>
+                        
+                        <p><strong>Social Cohesion:</strong> Continued role as a unifying symbol in a diverse nation.</p>
+                        
+                        <p>As the Springboks return home with the Webb Ellis Cup, their achievement transcends sport, offering a moment of shared national pride and optimism for South Africa's future.</p>
+                    </div>
+                    
+                    <div class="article-tags">
+                        <a href="#" class="tag">South Africa</a>
+                        <a href="#" class="tag">Rugby</a>
+                        <a href="#" class="tag">World Cup</a>
+                        <a href="#" class="tag">Springboks</a>
+                        <a href="#" class="tag">Sports</a>
+                        <a href="#" class="tag">New Zealand</a>
+                    </div>
+                    
+                    <div class="article-actions">
+                        <div class="social-share">
+                            <span class="share-text">Share this article:</span>
+                            <div class="share-icons">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fab fa-whatsapp"></i></a>
+                            </div>
+                        </div>
+                        <div class="article-navigation">
+                            <a href="article.html?id=2" class="nav-btn"><i class="fas fa-chevron-left"></i> Previous</a>
+                            <a href="article.html?id=4" class="nav-btn">Next <i class="fas fa-chevron-right"></i></a>
+                        </div>
+                    </div>
+                `,
+                tags: ["South Africa", "Rugby", "World Cup", "Springboks", "Sports", "New Zealand"],
+                relatedArticles: [1, 2, 5],
+                comments: [
+                    {
+                        id: 1,
+                        name: "Tumi Molefe",
+                        date: "November 5, 2023",
+                        avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+                        text: "What a game! I was at the fan zone in Soweto and the energy was incredible. Siya Kolisi is a true inspiration for all South Africans. Back to back World Cups!"
+                    },
+                    {
+                        id: 2,
+                        name: "Michael Jones",
+                        date: "November 4, 2023",
+                        avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+                        text: "As a New Zealander, congratulations to South Africa. They played the conditions perfectly. That defensive effort with a man advantage was incredible. Well deserved victory."
+                    },
+                    {
+                        id: 3,
+                        name: "Lerato Phiri",
+                        date: "November 4, 2023",
+                        avatar: "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+                        text: "This win means so much more than just rugby. You can feel the unity across the country right now. Thanks for the great coverage of all the social dimensions."
+                    }
+                ]
+            }
+        };
+        
+        // Related articles data
+        const relatedArticlesData = {
+            '1': [
+                {
+                    id: 2,
+                    title: "Kenya's Inflation Drops to 6.8% as Shilling Strengthens",
+                    category: "business",
+                    date: "Nov 5, 2023",
+                    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                    excerpt: "Economic indicators show positive trends with inflation falling and the Kenyan shilling gaining against major currencies."
+                },
+                {
+                    id: 3,
+                    title: "South Africa Wins Rugby World Cup 2023 in Paris Final",
+                    category: "sports",
+                    date: "Nov 4, 2023",
+                    image: "https://images.unsplash.com/photo-1575361204480-aadea25e6e68?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                    excerpt: "The Springboks secure back-to-back World Cup victories with a dramatic 12-11 win over New Zealand."
+                },
+                {
+                    id: 4,
+                    title: "Egypt's Swvl Expands to Europe After $150M Funding Round",
+                    category: "technology",
+                    date: "Nov 3, 2023",
+                    image: "https://images.unsplash.com/photo-1556012018-50c5c0da73bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                    excerpt: "The Egyptian mobility startup plans to launch services in five European countries following successful funding."
+                }
+            ],
+            '2': [
+                {
+                    id: 1,
+                    title: "Nigeria's Supreme Court Upholds President's Election Victory",
+                    category: "politics",
+                    date: "Nov 6, 2023",
+                    image: "https://images.unsplash.com/photo-1588681664899-f142ff2dc9b1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                    excerpt: "The Supreme Court has dismissed all appeals challenging the presidential election results."
+                },
+                {
+                    id: 3,
+                    title: "South Africa Wins Rugby World Cup 2023 in Paris Final",
+                    category: "sports",
+                    date: "Nov 4, 2023",
+                    image: "https://images.unsplash.com/photo-1575361204480-aadea25e6e68?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                    excerpt: "The Springboks secure back-to-back World Cup victories with a dramatic 12-11 win over New Zealand."
+                },
+                {
+                    id: 5,
+                    title: "Ghana Launches Africa's First Malaria Vaccine Manufacturing Plant",
+                    category: "health",
+                    date: "Nov 2, 2023",
+                    image: "https://images.unsplash.com/photo-1576675466969-38eeae4b41f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                    excerpt: "The new facility in Accra will produce 50 million doses annually, revolutionizing malaria prevention."
+                }
+            ],
+            '3': [
+                {
+                    id: 1,
+                    title: "Nigeria's Supreme Court Upholds President's Election Victory",
+                    category: "politics",
+                    date: "Nov 6, 2023",
+                    image: "https://images.unsplash.com/photo-1588681664899-f142ff2dc9b1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                    excerpt: "The Supreme Court has dismissed all appeals challenging the presidential election results."
+                },
+                {
+                    id: 2,
+                    title: "Kenya's Inflation Drops to 6.8% as Shilling Strengthens",
+                    category: "business",
+                    date: "Nov 5, 2023",
+                    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                    excerpt: "Economic indicators show positive trends with inflation falling and the Kenyan shilling gaining."
+                },
+                {
+                    id: 5,
+                    title: "Ghana Launches Africa's First Malaria Vaccine Manufacturing Plant",
+                    category: "health",
+                    date: "Nov 2, 2023",
+                    image: "https://images.unsplash.com/photo-1576675466969-38eeae4b41f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                    excerpt: "The new facility in Accra will produce 50 million doses annually, revolutionizing malaria prevention."
+                }
+            ]
+        };
+        
+        // Sidebar related articles data
+        const sidebarRelatedData = {
+            '1': [
+                {
+                    id: 2,
+                    title: "Kenya's Economy Shows Strong Recovery",
+                    category: "business",
+                    date: "Nov 5, 2023",
+                    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
+                },
+                {
+                    id: 6,
+                    title: "COP28: Africa Secures $2B Climate Fund",
+                    category: "politics",
+                    date: "Nov 1, 2023",
+                    image: "https://images.unsplash.com/photo-1589656966895-2f33e7653819?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
+                },
+                {
+                    id: 7,
+                    title: "African Union Launches Free Trade Implementation",
+                    category: "politics",
+                    date: "Oct 30, 2023",
+                    image: "https://images.unsplash.com/photo-1588681664899-f142ff2dc9b1?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
+                }
+            ],
+            '2': [
+                {
+                    id: 8,
+                    title: "East Africa Records 5.7% Economic Growth",
+                    category: "business",
+                    date: "Oct 27, 2023",
+                    image: "https://images.unsplash.com/photo-1551836026-d5c2c5af78e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
+                },
+                {
+                    id: 9,
+                    title: "South Africa's Digital Rand Adoption Soars",
+                    category: "business",
+                    date: "Oct 25, 2023",
+                    image: "https://images.unsplash.com/photo-1518458028785-8fbcd101ebb9?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
+                },
+                {
+                    id: 1,
+                    title: "Nigeria's Supreme Court Election Ruling",
+                    category: "politics",
+                    date: "Nov 6, 2023",
+                    image: "https://images.unsplash.com/photo-1588681664899-f142ff2dc9b1?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
+                }
+            ],
+            '3': [
+                {
+                    id: 10,
+                    title: "Morocco's Solar Plant Now World's Largest",
+                    category: "technology",
+                    date: "Nov 3, 2023",
+                    image: "https://images.unsplash.com/photo-1589652043056-ba1a2c4830a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
+                },
+                {
+                    id: 11,
+                    title: "Ghana's AI Farming Increases Cocoa Yield",
+                    category: "technology",
+                    date: "Nov 2, 2023",
+                    image: "https://images.unsplash.com/photo-1551836026-d5c2c5af78e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
+                },
+                {
+                    id: 2,
+                    title: "Kenya's Economic Recovery Continues",
+                    category: "business",
+                    date: "Nov 5, 2023",
+                    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
+                }
+            ]
+        };
+        
+        // Get article ID from URL
+        function getArticleId() {
+            const params = new URLSearchParams(window.location.search);
+            return params.get('id') || '1';
+        }
+        
+        // Load article content
+        function loadArticle() {
+            const articleId = getArticleId();
+            const article = articles[articleId];
+            
+            if (!article) {
+                // Article not found, redirect to homepage
+                window.location.href = 'index.html';
+                return;
+            }
+            
+            // Update page title
+            document.title = `${article.title} - CrownRoute Africa Network`;
+            
+            // Update breadcrumb
+            document.getElementById('category-link').textContent = article.categoryName;
+            document.getElementById('category-link').href = `category.html?cat=${article.category}`;
+            document.getElementById('article-breadcrumb-title').textContent = article.title;
+            
+            // Update article content
+            document.getElementById('article-content').innerHTML = article.content;
+            
+            // Update author information
+            document.getElementById('author-avatar').src = article.author.avatar;
+            document.getElementById('author-name').textContent = article.author.name;
+            document.getElementById('author-bio').textContent = article.author.bio;
+            
+            // Load sidebar related articles
+            loadSidebarRelatedArticles(articleId);
+            
+            // Load main related articles
+            loadRelatedArticles(articleId);
+            
+            // Load comments
+            loadComments(articleId);
+        }
+        
+        // Load sidebar related articles
+        function loadSidebarRelatedArticles(articleId) {
+            const sidebarContainer = document.getElementById('sidebar-related-articles');
+            const relatedArticles = sidebarRelatedData[articleId] || [];
+            
+            sidebarContainer.innerHTML = '';
+            
+            relatedArticles.forEach(article => {
+                const relatedItem = document.createElement('a');
+                relatedItem.className = 'related-item';
+                relatedItem.href = `article.html?id=${article.id}`;
+                
+                relatedItem.innerHTML = `
+                    <div class="related-img">
+                        <img src="${article.image}" alt="${article.title}">
+                    </div>
+                    <div class="related-content">
+                        <h4>${article.title}</h4>
+                        <div class="related-meta">
+                            <span>${article.category.toUpperCase()}</span> • 
+                            <span>${article.date}</span>
+                        </div>
+                    </div>
+                `;
+                
+                sidebarContainer.appendChild(relatedItem);
+            });
+        }
+        
+        // Load main related articles
+        function loadRelatedArticles(articleId) {
+            const relatedContainer = document.getElementById('related-articles-grid');
+            const relatedArticles = relatedArticlesData[articleId] || [];
+            
+            relatedContainer.innerHTML = '';
+            
+            relatedArticles.forEach(article => {
+                const relatedCard = document.createElement('div');
+                relatedCard.className = 'related-card';
+                
+                relatedCard.innerHTML = `
+                    <div class="related-card-img">
+                        <img src="${article.image}" alt="${article.title}">
+                    </div>
+                    <div class="related-card-content">
+                        <div class="related-card-meta">
+                            <span class="related-card-category">${article.category.toUpperCase()}</span>
+                            <span class="related-card-date">${article.date}</span>
+                        </div>
+                        <h3>${article.title}</h3>
+                        <p>${article.excerpt}</p>
+                        <a href="article.html?id=${article.id}" class="read-more">Read Full Story <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                `;
+                
+                relatedContainer.appendChild(relatedCard);
+            });
+        }
+        
+        // Load comments
+        function loadComments(articleId) {
+            const commentsContainer = document.getElementById('comments-list');
+            const article = articles[articleId];
+            const comments = article.comments || [];
+            
+            commentsContainer.innerHTML = '';
+            
+            if (comments.length === 0) {
+                commentsContainer.innerHTML = '<p>No comments yet. Be the first to comment!</p>';
+                return;
+            }
+            
+            comments.forEach(comment => {
+                const commentElement = document.createElement('div');
+                commentElement.className = 'comment';
+                
+                commentElement.innerHTML = `
+                    <div class="comment-header">
+                        <div class="comment-author">
+                            <div class="comment-avatar">
+                                <img src="${comment.avatar}" alt="${comment.name}">
+                            </div>
+                            <div class="comment-info">
+                                <h4>${comment.name}</h4>
+                                <span class="comment-date">${comment.date}</span>
+                            </div>
+                        </div>
+                        <a href="#" class="comment-reply">Reply</a>
+                    </div>
+                    <div class="comment-body">
+                        <p>${comment.text}</p>
+                    </div>
+                `;
+                
+                commentsContainer.appendChild(commentElement);
+            });
+        }
+        
+        // Handle comment form submission
+        function setupCommentForm() {
+            const commentForm = document.getElementById('comment-form');
+            
+            commentForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const name = document.getElementById('comment-name').value;
+                const email = document.getElementById('comment-email').value;
+                const text = document.getElementById('comment-text').value;
+                
+                // In a real implementation, this would send data to a server
+                alert(`Thank you for your comment, ${name}! In a real implementation, this would be saved to a database.`);
+                
+                // Clear form
+                commentForm.reset();
+            });
+        }
+        
+        // Initialize page
+        function initPage() {
+            loadArticle();
+            setupCommentForm();
+            
+            // Add animation to related cards
+            setTimeout(() => {
+                const relatedCards = document.querySelectorAll('.related-card');
+                relatedCards.forEach((card, index) => {
+                    card.style.animationDelay = `${index * 0.1}s`;
+                    card.classList.add('animate__animated', 'animate__fadeInUp');
+                });
+            }, 500);
+        }
+        
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            initPage();
+        });
+    </script>
+</body>
+</html>
