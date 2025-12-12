@@ -1581,7 +1581,7 @@
             for (const [key, category] of Object.entries(categories)) {
                 const categoryItem = document.createElement('a');
                 categoryItem.className = 'category-item';
-                categoryItem.href = `categories.html?cat=${key}`;
+                categoryItem.href = `category.html?cat=${key}`;
                 categoryItem.dataset.category = key;
                 
                 categoryItem.innerHTML = `
@@ -1635,7 +1635,7 @@
             
             sortSelect.addEventListener('change', function() {
                 const params = getUrlParams();
-                const newUrl = `categories.html?cat=${params.cat}&sort=${this.value}`;
+                const newUrl = `category.html?cat=${params.cat}&sort=${this.value}`;
                 window.location.href = newUrl;
             });
             
@@ -1647,7 +1647,7 @@
                     
                     // Update URL without reload in a real implementation
                     // For now, we'll simulate by updating the display
-                    const newUrl = `categories.html?cat=${category}&sort=${sortSelect.value}`;
+                    const newUrl = `category.html?cat=${category}&sort=${sortSelect.value}`;
                     window.history.pushState({}, '', newUrl);
                     updateCategoryDisplay();
                     
