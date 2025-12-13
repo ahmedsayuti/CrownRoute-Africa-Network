@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Preferences - CrownRoute Africa Network</title>
+    <!-- Favicon & External Libraries -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        :root {
+            --primary-color: #197872;
+            --secondary-color: #D4AF37;
+            --accent-color: #C41E3A;
+            --light-color: #F8F9FA;
+            --dark-color: #121212;
+            --gray-color: #6C757D;
+            --essential-color: #2A9D8F;
+            --functional-color: #457B9D;
+            --analytics-color: #E9C46A;
+            --advertising-color: #E63946;
+        }
+        body { background-color: #f5f5f5; color: var(--dark-color); line-height: 1.7; }
+
+        .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+
+        .cookie-header {
+            background-color: white; padding: 60px 40px; border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05); margin-bottom: 30px; text-align: center;
+        }
+        .cookie-header h1 { color: var(--primary-color); font-size: 2.8rem; margin-bottom: 15px; }
+        .cookie-header p { color: var(--gray-color); font-size: 1.1rem; max-width: 800px; margin: 0 auto; }
+
+        .settings-panel { background-color: white; padding: 0; border-radius: 10px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); margin-bottom: 40px; }
+
+        .settings-description { padding: 40px; border-bottom: 1px solid #eee; }
+        .settings-description p { margin-bottom: 15px; font-size: 1.05rem; }
+
+        .cookie-category {
+            padding: 30px 40px; border-bottom: 1px solid #eee; transition: background-color 0.3s;
+        }
+        .cookie-category:hover { background-color: #f9f9f9; }
+        .category-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+        .category-header h3 { font-size: 1.5rem; display: flex; align-items: center; gap: 12px; }
+        .category-header i { width: 24px; text-align: center; }
+        .essential .category-header h3 { color: var(--essential-color); }
+        .functional .category-header h3 { color: var(--functional-color); }
+        .analytics .category-header h3 { color: var(--analytics-color); }
+        .advertising .category-header h3 { color: var(--advertising-color); }
+
+        .toggle-switch { position: relative; display: inline-block; width: 60px; height: 30px; }
+        .toggle-switch input { opacity: 0; width: 0; height: 0; }
+        .toggle-slider {
+            position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0;
+            background-color: #ccc; transition: .4s; border-radius: 34px;
+        }
+        .toggle-slider:before {
+            position: absolute; content: ""; height: 22px; width: 22px; left: 4px; bottom: 4px;
+            background-color: white; transition: .4s; border-radius: 50%;
+        }
+        input:checked + .toggle-slider { background-color: var(--primary-color); }
+        input:checked + .toggle-slider:before { transform: translateX(30px); }
+        .toggle-switch.disabled .toggle-slider { background-color: #e0e0e0; cursor: not-allowed; }
+        .toggle-switch.disabled input { cursor: not-allowed; }
+
+        .category-details { padding-left: 36px; }
+        .category-details p { color: var(--gray-color); margin-bottom: 10px; }
+        .cookie-list { background: #f9f9f9; padding: 15px; border-radius: 8px; margin-top: 15px; font-size: 0.9rem; }
+        .cookie-list ul { list-style: none; padding-left: 0; }
+        .cookie-list li { padding: 5px 0; border-bottom: 1px dashed #ddd; display: flex; justify-content: space-between; }
+        .cookie-list li:last-child { border-bottom: none; }
+
+        .settings-actions { padding: 30px 40px; background-color: #f9f9f9; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+        .btn {
+            padding: 14px 32px; border: none; border-radius: 6px; font-weight: 600; font-size: 1rem;
+            cursor: pointer; transition: all 0.3s; display: inline-flex; align-items: center; gap: 10px;
+        }
+        .btn-primary { background-color: var(--primary-color); color: white; }
+        .btn-primary:hover { background-color: #0a1e4e; }
+        .btn-secondary { background-color: #e9ecef; color: var(--dark-color); }
+        .btn-secondary:hover { background-color: #dee2e6; }
+
+        .status-message {
+            padding: 15px 20px; border-radius: 6px; margin-bottom: 20px; display: none;
+            align-items: center; gap: 12px;
+        }
+        .status-success { background-color: rgba(42, 157, 143, 0.1); color: var(--essential-color); border-left: 4px solid var(--essential-color); }
+        .status-error { background-color: rgba(230, 57, 70, 0.1); color: var(--advertising-color); border-left: 4px solid var(--advertising-color); }
+
+        .info-footer { text-align: center; color: var(--gray-color); font-size: 0.95rem; margin-top: 40px; padding-top: 30px; border-top: 1px solid #eee; }
+        .info-footer a { color: var(--primary-color); text-decoration: none; }
+
+        @media (max-width: 768px) {
+            .cookie-header, .settings-description, .cookie-category, .settings-actions { padding: 25px; }
+            .cookie-header h1 { font-size: 2.2rem; }
+            .category-header { flex-direction: column; align-items: flex-start; gap: 15px; }
+            .category-header h3 { font-size: 1.3rem; }
+            .settings-actions { flex-direction: column; }
+            .btn { width: 100%; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER/NAVIGATION WOULD BE INCLUDED HERE (from your main template) -->
+
+    <div class="container">
+        <div class="cookie-header" data-aos="fade-up">
+            <h1><i class="fas fa-cookie-bite"></i> Cookie Preferences</h1>
+            <p>Manage how CrownRoute Africa Network and our trusted partners use cookies and similar technologies when you use our website and services. Your choices will be respected across all your devices using this browser.</p>
+        </div>
+
+        <div class="settings-panel" data-aos="fade-up">
+            <div class="settings-description">
+                <p><strong>What are cookies?</strong> Cookies are small text files stored on your device when you visit websites. They help the site function properly, remember your preferences, and understand how visitors interact with content.</p>
+                <p>Use the toggles below to enable or disable categories of cookies. <strong>Essential cookies cannot be disabled</strong> as they are required for the website's core functions.</p>
+            </div>
+
+            <!-- Essential Cookies -->
+            <div class="cookie-category essential">
+                <div class="category-header">
+                    <h3><i class="fas fa-shield-alt"></i> Essential Cookies</h3>
+                    <div class="toggle-switch disabled">
+                        <input type="checkbox" id="essentialToggle" checked disabled>
+                        <span class="toggle-slider"></span>
+                    </div>
+                </div>
+                <div class="category-details">
+                    <p>These cookies are necessary for the website to function and cannot be switched off. They are usually only set in response to actions you take, such as logging in or setting your privacy preferences.</p>
+                    <div class="cookie-list">
+                        <p><strong>Examples in use:</strong></p>
+                        <ul>
+                            <li><span>session_id</span><span>Maintains your login session</span></li>
+                            <li><span>csrf_token</span><span>Protects against form fraud</span></li>
+                            <li><span>consent_status</span><span>Remembers your cookie choices</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Functional Cookies -->
+            <div class="cookie-category functional">
+                <div class="category-header">
+                    <h3><i class="fas fa-cogs"></i> Functional Cookies</h3>
+                    <div class="toggle-switch">
+                        <input type="checkbox" id="functionalToggle">
+                        <span class="toggle-slider"></span>
+                    </div>
+                </div>
+                <div class="category-details">
+                    <p>These cookies enable enhanced functionality and personalization, such as remembering your region for local news, text size preferences, or whether you've already commented on an article. The website may not perform optimally if these are disabled.</p>
+                    <div class="cookie-list">
+                        <p><strong>Examples (if enabled):</strong></p>
+                        <ul>
+                            <li><span>preferred_region</span><span>Shows news from your selected area</span></li>
+                            <li><span>reading_preferences</span><span>Remembers your text/display settings</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Analytics Cookies -->
+            <div class="cookie-category analytics">
+                <div class="category-header">
+                    <h3><i class="fas fa-chart-bar"></i> Analytics & Performance Cookies</h3>
+                    <div class="toggle-switch">
+                        <input type="checkbox" id="analyticsToggle">
+                        <span class="toggle-slider"></span>
+                    </div>
+                </div>
+                <div class="category-details">
+                    <p>These cookies allow us to count visits and traffic sources so we can measure and improve the performance of our site. They help us know which articles are most and least popular and see how visitors move around the site. All information these cookies collect is aggregated and anonymous.</p>
+                    <div class="cookie-list">
+                        <p><strong>Examples (if enabled):</strong></p>
+                        <ul>
+                            <li><span>_ga (Google Analytics)</span><span>Distinguishes unique users</span></li>
+                            <li><span>_gat</span><span>Limits request rate</span></li>
+                            <li><span>engagement_metrics</span><span>Tracks reading time & interactions</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Advertising Cookies -->
+            <div class="cookie-category advertising">
+                <div class="category-header">
+                    <h3><i class="fas fa-ad"></i> Advertising & Targeting Cookies</h3>
+                    <div class="toggle-switch">
+                        <input type="checkbox" id="advertisingToggle">
+                        <span class="toggle-slider"></span>
+                    </div>
+                </div>
+                <div class="category-details">
+                    <p>These cookies may be set through our site by our advertising partners. They may be used by those companies to build a profile of your interests and show you relevant advertisements on other sites. They do not store directly personal information but are based on uniquely identifying your browser and internet device.</p>
+                    <div class="cookie-list">
+                        <p><strong>Examples (if enabled):</strong></p>
+                        <ul>
+                            <li><span>_gid (Google)</span><span>Used for ad personalization</span></li>
+                            <li><span>fr (Facebook Pixel)</span><span>Measures ad conversions</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Status Message -->
+            <div id="statusMessage" class="status-message">
+                <i class="fas fa-check-circle"></i>
+                <span>Your preferences have been saved successfully.</span>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="settings-actions">
+                <div>
+                    <button class="btn btn-primary" id="savePreferences">
+                        <i class="fas fa-save"></i> Save My Preferences
+                    </button>
+                    <button class="btn btn-secondary" id="acceptAll">
+                        <i class="fas fa-check-double"></i> Accept All
+                    </button>
+                </div>
+                <div>
+                    <button class="btn btn-secondary" id="rejectAll">
+                        <i class="fas fa-times-circle"></i> Reject Non-Essential
+                    </button>
+                    <button class="btn btn-secondary" id="resetPreferences">
+                        <i class="fas fa-undo"></i> Reset to Default
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-footer">
+            <p>Your preferences are stored locally in this browser and may need to be reset if you clear your browser data or use a different browser/device.</p>
+            <p>For more detailed information about how we use data, please read our full <a href="privacy.html">Privacy Policy</a>.</p>
+            <p style="margin-top: 15px; font-size: 0.85rem;"><i class="fas fa-info-circle"></i> <em>Changes to your settings will take effect immediately and may alter your browsing experience.</em></p>
+        </div>
+    </div>
+
+    <!-- FOOTER WOULD BE INCLUDED HERE (from your main template) -->
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({ duration: 800, once: true });
+
+        // DOM Elements
+        const functionalToggle = document.getElementById('functionalToggle');
+        const analyticsToggle = document.getElementById('analyticsToggle');
+        const advertisingToggle = document.getElementById('advertisingToggle');
+        const saveBtn = document.getElementById('savePreferences');
+        const acceptAllBtn = document.getElementById('acceptAll');
+        const rejectAllBtn = document.getElementById('rejectAll');
+        const resetBtn = document.getElementById('resetPreferences');
+        const statusMessage = document.getElementById('statusMessage');
+
+        // Cookie Storage Key
+        const STORAGE_KEY = 'crownroute_cookie_preferences';
+
+        // Default Preferences
+        const DEFAULT_PREFS = {
+            functional: true,
+            analytics: true,
+            advertising: false,
+            timestamp: null
+        };
+
+        // Load saved preferences from localStorage
+        function loadPreferences() {
+            const saved = localStorage.getItem(STORAGE_KEY);
+            if (saved) {
+                try {
+                    const prefs = JSON.parse(saved);
+                    functionalToggle.checked = prefs.functional !== false; // Default to true if not set
+                    analyticsToggle.checked = prefs.analytics !== false;
+                    advertisingToggle.checked = prefs.advertising === true;
+                    showStatus('Preferences loaded from your previous visit.', 'success');
+                } catch (e) {
+                    console.error('Error loading preferences:', e);
+                    setDefaultPreferences();
+                }
+            } else {
+                setDefaultPreferences();
+            }
+        }
+
+        // Set UI to default preferences
+        function setDefaultPreferences() {
+            functionalToggle.checked = DEFAULT_PREFS.functional;
+            analyticsToggle.checked = DEFAULT_PREFS.analytics;
+            advertisingToggle.checked = DEFAULT_PREFS.advertising;
+        }
+
+        // Save preferences to localStorage
+        function savePreferences() {
+            const preferences = {
+                functional: functionalToggle.checked,
+                analytics: analyticsToggle.checked,
+                advertising: advertisingToggle.checked,
+                timestamp: new Date().toISOString()
+            };
+            
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(preferences));
+            
+            // Simulate setting actual cookies (in a real implementation, this would call your backend)
+            updateCookieConsent(preferences);
+            
+            showStatus('Your cookie preferences have been saved successfully.', 'success');
+            
+            // Log for demonstration (remove in production)
+            console.log('Preferences saved:', preferences);
+        }
+
+        // Accept all cookies
+        function acceptAll() {
+            functionalToggle.checked = true;
+            analyticsToggle.checked = true;
+            advertisingToggle.checked = true;
+            savePreferences();
+            showStatus('All cookies have been accepted.', 'success');
+        }
+
+        // Reject all non-essential cookies
+        function rejectAll() {
+            functionalToggle.checked = false;
+            analyticsToggle.checked = false;
+            advertisingToggle.checked = false;
+            savePreferences();
+            showStatus('Non-essential cookies have been rejected. Only essential cookies will be used.', 'success');
+        }
+
+        // Show status message
+        function showStatus(message, type = 'success') {
+            statusMessage.querySelector('span').textContent = message;
+            statusMessage.className = `status-message status-${type}`;
+            statusMessage.style.display = 'flex';
+            
+            // Hide message after 5 seconds
+            setTimeout(() => {
+                statusMessage.style.display = 'none';
+            }, 5000);
+        }
+
+        // Update cookie consent (this is where you'd integrate with your actual cookie system)
+        function updateCookieConsent(prefs) {
+            // In a real implementation, this function would:
+            // 1. Set a consent cookie on your domain
+            // 2. Load or unload third-party scripts (Google Analytics, Facebook Pixel, etc.)
+            // 3. Communicate with your backend about user preferences
+            
+            // Example: Set a cookie that other pages can read
+            document.cookie = `cookie_consent=functional:${prefs.functional}|analytics:${prefs.analytics}|advertising:${prefs.advertising}; path=/; max-age=31536000; SameSite=Lax`;
+            
+            // Example of conditionally loading scripts (pseudo-code):
+            /*
+            if (prefs.analytics) {
+                loadGoogleAnalytics();
+            } else {
+                disableGoogleAnalytics();
+            }
+            
+            if (prefs.advertising) {
+                loadFacebookPixel();
+            } else {
+                disableFacebookPixel();
+            }
+            */
+        }
+
+        // Event Listeners
+        saveBtn.addEventListener('click', savePreferences);
+        acceptAllBtn.addEventListener('click', acceptAll);
+        rejectAllBtn.addEventListener('click', rejectAll);
+        resetBtn.addEventListener('click', () => {
+            setDefaultPreferences();
+            showStatus('Reset to default preferences. Click "Save My Preferences" to apply.', 'success');
+        });
+
+        // Load preferences when page loads
+        document.addEventListener('DOMContentLoaded', loadPreferences);
+
+        // Optional: Auto-save when toggles are changed (uncomment if desired)
+        /*
+        [functionalToggle, analyticsToggle, advertisingToggle].forEach(toggle => {
+            toggle.addEventListener('change', () => {
+                showStatus('Preferences changed. Click "Save My Preferences" to apply.', 'success');
+            });
+        });
+        */
+    </script>
+</body>
+</html>

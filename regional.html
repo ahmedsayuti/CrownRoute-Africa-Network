@@ -1,0 +1,1806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regional News Coverage - CrownRoute Africa Network</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+
+    <!-- Apple Touch Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon-180x180.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="apple-touch-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="apple-touch-icon-144x144.png" />
+
+    <!-- Android Chrome -->
+    <link rel="icon" type="image/png" sizes="192x192" href="android-chrome-192x192.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png" />
+
+    <!-- Microsoft Tiles -->
+    <meta name="msapplication-TileColor" content="#7ed321" />
+    <meta name="msapplication-TileImage" content="mstile-144x144.png" />
+
+    <!-- Theme colors -->
+    <meta name="theme-color" content="#7ed321" />
+
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="site.webmanifest" />
+    
+    <!-- External Libraries -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    
+    <!-- Leaflet CSS for Maps -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""/>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary-color: #197872;
+            --secondary-color: #D4AF37;
+            --accent-color: #C41E3A;
+            --light-color: #F8F9FA;
+            --dark-color: #121212;
+            --gray-color: #6C757D;
+            --west-color: #E63946;
+            --east-color: #457B9D;
+            --south-color: #2A9D8F;
+            --north-color: #E9C46A;
+            --central-color: #9D4EDD;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: var(--dark-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Header and Navigation - Same as other pages */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .top-bar {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 0;
+            font-size: 0.9rem;
+        }
+        
+        .top-bar-content {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .date-time {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .social-icons a {
+            color: white;
+            margin-left: 15px;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .main-header {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+        
+        .logo-img {
+            height: 120px;
+            width: auto;
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo-text h1 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            line-height: 1.2;
+        }
+        
+        .logo-text span {
+            font-size: 0.9rem;
+            color: var(--gray-color);
+            font-weight: 500;
+        }
+        
+        .search-container {
+            display: flex;
+            width: 350px;
+        }
+        
+        .search-container input {
+            flex: 1;
+            padding: 12px 15px;
+            border: 2px solid var(--primary-color);
+            border-right: none;
+            border-radius: 4px 0 0 4px;
+            font-size: 1rem;
+            outline: none;
+        }
+        
+        .search-container button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0 20px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: background-color 0.3s;
+        }
+        
+        .search-container button:hover {
+            background-color: #0a1e4e;
+        }
+        
+        /* Navigation Menu */
+        nav {
+            background-color: white;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .nav-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .main-menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .main-menu li {
+            position: relative;
+        }
+        
+        .main-menu a {
+            display: block;
+            padding: 18px 20px;
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 600;
+            transition: all 0.3s;
+            border-bottom: 3px solid transparent;
+        }
+        
+        .main-menu a:hover, .main-menu a.active {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--secondary-color);
+            background-color: rgba(212, 175, 55, 0.05);
+        }
+        
+        /* Regional Page Header */
+        .regional-header {
+            background: linear-gradient(rgba(25, 120, 114, 0.9), rgba(25, 120, 114, 0.9)), url('https://images.unsplash.com/photo-1523805009345-7448845a9e53?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 80px 0 60px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .regional-header h1 {
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+        
+        .regional-header p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        
+        /* Interactive Map Section */
+        .map-section {
+            max-width: 1300px;
+            margin: 0 auto 60px;
+            padding: 0 20px;
+        }
+        
+        .section-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+        
+        .section-title h2 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            position: relative;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: -17px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent-color);
+        }
+        
+        .view-all {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.3s;
+        }
+        
+        .view-all:hover {
+            gap: 10px;
+        }
+        
+        .map-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        #africa-map {
+            height: 500px;
+            width: 100%;
+        }
+        
+        .map-info {
+            padding: 30px;
+            background-color: #f9f9f9;
+        }
+        
+        .region-info {
+            margin-bottom: 30px;
+        }
+        
+        .region-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .region-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .stat-item {
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .stat-item h4 {
+            font-size: 0.9rem;
+            color: var(--gray-color);
+            margin-bottom: 5px;
+        }
+        
+        .stat-item p {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .region-description {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--dark-color);
+        }
+        
+        /* Regional Tabs */
+        .regional-tabs-section {
+            max-width: 1300px;
+            margin: 0 auto 60px;
+            padding: 0 20px;
+        }
+        
+        .regional-tabs {
+            display: flex;
+            border-bottom: 2px solid #eee;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .tab-btn {
+            padding: 15px 30px;
+            background: none;
+            border: none;
+            font-weight: 600;
+            color: var(--gray-color);
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s;
+            font-size: 1.1rem;
+        }
+        
+        .tab-btn:after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            transition: width 0.3s;
+        }
+        
+        .tab-btn.west:after { background-color: var(--west-color); }
+        .tab-btn.east:after { background-color: var(--east-color); }
+        .tab-btn.south:after { background-color: var(--south-color); }
+        .tab-btn.north:after { background-color: var(--north-color); }
+        .tab-btn.central:after { background-color: var(--central-color); }
+        
+        .tab-btn:hover, .tab-btn.active {
+            color: var(--primary-color);
+        }
+        
+        .tab-btn.west:hover, .tab-btn.west.active { color: var(--west-color); }
+        .tab-btn.east:hover, .tab-btn.east.active { color: var(--east-color); }
+        .tab-btn.south:hover, .tab-btn.south.active { color: var(--south-color); }
+        .tab-btn.north:hover, .tab-btn.north.active { color: var(--north-color); }
+        .tab-btn.central:hover, .tab-btn.central.active { color: var(--central-color); }
+        
+        .tab-btn:hover:after, .tab-btn.active:after {
+            width: 100%;
+        }
+        
+        /* Regional News Grid */
+        .regional-content {
+            background-color: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .region-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+        
+        .region-news-card {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            border: 1px solid #eee;
+        }
+        
+        .region-news-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .region-news-img {
+            height: 200px;
+            width: 100%;
+            overflow: hidden;
+        }
+        
+        .region-news-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .region-news-card:hover .region-news-img img {
+            transform: scale(1.05);
+        }
+        
+        .region-news-content {
+            padding: 25px;
+        }
+        
+        .region-news-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .region-news-category {
+            background-color: var(--accent-color);
+            color: white;
+            font-size: 0.8rem;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+        
+        .region-news-date {
+            color: var(--gray-color);
+            font-size: 0.85rem;
+        }
+        
+        .region-news-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            line-height: 1.4;
+            color: var(--dark-color);
+        }
+        
+        .region-news-content p {
+            color: var(--gray-color);
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        .region-read-more {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+        }
+        
+        .region-read-more:hover {
+            color: var(--accent-color);
+            gap: 12px;
+        }
+        
+        /* Regional Highlights */
+        .highlights-section {
+            max-width: 1300px;
+            margin: 0 auto 60px;
+            padding: 0 20px;
+        }
+        
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .highlight-card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+        }
+        
+        .highlight-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .highlight-header {
+            padding: 25px 25px 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .highlight-header h3 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.4rem;
+            color: var(--primary-color);
+        }
+        
+        .highlight-header.west h3 { color: var(--west-color); }
+        .highlight-header.east h3 { color: var(--east-color); }
+        .highlight-header.south h3 { color: var(--south-color); }
+        .highlight-header.north h3 { color: var(--north-color); }
+        .highlight-header.central h3 { color: var(--central-color); }
+        
+        .highlight-body {
+            padding: 25px;
+        }
+        
+        .highlight-list {
+            list-style: none;
+        }
+        
+        .highlight-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .highlight-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .highlight-list li i {
+            color: var(--secondary-color);
+        }
+        
+        /* Regional Correspondents */
+        .correspondents-section {
+            max-width: 1300px;
+            margin: 0 auto 60px;
+            padding: 0 20px;
+        }
+        
+        .correspondents-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+        
+        .correspondent-card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            padding: 30px 20px;
+            transition: all 0.4s ease;
+        }
+        
+        .correspondent-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .correspondent-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 20px;
+            border: 4px solid var(--secondary-color);
+        }
+        
+        .correspondent-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .correspondent-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        .correspondent-card p {
+            color: var(--gray-color);
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+        
+        .correspondent-region {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .west-badge { background-color: rgba(230, 57, 70, 0.1); color: var(--west-color); }
+        .east-badge { background-color: rgba(69, 123, 157, 0.1); color: var(--east-color); }
+        .south-badge { background-color: rgba(42, 157, 143, 0.1); color: var(--south-color); }
+        .north-badge { background-color: rgba(233, 196, 106, 0.1); color: var(--north-color); }
+        .central-badge { background-color: rgba(157, 78, 221, 0.1); color: var(--central-color); }
+        
+        /* Regional Analysis */
+        .analysis-section {
+            max-width: 1300px;
+            margin: 0 auto 60px;
+            padding: 0 20px;
+        }
+        
+        .analysis-content {
+            background-color: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .analysis-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+        
+        .analysis-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .analysis-item p {
+            color: var(--gray-color);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        
+        .analysis-stats {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .stat-box {
+            flex: 1;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .stat-box h4 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+        
+        .stat-box p {
+            font-size: 0.9rem;
+            color: var(--gray-color);
+            margin: 0;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            margin-top: 80px;
+        }
+        
+        .footer-main {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 50px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            color: var(--secondary-color);
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-column ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-column ul li a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .newsletter-form {
+            margin-top: 20px;
+        }
+        
+        .newsletter-form input {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+        
+        .newsletter-form button {
+            width: 100%;
+            padding: 14px;
+            background-color: var(--secondary-color);
+            color: var(--dark-color);
+            border: none;
+            border-radius: 4px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 1rem;
+        }
+        
+        .newsletter-form button:hover {
+            background-color: #e6c12e;
+        }
+        
+        .footer-bottom {
+            background-color: #0a1e4e;
+            padding: 25px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.95rem;
+        }
+        
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--secondary-color);
+            color: var(--dark-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 999;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background-color: #e6c12e;
+            transform: translateY(-5px);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .region-grid, .highlights-grid, .correspondents-grid, .analysis-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .map-container {
+                grid-template-columns: 1fr;
+            }
+            
+            #africa-map {
+                height: 400px;
+            }
+            
+            .footer-main {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 40px;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .main-header {
+                flex-direction: column;
+                gap: 25px;
+            }
+            
+            .search-container {
+                width: 100%;
+            }
+            
+            .regional-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .regional-header p {
+                font-size: 1.1rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .region-grid, .highlights-grid, .correspondents-grid, .analysis-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .main-menu {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .main-menu a {
+                padding: 15px 12px;
+                font-size: 0.95rem;
+            }
+            
+            .regional-tabs {
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+            
+            .regional-header h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.5rem;
+            }
+            
+            .footer-main {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .top-bar-content {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            
+            .social-icons {
+                margin-top: 5px;
+            }
+            
+            .logo {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+            
+            .logo-img {
+                height: 80px;
+            }
+            
+            .regional-header {
+                padding: 50px 0 40px;
+            }
+            
+            .regional-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .regional-content {
+                padding: 25px;
+            }
+            
+            .stat-item p {
+                font-size: 1.2rem;
+            }
+            
+            .analysis-content {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar with Date and Social -->
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <div class="date-time">
+                <span id="current-date"></span>
+                <span id="current-time"></span>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Main Header with Logo and Search -->
+    <header>
+        <div class="main-header">
+            <div class="logo-container">
+                <a href="index.html" class="logo">
+                    <img src="assets/img/logo/crownroute-logo.png" alt="CrownRoute Africa Network Logo" class="logo-img">
+                </a>
+            </div>
+            
+            <div class="search-container">
+                <input type="text" placeholder="Search for news, topics, or journalists...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Navigation Menu -->
+    <nav>
+        <div class="nav-container">
+            <ul class="main-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="category.html?cat=politics">Politics</a></li>
+                <li><a href="category.html?cat=business">Business</a></li>
+                <li><a href="category.html?cat=technology">Technology</a></li>
+                <li><a href="category.html?cat=health">Health</a></li>
+                <li><a href="category.html?cat=education">Education</a></li>
+                <li><a href="category.html?cat=entertainment">Entertainment</a></li>
+                <li><a href="category.html?cat=sports">Sports</a></li>
+                <li><a href="category.html?cat=lifestyle">Lifestyle</a></li>
+                <li><a href="category.html?cat=opinion">Opinion</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Regional Page Header -->
+    <div class="regional-header" data-aos="fade-up">
+        <div class="container">
+            <h1>Regional News Coverage</h1>
+            <p>Comprehensive reporting from across Africa's five regions. Stay informed with localized news, analysis, and insights from our network of regional correspondents.</p>
+            <div class="regional-stats" style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;">
+                <div class="stat" style="text-align: center;">
+                    <h3 style="font-size: 2.5rem; margin-bottom: 5px;">55</h3>
+                    <p style="font-size: 1rem;">African Countries</p>
+                </div>
+                <div class="stat" style="text-align: center;">
+                    <h3 style="font-size: 2.5rem; margin-bottom: 5px;">5</h3>
+                    <p style="font-size: 1rem;">Regions Covered</p>
+                </div>
+                <div class="stat" style="text-align: center;">
+                    <h3 style="font-size: 2.5rem; margin-bottom: 5px;">24</h3>
+                    <p style="font-size: 1rem;">Regional Correspondents</p>
+                </div>
+                <div class="stat" style="text-align: center;">
+                    <h3 style="font-size: 2.5rem; margin-bottom: 5px;">1.3B+</h3>
+                    <p style="font-size: 1rem;">People Represented</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Interactive Map Section -->
+    <section class="map-section" data-aos="fade-up">
+        <div class="section-title">
+            <h2>Explore Africa's Regions</h2>
+            <a href="#regional-tabs" class="view-all">Jump to Regions <i class="fas fa-arrow-down"></i></a>
+        </div>
+        
+        <div class="map-container">
+            <div id="africa-map"></div>
+            <div class="map-info">
+                <div class="region-info">
+                    <h3 id="selected-region">Select a Region</h3>
+                    <div class="region-stats" id="region-stats">
+                        <!-- Stats will be populated by JavaScript -->
+                    </div>
+                    <p class="region-description" id="region-description">
+                        Click on any region on the map or select a tab below to explore news and analysis from that region.
+                    </p>
+                </div>
+                <div class="region-legend">
+                    <h4 style="margin-bottom: 15px; color: var(--primary-color);">Region Legend</h4>
+                    <div class="legend-item" style="display: flex; align-items: center; margin-bottom: 10px;">
+                        <div style="width: 20px; height: 20px; background-color: var(--west-color); margin-right: 10px; border-radius: 3px;"></div>
+                        <span>West Africa</span>
+                    </div>
+                    <div class="legend-item" style="display: flex; align-items: center; margin-bottom: 10px;">
+                        <div style="width: 20px; height: 20px; background-color: var(--east-color); margin-right: 10px; border-radius: 3px;"></div>
+                        <span>East Africa</span>
+                    </div>
+                    <div class="legend-item" style="display: flex; align-items: center; margin-bottom: 10px;">
+                        <div style="width: 20px; height: 20px; background-color: var(--south-color); margin-right: 10px; border-radius: 3px;"></div>
+                        <span>Southern Africa</span>
+                    </div>
+                    <div class="legend-item" style="display: flex; align-items: center; margin-bottom: 10px;">
+                        <div style="width: 20px; height: 20px; background-color: var(--north-color); margin-right: 10px; border-radius: 3px;"></div>
+                        <span>North Africa</span>
+                    </div>
+                    <div class="legend-item" style="display: flex; align-items: center;">
+                        <div style="width: 20px; height: 20px; background-color: var(--central-color); margin-right: 10px; border-radius: 3px;"></div>
+                        <span>Central Africa</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Regional Tabs Section -->
+    <section class="regional-tabs-section" data-aos="fade-up" id="regional-tabs">
+        <div class="section-title">
+            <h2>Latest Regional News</h2>
+            <a href="index.html" class="view-all">Back to Home <i class="fas fa-arrow-left"></i></a>
+        </div>
+        
+        <div class="regional-tabs">
+            <button class="tab-btn west active" data-region="west">West Africa</button>
+            <button class="tab-btn east" data-region="east">East Africa</button>
+            <button class="tab-btn south" data-region="south">Southern Africa</button>
+            <button class="tab-btn north" data-region="north">North Africa</button>
+            <button class="tab-btn central" data-region="central">Central Africa</button>
+        </div>
+        
+        <div class="regional-content">
+            <!-- West Africa Content -->
+            <div class="region-grid" id="west-region">
+                <!-- Content will be populated by JavaScript -->
+            </div>
+            
+            <!-- East Africa Content -->
+            <div class="region-grid" id="east-region" style="display: none;">
+                <!-- Content will be populated by JavaScript -->
+            </div>
+            
+            <!-- Southern Africa Content -->
+            <div class="region-grid" id="south-region" style="display: none;">
+                <!-- Content will be populated by JavaScript -->
+            </div>
+            
+            <!-- North Africa Content -->
+            <div class="region-grid" id="north-region" style="display: none;">
+                <!-- Content will be populated by JavaScript -->
+            </div>
+            
+            <!-- Central Africa Content -->
+            <div class="region-grid" id="central-region" style="display: none;">
+                <!-- Content will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+    
+    <!-- Regional Highlights -->
+    <section class="highlights-section" data-aos="fade-up">
+        <div class="section-title">
+            <h2>Regional Highlights & Analysis</h2>
+            <a href="category.html?cat=analysis" class="view-all">More Analysis <i class="fas fa-arrow-right"></i></a>
+        </div>
+        
+        <div class="highlights-grid">
+            <div class="highlight-card">
+                <div class="highlight-header west">
+                    <h3><i class="fas fa-landmark"></i> West Africa Political Update</h3>
+                </div>
+                <div class="highlight-body">
+                    <ul class="highlight-list">
+                        <li><i class="fas fa-check-circle"></i> Nigeria's Supreme Court upholds presidential election</li>
+                        <li><i class="fas fa-check-circle"></i> Ghana launches Africa's first malaria vaccine plant</li>
+                        <li><i class="fas fa-check-circle"></i> ECOWAS summit addresses regional security challenges</li>
+                        <li><i class="fas fa-check-circle"></i> Senegal's new oil production begins operations</li>
+                        <li><i class="fas fa-check-circle"></i> Côte d'Ivoire cocoa reforms boost farmer incomes</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="highlight-card">
+                <div class="highlight-header east">
+                    <h3><i class="fas fa-chart-line"></i> East Africa Economic Outlook</h3>
+                </div>
+                <div class="highlight-body">
+                    <ul class="highlight-list">
+                        <li><i class="fas fa-check-circle"></i> Kenya's inflation drops to 6.8%, shilling strengthens</li>
+                        <li><i class="fas fa-check-circle"></i> Ethiopia's Renaissance Dam achieves full power generation</li>
+                        <li><i class="fas fa-check-circle"></i> Rwanda's drone network reaches 1 million deliveries</li>
+                        <li><i class="fas fa-check-circle"></i> Tanzania tourism revenue jumps 45% with conservation</li>
+                        <li><i class="fas fa-check-circle"></i> Uganda coffee exports reach record 6.5 million bags</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="highlight-card">
+                <div class="highlight-header south">
+                    <h3><i class="fas fa-industry"></i> Southern Africa Development</h3>
+                </div>
+                <div class="highlight-body">
+                    <ul class="highlight-list">
+                        <li><i class="fas fa-check-circle"></i> South Africa's Springboks win Rugby World Cup</li>
+                        <li><i class="fas fa-check-circle"></i> Zimbabwe lithium discovery could power EV revolution</li>
+                        <li><i class="fas fa-check-circle"></i> Botswana diamond exports reach record levels</li>
+                        <li><i class="fas fa-check-circle"></i> Namibia green hydrogen project attracts €10B investment</li>
+                        <li><i class="fas fa-check-circle"></i> Mozambique LNG project resumes after security improvements</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Regional Correspondents -->
+    <section class="correspondents-section" data-aos="fade-up">
+        <div class="section-title">
+            <h2>Our Regional Correspondents</h2>
+            <a href="about.html#team" class="view-all">Meet Our Team <i class="fas fa-arrow-right"></i></a>
+        </div>
+        
+        <div class="correspondents-grid">
+            <div class="correspondent-card">
+                <div class="correspondent-avatar">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Amina Jalloh">
+                </div>
+                <h4>Amina Jalloh</h4>
+                <span class="correspondent-region west-badge">West Africa</span>
+                <p>Based in Lagos, covering politics and governance across West Africa with 15 years of experience.</p>
+                <div class="social-icons" style="justify-content: center; margin-top: 15px;">
+                    <a href="#" style="color: var(--primary-color);"><i class="fab fa-twitter"></i></a>
+                    <a href="#" style="color: var(--primary-color);"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" style="color: var(--primary-color);"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            
+            <div class="correspondent-card">
+                <div class="correspondent-avatar">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="David Okafor">
+                </div>
+                <h4>David Okafor</h4>
+                <span class="correspondent-region east-badge">East Africa</span>
+                <p>Nairobi-based economic editor covering business and finance across East Africa for 12 years.</p>
+                <div class="social-icons" style="justify-content: center; margin-top: 15px;">
+                    <a href="#" style="color: var(--primary-color);"><i class="fab fa-twitter"></i></a>
+                    <a href="#" style="color: var(--primary-color);"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" style="color: var(--primary-color);"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            
+            <div class="correspondent-card">
+                <div class="correspondent-avatar">
+                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Sarah Mensah">
+                </div>
+                <h4>Sarah Mensah</h4>
+                <span class="correspondent-region central-badge">Central Africa</span>
+                <p>Kinshasa-based technology editor focusing on innovation and digital transformation in Central Africa.</p>
+                <div class="social-icons" style="justify-content: center; margin-top: 15px;">
+                    <a href="#" style="color: var(--primary-color);"><i class="fab fa-twitter"></i></a>
+                    <a href="#" style="color: var(--primary-color);"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" style="color: var(--primary-color);"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            
+            <div class="correspondent-card">
+                <div class="correspondent-avatar">
+                    <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Dr. Kofi Anokye">
+                </div>
+                <h4>Dr. Kofi Anokye</h4>
+                <span class="correspondent-region north-badge">North Africa</span>
+                <p>Cairo-based health correspondent with expertise in public health systems and medical innovation.</p>
+                <div class="social-icons" style="justify-content: center; margin-top: 15px;">
+                    <a href="#" style="color: var(--primary-color);"><i class="fab fa-twitter"></i></a>
+                    <a href="#" style="color: var(--primary-color);"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" style="color: var(--primary-color);"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Regional Analysis -->
+    <section class="analysis-section" data-aos="fade-up">
+        <div class="section-title">
+            <h2>Regional Analysis & Insights</h2>
+            <a href="category.html?cat=analysis" class="view-all">Read All Analysis <i class="fas fa-arrow-right"></i></a>
+        </div>
+        
+        <div class="analysis-content">
+            <div class="analysis-grid">
+                <div class="analysis-item">
+                    <h3><i class="fas fa-globe-africa"></i> Regional Integration Progress</h3>
+                    <p>The African Continental Free Trade Area (AfCFTA) implementation has accelerated regional integration, with intra-African trade growing by 15% in the past year. West Africa leads in implementation, followed by East Africa.</p>
+                    <div class="analysis-stats">
+                        <div class="stat-box">
+                            <h4>15%</h4>
+                            <p>Trade Growth</p>
+                        </div>
+                        <div class="stat-box">
+                            <h4>43</h4>
+                            <p>Countries Ratified</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="analysis-item">
+                    <h3><i class="fas fa-chart-bar"></i> Economic Performance 2023</h3>
+                    <p>East Africa leads economic growth at 5.7%, driven by technology and agriculture. West Africa follows at 4.2%, supported by commodity exports. Southern Africa faces challenges but shows resilience at 3.1% growth.</p>
+                    <div class="analysis-stats">
+                        <div class="stat-box">
+                            <h4>5.7%</h4>
+                            <p>East Africa Growth</p>
+                        </div>
+                        <div class="stat-box">
+                            <h4>4.2%</h4>
+                            <p>West Africa Growth</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-main">
+            <div class="footer-column">
+                <h3>CrownRoute Africa Network</h3>
+                <p style="color: #ddd; margin-bottom: 20px; line-height: 1.6;">Africa's foremost media network delivering comprehensive, trusted journalism across the continent. We are dedicated to accurate, timely and transformative reporting.</p>
+                <div class="social-icons" style="margin-top: 20px;">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                    <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                    <li><a href="careers.html"><i class="fas fa-chevron-right"></i> Careers</a></li>
+                    <li><a href="advertise.html"><i class="fas fa-chevron-right"></i> Advertise</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>News Categories</h3>
+                <ul>
+                    <li><a href="category.html?cat=politics"><i class="fas fa-chevron-right"></i> Politics</a></li>
+                    <li><a href="category.html?cat=business"><i class="fas fa-chevron-right"></i> Business</a></li>
+                    <li><a href="category.html?cat=technology"><i class="fas fa-chevron-right"></i> Technology</a></li>
+                    <li><a href="category.html?cat=health"><i class="fas fa-chevron-right"></i> Health</a></li>
+                    <li><a href="category.html?cat=sports"><i class="fas fa-chevron-right"></i> Sports</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Newsletter</h3>
+                <p style="color: #ddd; margin-bottom: 20px;">Subscribe to our daily newsletter for the latest news delivered to your inbox.</p>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Your email address">
+                    <button>Subscribe</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2023 CrownRoute Africa Network. All rights reserved. | <a href="privacy.html" style="color: #ddd;">Privacy Policy</a> | <a href="terms.html" style="color: #ddd;">Terms of Service</a></p>
+            <p style="margin-top: 10px; font-size: 0.9rem; color: #aaa;">Headquarters: Nairobi, Kenya | Bureaus: Lagos, Accra, Johannesburg, Cairo, Addis Ababa</p>
+        </div>
+    </footer>
+    
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- External JS Libraries -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Leaflet JS for Maps -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""></script>
+    
+    <script>
+        // Initialize AOS (Animate On Scroll)
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100,
+        });
+        
+        // Update date and time
+        function updateDateTime() {
+            const now = new Date();
+            const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const timeOptions = { hour: '2-digit', minute: '2-digit', second: '2-digit' };
+            
+            document.getElementById('current-date').textContent = now.toLocaleDateString('en-US', dateOptions);
+            document.getElementById('current-time').textContent = now.toLocaleTimeString('en-US', timeOptions);
+        }
+        
+        setInterval(updateDateTime, 1000);
+        updateDateTime();
+        
+        // Back to top button
+        const backToTopBtn = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        });
+        
+        backToTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Search functionality
+        const searchInput = document.querySelector('.search-container input');
+        const searchBtn = document.querySelector('.search-container button');
+        
+        searchBtn.addEventListener('click', function() {
+            const query = searchInput.value.trim();
+            if (query) {
+                alert(`Searching for: "${query}"\n\nIn a real implementation, this would redirect to search results page.`);
+                // window.location.href = `search.html?q=${encodeURIComponent(query)}`;
+            }
+        });
+        
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchBtn.click();
+            }
+        });
+        
+        // Regional data
+        const regionalData = {
+            west: {
+                name: "West Africa",
+                color: "#E63946",
+                countries: 16,
+                population: "409 million",
+                gdp: "$1.1 trillion",
+                languages: "English, French, Portuguese, local languages",
+                description: "West Africa is experiencing rapid economic growth driven by technology, agriculture, and natural resources. The region leads in mobile money adoption and fintech innovation, with Nigeria and Ghana as major hubs. Political stability has improved, though security challenges persist in the Sahel region.",
+                news: [
+                    {
+                        id: 1,
+                        title: "Nigeria's Supreme Court Upholds President's Election Victory",
+                        category: "POLITICS",
+                        date: "Nov 6, 2023",
+                        image: "https://images.unsplash.com/photo-1588681664899-f142ff2dc9b1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                        excerpt: "The Supreme Court has dismissed all appeals challenging the presidential election results, bringing political certainty to Africa's largest economy."
+                    },
+                    {
+                        id: 8,
+                        title: "Ghana's AI-Powered Farming Increases Cocoa Yield by 40%",
+                        category: "AGRICULTURE",
+                        date: "Nov 4, 2023",
+                        image: "https://plus.unsplash.com/premium_photo-1764687849762-6dc3c016b48a?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                        excerpt: "Drone technology and machine learning are revolutionizing cocoa farming in Ghana, boosting yields and farmer incomes."
+                    },
+                    {
+                        id: 5,
+                        title: "Ghana Launches Africa's First Malaria Vaccine Manufacturing Plant",
+                        category: "HEALTH",
+                        date: "Nov 2, 2023",
+                        image: "https://images.unsplash.com/photo-1576675466969-38eeae4b41f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                        excerpt: "The new facility in Accra will produce 50 million doses annually, reducing Africa's dependence on imported vaccines."
+                    },
+                    {
+                        id: 13,
+                        title: "Senegal's New Oil Production to Create 10,000 Jobs",
+                        category: "ENERGY",
+                        date: "Nov 3, 2023",
+                        image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                        excerpt: "The Sangomar offshore oil field begins production, expected to boost Senegal's economy by 10% annually."
+                    }
+                ]
+            },
+            east: {
+                name: "East Africa",
+                color: "#457B9D",
+                countries: 14,
+                population: "457 million",
+                gdp: "$408 billion",
+                languages: "Swahili, English, French, local languages",
+                description: "East Africa is Africa's fastest-growing region, with technology and services driving economic expansion. Kenya's Silicon Savannah is a continental tech hub, while Ethiopia's industrial parks and Rwanda's innovation ecosystem are transforming economies. The region faces climate challenges but is leading in renewable energy adoption.",
+                news: [
+                    {
+                        id: 2,
+                        title: "Kenya's Inflation Drops to 6.8% as Shilling Strengthens",
+                        category: "ECONOMY",
+                        date: "Nov 5, 2023",
+                        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                        excerpt: "Economic indicators show positive trends with inflation falling and the Kenyan shilling gaining against major currencies."
+                    },
+                    {
+                        id: 10,
+                        title: "Kenya's Silicon Savannah Attracts $500M in Q3 Tech Investments",
+                        category: "TECHNOLOGY",
+                        date: "Nov 2, 2023",
+                        image: "https://panafricanvisions.com/wp-content/uploads/2014/10/00281584-6d0f125b09a63253f47724fc5fd3592a-arc614x376-w614-us1.jpg",
+                        excerpt: "Nairobi's burgeoning tech ecosystem continues to draw global investors, creating 15,000 new jobs in the quarter."
+                    },
+                    {
+                        id: 9,
+                        title: "Rwanda's Drone Network Delivers 1 Million Medical Packages",
+                        category: "HEALTHCARE",
+                        date: "Nov 3, 2023",
+                        image: "https://assets.weforum.org/article/image/large_Q-0nXu6rBoSqLvOiJpTHJNdIiN9imkbAwy4QwNDpu3I.jpg",
+                        excerpt: "The innovative delivery system has reduced emergency medical supply transport from 4 hours to 15 minutes in remote areas."
+                    },
+                    {
+                        id: 14,
+                        title: "Ethiopia's Grand Renaissance Dam Begins Full Electricity Generation",
+                        category: "INFRASTRUCTURE",
+                        date: "Nov 4, 2023",
+                        image: "https://images.unsplash.com/photo-1583339522870-0d4f0d2f7b4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                        excerpt: "Africa's largest hydroelectric dam is now generating 5,150 MW of electricity, transforming Ethiopia's energy landscape."
+                    }
+                ]
+            },
+            south: {
+                name: "Southern Africa",
+                color: "#2A9D8F",
+                countries: 10,
+                population: "345 million",
+                gdp: "$789 billion",
+                languages: "English, Portuguese, French, local languages",
+                description: "Southern Africa boasts Africa's most industrialized economies, with South Africa as the regional powerhouse. The region faces energy challenges but is investing heavily in renewable alternatives. Mining remains crucial, while tourism and manufacturing are growing sectors. Political transitions and economic reforms are shaping the region's future.",
+                news: [
+                    {
+                        id: 3,
+                        title: "South Africa Wins Rugby World Cup 2023 in Paris Final",
+                        category: "SPORTS",
+                        date: "Nov 4, 2023",
+                        image: "https://images.unsplash.com/photo-1575361204480-aadea25e6e68?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                        excerpt: "The Springboks secure back-to-back World Cup victories, becoming the first team to win four Rugby World Cups."
+                    },
+                    {
+                        id: 15,
+                        title: "Zimbabwe's Lithium Discovery Could Power Electric Car Revolution",
+                        category: "MINING",
+                        date: "Nov 1, 2023",
+                        image: "https://images.unsplash.com/photo-1589656966895-2f33e7653819?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                        excerpt: "Recent discoveries position Zimbabwe as having Africa's largest lithium reserves, crucial for electric vehicle batteries."
+                    },
+                    {
+                        id: 16,
+                        title: "Botswana's Diamond Exports Reach Record $4.8 Billion",
+                        category: "ECONOMY",
+                        date: "Oct 30, 2023",
+                        image: "https://images.unsplash.com/photo-1546519638-68e109498ffc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                        excerpt: "Increased global demand and new mining technologies have boosted Botswana's diamond industry to record levels."
+                    },
+                    {
+                        id: 17,
+                        title: "Mozambique LNG Project Resumes After Security Improvements",
+                        category: "ENERGY",
+                        date: "Oct 28, 2023",
+                        image: "https://images.unsplash.com/photo-1583339522870-0d4f0d2f7b4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                        excerpt: "The $20 billion liquefied natural gas project resumes operations with enhanced security measures in place."
+                    }
+                ]
+            },
+            north: {
+                name: "North Africa",
+                color: "#E9C46A",
+                countries: 7,
+                population: "248 million",
+                gdp: "$1.3 trillion",
+                languages: "Arabic, French, Berber languages",
+                description: "North Africa serves as a bridge between Africa, Europe, and the Middle East. The region is investing heavily in renewable energy, with Morocco's solar complex now the world's largest. Tourism is recovering strongly, while technology startups are flourishing in Egypt and Tunisia. Political reforms and economic diversification are key regional trends.",
+                news: [
+                    {
+                        id: 7,
+                        title: "Morocco's Noor Solar Complex Now World's Largest, Powering 2.3M Homes",
+                        category: "ENERGY",
+                        date: "Nov 5, 2023",
+                        image: "https://images.ctfassets.net/z0vjjzshbxiz/704MZ5rPfb3zR0946tZBUp/eaf4a0bd46bc92753458e2247472b1d7/Noor1.jpg?w=800&q=70",
+                        excerpt: "The expanded solar facility covers 3,000 hectares and provides 580 MW of clean energy, setting new global standards."
+                    },
+                    {
+                        id: 4,
+                        title: "Egypt's Swvl Expands to Europe After $150M Funding Round",
+                        category: "TECHNOLOGY",
+                        date: "Nov 3, 2023",
+                        image: "https://images.unsplash.com/photo-1556012018-50c5c0da73bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                        excerpt: "The Egyptian mobility startup plans to launch services in five European countries following successful funding."
+                    },
+                    {
+                        id: 18,
+                        title: "Tunisia's Tourism Revenue Increases 65% in Post-Pandemic Recovery",
+                        category: "TOURISM",
+                        date: "Nov 2, 2023",
+                        image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                        excerpt: "Strategic marketing and improved infrastructure have made Tunisia one of Africa's fastest-growing tourism destinations."
+                    },
+                    {
+                        id: 19,
+                        title: "Algeria's Green Hydrogen Initiative Attracts European Investment",
+                        category: "ENERGY",
+                        date: "Oct 31, 2023",
+                        image: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                        excerpt: "Germany and Italy commit €8 billion to develop Algeria's green hydrogen production for European markets."
+                    }
+                ]
+            },
+            central: {
+                name: "Central Africa",
+                color: "#9D4EDD",
+                countries: 8,
+                population: "183 million",
+                gdp: "$256 billion",
+                languages: "French, Portuguese, Spanish, local languages",
+                description: "Central Africa is rich in natural resources but faces developmental challenges. The Congo Basin rainforest is crucial for global climate regulation. Mining, particularly cobalt and copper, drives economies, while agriculture and forestry are growing sectors. Regional integration through ECCAS is improving trade and infrastructure development.",
+                news: [
+                    {
+                        id: 20,
+                        title: "DR Congo's Cobalt Production Reaches Record Levels",
+                        category: "MINING",
+                        date: "Nov 3, 2023",
+                        image: "https://images.unsplash.com/photo-1583339522870-0d4f0d2f7b4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                        excerpt: "The Democratic Republic of Congo now supplies 70% of the world's cobalt, essential for electric vehicle batteries."
+                    },
+                    {
+                        id: 21,
+                        title: "Gabon's Forest Conservation Earns $150M in Carbon Credits",
+                        category: "ENVIRONMENT",
+                        date: "Nov 1, 2023",
+                        image: "https://images.unsplash.com/photo-1518837695005-2083093ee35b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                        excerpt: "Gabon becomes the first African country to receive results-based payments for reducing deforestation."
+                    },
+                    {
+                        id: 22,
+                        title: "Congo-Brazzaville's Oil Discovery Could Transform Economy",
+                        category: "ENERGY",
+                        date: "Oct 29, 2023",
+                        image: "https://images.unsplash.com/photo-1583339522870-0d4f0d2f7b4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                        excerpt: "New offshore oil discoveries could double Congo-Brazzaville's oil production within five years."
+                    },
+                    {
+                        id: 23,
+                        title: "Central African Republic Adopts Bitcoin as Legal Tender",
+                        category: "FINANCE",
+                        date: "Oct 27, 2023",
+                        image: "https://images.unsplash.com/photo-1518458028785-8fbcd101ebb9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                        excerpt: "CAR becomes the second African country after El Salvador to adopt cryptocurrency as official currency."
+                    }
+                ]
+            }
+        };
+        
+        // Initialize the map
+        function initMap() {
+            const map = L.map('africa-map').setView([2.0, 20.0], 3);
+            
+            // Add OpenStreetMap tiles
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+            
+            // Define regional boundaries (simplified coordinates)
+            const regions = {
+                west: [[15.0, -15.0], [5.0, 5.0]],
+                east: [[12.0, 25.0], [-12.0, 52.0]],
+                south: [[-5.0, 10.0], [-35.0, 40.0]],
+                north: [[37.0, -18.0], [20.0, 40.0]],
+                central: [[15.0, 5.0], [-15.0, 30.0]]
+            };
+            
+            // Add regional overlays
+            for (const region in regions) {
+                const bounds = regions[region];
+                const color = regionalData[region].color;
+                
+                const rect = L.rectangle(bounds, {
+                    color: color,
+                    weight: 2,
+                    fillColor: color,
+                    fillOpacity: 0.3
+                }).addTo(map);
+                
+                // Add click event
+                rect.on('click', function() {
+                    selectRegion(region);
+                });
+                
+                // Add hover effect
+                rect.on('mouseover', function() {
+                    this.setStyle({fillOpacity: 0.5});
+                });
+                
+                rect.on('mouseout', function() {
+                    this.setStyle({fillOpacity: 0.3});
+                });
+            }
+            
+            // Add region labels
+            L.marker([12.0, -5.0]).bindPopup('West Africa').addTo(map);
+            L.marker([2.0, 38.0]).bindPopup('East Africa').addTo(map);
+            L.marker([-20.0, 25.0]).bindPopup('Southern Africa').addTo(map);
+            L.marker([28.0, 10.0]).bindPopup('North Africa').addTo(map);
+            L.marker([0.0, 20.0]).bindPopup('Central Africa').addTo(map);
+        }
+        
+        // Select region function
+        function selectRegion(region) {
+            const regionData = regionalData[region];
+            
+            // Update map info
+            document.getElementById('selected-region').textContent = regionData.name;
+            document.getElementById('selected-region').style.color = regionData.color;
+            
+            // Update stats
+            const statsHtml = `
+                <div class="stat-item">
+                    <h4>Countries</h4>
+                    <p>${regionData.countries}</p>
+                </div>
+                <div class="stat-item">
+                    <h4>Population</h4>
+                    <p>${regionData.population}</p>
+                </div>
+                <div class="stat-item">
+                    <h4>GDP</h4>
+                    <p>${regionData.gdp}</p>
+                </div>
+                <div class="stat-item">
+                    <h4>Languages</h4>
+                    <p style="font-size: 0.9rem;">${regionData.languages}</p>
+                </div>
+            `;
+            
+            document.getElementById('region-stats').innerHTML = statsHtml;
+            document.getElementById('region-description').textContent = regionData.description;
+            
+            // Update active tab
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            tabBtns.forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.dataset.region === region) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            // Show corresponding region content
+            showRegionContent(region);
+        }
+        
+        // Show region content
+        function showRegionContent(region) {
+            // Hide all region grids
+            const regionGrids = document.querySelectorAll('.region-grid');
+            regionGrids.forEach(grid => {
+                grid.style.display = 'none';
+            });
+            
+            // Show selected region grid
+            const selectedGrid = document.getElementById(`${region}-region`);
+            selectedGrid.style.display = 'grid';
+            
+            // Populate with news
+            populateRegionNews(region);
+        }
+        
+        // Populate region news
+        function populateRegionNews(region) {
+            const regionData = regionalData[region];
+            const grid = document.getElementById(`${region}-region`);
+            
+            let newsHtml = '';
+            
+            regionData.news.forEach(article => {
+                newsHtml += `
+                    <div class="region-news-card" onclick="window.location.href='article.html?id=${article.id}'">
+                        <div class="region-news-img">
+                            <img src="${article.image}" alt="${article.title}">
+                        </div>
+                        <div class="region-news-content">
+                            <div class="region-news-meta">
+                                <span class="region-news-category">${article.category}</span>
+                                <span class="region-news-date">${article.date}</span>
+                            </div>
+                            <h3>${article.title}</h3>
+                            <p>${article.excerpt}</p>
+                            <a href="article.html?id=${article.id}" class="region-read-more">Read Full Story <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            grid.innerHTML = newsHtml;
+        }
+        
+        // Tab functionality
+        function setupTabs() {
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const region = this.dataset.region;
+                    selectRegion(region);
+                });
+            });
+        }
+        
+        // Initialize page
+        function initPage() {
+            // Initialize map
+            initMap();
+            
+            // Setup tabs
+            setupTabs();
+            
+            // Select default region (West Africa)
+            selectRegion('west');
+            
+            // Add animation to cards
+            setTimeout(() => {
+                const cards = document.querySelectorAll('.region-news-card, .highlight-card, .correspondent-card');
+                cards.forEach((card, index) => {
+                    card.style.animationDelay = `${index * 0.1}s`;
+                    card.classList.add('animate__animated', 'animate__fadeInUp');
+                });
+            }, 500);
+        }
+        
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            initPage();
+        });
+    </script>
+</body>
+</html>
