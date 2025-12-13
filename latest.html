@@ -1,0 +1,1643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latest News - CrownRoute Africa Network</title>
+    
+    <!-- External Libraries -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary-color: #197872;
+            --secondary-color: #D4AF37;
+            --accent-color: #C41E3A;
+            --light-color: #F8F9FA;
+            --dark-color: #121212;
+            --gray-color: #6C757D;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: var(--dark-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Header and Navigation - Same as homepage */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .top-bar {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 0;
+            font-size: 0.9rem;
+        }
+        
+        .top-bar-content {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .date-time {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .social-icons a {
+            color: white;
+            margin-left: 15px;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .main-header {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+        
+        .logo-img {
+            height: 120px;
+            width: auto;
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo-text h1 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            line-height: 1.2;
+        }
+        
+        .logo-text span {
+            font-size: 0.9rem;
+            color: var(--gray-color);
+            font-weight: 500;
+        }
+        
+        .search-container {
+            display: flex;
+            width: 350px;
+        }
+        
+        .search-container input {
+            flex: 1;
+            padding: 12px 15px;
+            border: 2px solid var(--primary-color);
+            border-right: none;
+            border-radius: 4px 0 0 4px;
+            font-size: 1rem;
+            outline: none;
+        }
+        
+        .search-container button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0 20px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: background-color 0.3s;
+        }
+        
+        .search-container button:hover {
+            background-color: #0a1e4e;
+        }
+        
+        /* Navigation Menu */
+        nav {
+            background-color: white;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .nav-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .main-menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .main-menu li {
+            position: relative;
+        }
+        
+        .main-menu a {
+            display: block;
+            padding: 18px 20px;
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 600;
+            transition: all 0.3s;
+            border-bottom: 3px solid transparent;
+        }
+        
+        .main-menu a:hover, .main-menu a.active {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--secondary-color);
+            background-color: rgba(212, 175, 55, 0.05);
+        }
+        
+        /* Latest Hero Section */
+        .latest-hero {
+            background: linear-gradient(rgba(25, 120, 114, 0.9), rgba(25, 120, 114, 0.8)), 
+                        url('https://images.unsplash.com/photo-1588681664899-f142ff2dc9b1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+        
+        .hero-content p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        
+        /* Breadcrumb */
+        .breadcrumb-section {
+            background-color: white;
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .breadcrumb-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .breadcrumb a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .breadcrumb span {
+            color: var(--gray-color);
+        }
+        
+        .breadcrumb .separator {
+            color: var(--gray-color);
+            margin: 0 10px;
+        }
+        
+        /* Main Content Container */
+        .container {
+            max-width: 1300px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 40px;
+        }
+        
+        /* Latest News Section */
+        .latest-section {
+            margin-bottom: 60px;
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+        
+        .section-header h2 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            position: relative;
+        }
+        
+        .section-header h2:after {
+            content: '';
+            position: absolute;
+            bottom: -17px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent-color);
+        }
+        
+        .section-stats {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .total-articles {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .filter-controls {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            padding: 10px 20px;
+            background-color: white;
+            border: 2px solid #eee;
+            border-radius: 5px;
+            font-weight: 600;
+            color: var(--gray-color);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        
+        /* Articles Grid */
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .article-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            height: 100%;
+            cursor: pointer;
+        }
+        
+        .article-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .article-img {
+            height: 220px;
+            width: 100%;
+            overflow: hidden;
+        }
+        
+        .article-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .article-card:hover .article-img img {
+            transform: scale(1.05);
+        }
+        
+        .article-content {
+            padding: 25px;
+        }
+        
+        .article-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .article-category {
+            background-color: var(--accent-color);
+            color: white;
+            font-size: 0.8rem;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+        
+        .article-date {
+            color: var(--gray-color);
+            font-size: 0.85rem;
+        }
+        
+        .article-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            line-height: 1.4;
+            color: var(--dark-color);
+        }
+        
+        .article-content p {
+            color: var(--gray-color);
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        .article-stats {
+            display: flex;
+            justify-content: space-between;
+            color: var(--gray-color);
+            font-size: 0.85rem;
+            margin-bottom: 20px;
+        }
+        
+        .read-more {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+        }
+        
+        .read-more:hover {
+            color: var(--accent-color);
+            gap: 12px;
+        }
+        
+        /* Featured Article */
+        .featured-article-large {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .featured-img {
+            height: 350px;
+            width: 100%;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+        
+        .featured-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .featured-article-large:hover .featured-img img {
+            transform: scale(1.05);
+        }
+        
+        .featured-content {
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .featured-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            line-height: 1.3;
+        }
+        
+        /* Load More Button */
+        .load-more {
+            text-align: center;
+            margin: 50px 0 30px;
+        }
+        
+        .load-more-btn {
+            padding: 15px 40px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .load-more-btn:hover {
+            background-color: #0a1e4e;
+            transform: translateY(-3px);
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .sidebar-widget {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .widget-title {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--secondary-color);
+            position: relative;
+        }
+        
+        .widget-title:after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--accent-color);
+        }
+        
+        /* Categories List */
+        .categories-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .category-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px;
+            border-radius: 8px;
+            transition: all 0.3s;
+            text-decoration: none;
+            color: var(--dark-color);
+            border: 1px solid #eee;
+        }
+        
+        .category-item:hover {
+            background-color: rgba(25, 120, 114, 0.05);
+            border-color: var(--primary-color);
+            transform: translateX(5px);
+        }
+        
+        .category-item.active {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        
+        .category-item.active .category-count {
+            background-color: white;
+            color: var(--primary-color);
+        }
+        
+        .category-icon {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            width: 40px;
+        }
+        
+        .category-item.active .category-icon {
+            color: white;
+        }
+        
+        .category-name {
+            flex: 1;
+            font-weight: 600;
+        }
+        
+        .category-count {
+            background-color: #f0f0f0;
+            color: var(--primary-color);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
+        /* Trending Articles */
+        .trending-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .trending-item {
+            display: flex;
+            gap: 15px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            text-decoration: none;
+            color: var(--dark-color);
+            transition: all 0.3s;
+        }
+        
+        .trending-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        
+        .trending-item:hover {
+            color: var(--primary-color);
+        }
+        
+        .trending-item:hover .trending-img img {
+            transform: scale(1.05);
+        }
+        
+        .trending-img {
+            width: 80px;
+            height: 80px;
+            overflow: hidden;
+            border-radius: 5px;
+            flex-shrink: 0;
+        }
+        
+        .trending-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        
+        .trending-content h4 {
+            font-size: 1rem;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+        
+        .trending-meta {
+            font-size: 0.85rem;
+            color: var(--gray-color);
+        }
+        
+        /* Newsletter Widget */
+        .newsletter-widget {
+            background: linear-gradient(rgba(25, 120, 114, 0.9), rgba(25, 120, 114, 0.9));
+            color: white;
+        }
+        
+        .newsletter-widget .widget-title {
+            color: var(--secondary-color);
+            border-bottom-color: var(--secondary-color);
+        }
+        
+        .newsletter-form {
+            margin-top: 20px;
+        }
+        
+        .newsletter-form input {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+        
+        .newsletter-form button {
+            width: 100%;
+            padding: 14px;
+            background-color: var(--secondary-color);
+            color: var(--dark-color);
+            border: none;
+            border-radius: 4px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 1rem;
+        }
+        
+        .newsletter-form button:hover {
+            background-color: #e6c12e;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            margin-top: 80px;
+        }
+        
+        .footer-main {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 50px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            color: var(--secondary-color);
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-column ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-column ul li a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .footer-bottom {
+            background-color: #0a1e4e;
+            padding: 25px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.95rem;
+        }
+        
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--secondary-color);
+            color: var(--dark-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 999;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background-color: #e6c12e;
+            transform: translateY(-5px);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-main {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 40px;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .main-header {
+                flex-direction: column;
+                gap: 25px;
+            }
+            
+            .search-container {
+                width: 100%;
+            }
+            
+            .articles-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .featured-article-large {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .main-menu {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .main-menu a {
+                padding: 15px 12px;
+                font-size: 0.95rem;
+            }
+            
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.3rem;
+            }
+            
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+            
+            .footer-main {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .top-bar-content {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            
+            .social-icons {
+                margin-top: 5px;
+            }
+            
+            .logo {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+            
+            .logo-img {
+                height: 80px;
+            }
+            
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .filter-controls {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .filter-btn {
+                width: 100%;
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar with Date and Social -->
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <div class="date-time">
+                <span id="current-date"></span>
+                <span id="current-time"></span>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Main Header with Logo and Search -->
+    <header>
+        <div class="main-header">
+            <div class="logo-container">
+                <a href="index.html" class="logo">
+                    <img src="assets/img/logo/crownroute-logo.png" alt="CrownRoute Africa Network Logo" class="logo-img">
+                </a>
+            </div>
+            
+            <div class="search-container">
+                <input type="text" placeholder="Search for news, topics, or journalists...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Navigation Menu -->
+    <nav>
+        <div class="nav-container">
+            <ul class="main-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="category.html?cat=politics">Politics</a></li>
+                <li><a href="category.html?cat=business">Business</a></li>
+                <li><a href="category.html?cat=technology">Technology</a></li>
+                <li><a href="category.html?cat=health">Health</a></li>
+                <li><a href="category.html?cat=education">Education</a></li>
+                <li><a href="category.html?cat=entertainment">Entertainment</a></li>
+                <li><a href="category.html?cat=sports">Sports</a></li>
+                <li><a href="category.html?cat=lifestyle">Lifestyle</a></li>
+                <li><a href="latest.html" class="active">Latest</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Latest Hero Section -->
+    <section class="latest-hero" data-aos="fade-up">
+        <div class="hero-content">
+            <h1 class="animate__animated animate__fadeInDown">Latest News Stories</h1>
+            <p class="animate__animated animate__fadeInUp">Stay up to date with the most recent developments across Africa. From breaking news to in-depth analysis, we bring you comprehensive coverage of the stories shaping our continent.</p>
+        </div>
+    </section>
+    
+    <!-- Breadcrumb -->
+    <div class="breadcrumb-section">
+        <div class="breadcrumb-container">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span class="separator">/</span>
+                <span>Latest News</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Main Content Container -->
+    <div class="container">
+        <main class="latest-section">
+            <div class="section-header">
+                <h2>Latest Stories</h2>
+                <div class="section-stats">
+                    <div class="total-articles" id="total-articles">24 Articles</div>
+                </div>
+            </div>
+            
+            <!-- Filter Controls -->
+            <div class="filter-controls">
+                <button class="filter-btn active" data-filter="all">All Stories</button>
+                <button class="filter-btn" data-filter="today">Today</button>
+                <button class="filter-btn" data-filter="week">This Week</button>
+                <button class="filter-btn" data-filter="month">This Month</button>
+                <button class="filter-btn" data-filter="politics">Politics</button>
+                <button class="filter-btn" data-filter="business">Business</button>
+                <button class="filter-btn" data-filter="technology">Technology</button>
+            </div>
+            
+            <!-- Featured Article -->
+            <div class="featured-article-large" data-aos="fade-up" onclick="window.location.href='article.html?id=6'">
+                <div class="featured-img">
+                    <img src="https://scontent.facc1-1.fna.fbcdn.net/v/t39.30808-6/583804962_1264560869034915_8143949430639595585_n.jpg?_nc_cat=110&_nc_cb=99be929b-ad57045b&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeGIiMFdFJ4fbHXJRXlImHoEkmJJUQgBxNqSYklRCAHE2jMHq_zSnpIR8j2EN-XTV9Le_P4xFW0jIP8fzXjnOqYX&_nc_ohc=EB6Kpf7U3JsQ7kNvwHZRfIJ&_nc_oc=Adkg0yMtkKq1zHzzCmqWV1ZPx8hnLDz4WY5pGIZ2Bq78AvZYHdue8FP9LPteMlmTqEU&_nc_zt=23&_nc_ht=scontent.facc1-1.fna&_nc_gid=NrSp2BiTXeJ4HXC4iup8Zg&oh=00_AfmwXrHbYoqnlGKRIiYD-FRIO_FADYgbgI_GmM4CsYzt_w&oe=6942E7C0" alt="AU Summit">
+                </div>
+                <div class="featured-content">
+                    <span class="article-category">POLITICS</span>
+                    <h3>African Union Summit: Leaders Agree on New Governance Charter</h3>
+                    <p>Heads of state from 55 African countries have adopted a new governance framework aimed at strengthening democracy and human rights protection across the continent. The charter includes measures to ensure peaceful transitions of power and greater civic participation.</p>
+                    <div class="article-stats">
+                        <span><i class="far fa-clock"></i> November 7, 2023</span>
+                        <span><i class="far fa-eye"></i> 28,450 views</span>
+                        <span><i class="far fa-comment"></i> 24 comments</span>
+                    </div>
+                    <a href="article.html?id=6" class="read-more">Read Full Story <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <!-- Articles Grid -->
+            <div class="articles-grid" id="articles-container">
+                <!-- Articles will be dynamically inserted here -->
+            </div>
+            
+            <!-- Load More Button -->
+            <div class="load-more">
+                <button class="load-more-btn" id="load-more-btn">
+                    <i class="fas fa-spinner"></i>
+                    Load More Stories
+                </button>
+            </div>
+        </main>
+        
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-widget">
+                <h3 class="widget-title">Browse Categories</h3>
+                <div class="categories-list" id="categories-list">
+                    <!-- Categories will be dynamically inserted here -->
+                </div>
+            </div>
+            
+            <div class="sidebar-widget">
+                <h3 class="widget-title">Trending Now</h3>
+                <div class="trending-list" id="trending-articles">
+                    <!-- Trending articles will be dynamically inserted here -->
+                </div>
+            </div>
+            
+            <div class="sidebar-widget newsletter-widget">
+                <h3 class="widget-title">Stay Updated</h3>
+                <p style="color: white; margin-bottom: 20px;">Subscribe to our daily newsletter for the latest news delivered to your inbox.</p>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Your email address">
+                    <button>Subscribe</button>
+                </div>
+            </div>
+        </aside>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-main">
+            <div class="footer-column">
+                <h3>CrownRoute Africa Network</h3>
+                <p style="color: #ddd; margin-bottom: 20px; line-height: 1.6;">Africa's foremost media network delivering comprehensive, trusted journalism across the continent. We are dedicated to accurate, timely and transformative reporting.</p>
+                <div class="social-icons" style="margin-top: 20px;">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                    <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                    <li><a href="careers.html"><i class="fas fa-chevron-right"></i> Careers</a></li>
+                    <li><a href="advertise.html"><i class="fas fa-chevron-right"></i> Advertise</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>News Categories</h3>
+                <ul>
+                    <li><a href="category.html?cat=politics"><i class="fas fa-chevron-right"></i> Politics</a></li>
+                    <li><a href="category.html?cat=business"><i class="fas fa-chevron-right"></i> Business</a></li>
+                    <li><a href="category.html?cat=technology"><i class="fas fa-chevron-right"></i> Technology</a></li>
+                    <li><a href="category.html?cat=health"><i class="fas fa-chevron-right"></i> Health</a></li>
+                    <li><a href="category.html?cat=sports"><i class="fas fa-chevron-right"></i> Sports</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Newsletter</h3>
+                <p style="color: #ddd; margin-bottom: 20px;">Subscribe to our daily newsletter for the latest news delivered to your inbox.</p>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Your email address">
+                    <button>Subscribe</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2023 CrownRoute Africa Network. All rights reserved. | <a href="privacy.html" style="color: #ddd;">Privacy Policy</a> | <a href="terms.html" style="color: #ddd;">Terms of Service</a></p>
+            <p style="margin-top: 10px; font-size: 0.9rem; color: #aaa;">Headquarters: Nairobi, Kenya | Bureaus: Lagos, Accra, Johannesburg, Cairo, Addis Ababa</p>
+        </div>
+    </footer>
+    
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- External JS Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+        // Initialize AOS (Animate On Scroll)
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100,
+        });
+        
+        // Update date and time
+        function updateDateTime() {
+            const now = new Date();
+            const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const timeOptions = { hour: '2-digit', minute: '2-digit', second: '2-digit' };
+            
+            document.getElementById('current-date').textContent = now.toLocaleDateString('en-US', dateOptions);
+            document.getElementById('current-time').textContent = now.toLocaleTimeString('en-US', timeOptions);
+        }
+        
+        setInterval(updateDateTime, 1000);
+        updateDateTime();
+        
+        // Back to top button
+        const backToTopBtn = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        });
+        
+        backToTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Search functionality
+        const searchInput = document.querySelector('.search-container input');
+        const searchBtn = document.querySelector('.search-container button');
+        
+        searchBtn.addEventListener('click', function() {
+            const query = searchInput.value.trim();
+            if (query) {
+                // In a real implementation, this would redirect to search results
+                alert(`Searching for: "${query}"\n\nIn a real implementation, this would redirect to search results page.`);
+                // window.location.href = `search.html?q=${encodeURIComponent(query)}`;
+            }
+        });
+        
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchBtn.click();
+            }
+        });
+        
+        // Latest news data - matching the stories from the homepage
+        const latestArticles = [
+            {
+                id: 7,
+                title: "Morocco's Noor Solar Complex Now World's Largest, Powering 2.3M Homes",
+                excerpt: "The expanded solar facility in Ouarzazate covers 3,000 hectares and provides 580 MW of clean energy, setting new global standards for renewable infrastructure.",
+                category: "energy",
+                categoryName: "Energy",
+                date: "November 5, 2023",
+                views: "22,340",
+                comments: 18,
+                image: "https://images.ctfassets.net/z0vjjzshbxiz/704MZ5rPfb3zR0946tZBUp/eaf4a0bd46bc92753458e2247472b1d7/Noor1.jpg?w=1920&q=70",
+                author: "Sarah Mensah",
+                readTime: "6 min read"
+            },
+            {
+                id: 8,
+                title: "Ghana's AI-Powered Farming Initiative Increases Cocoa Yield by 40%",
+                excerpt: "Using drone technology and machine learning, farmers can now monitor crop health and predict yields with unprecedented accuracy, revolutionizing agriculture.",
+                category: "agriculture",
+                categoryName: "Agriculture",
+                date: "November 4, 2023",
+                views: "18,750",
+                comments: 12,
+                image: "https://plus.unsplash.com/premium_photo-1764687849762-6dc3c016b48a?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                author: "David Okafor",
+                readTime: "5 min read"
+            },
+            {
+                id: 9,
+                title: "Rwanda's Drone Network Delivers 1 Million Medical Packages, Saving Thousands",
+                excerpt: "The innovative delivery system has reduced emergency medical supply transport from 4 hours to 15 minutes in remote areas, becoming a model for other nations.",
+                category: "healthcare",
+                categoryName: "Healthcare",
+                date: "November 3, 2023",
+                views: "31,230",
+                comments: 24,
+                image: "https://assets.weforum.org/article/image/large_Q-0nXu6rBoSqLvOiJpTHJNdIiN9imkbAwy4QwNDpu3I.jpg",
+                author: "Dr. Kofi Anokye",
+                readTime: "7 min read"
+            },
+            {
+                id: 10,
+                title: "Kenya's Silicon Savannah Attracts $500M in Q3 Tech Investments",
+                excerpt: "Nairobi's burgeoning tech ecosystem continues to draw global investors, with fintech and agritech startups leading the funding rounds and creating 15,000 new jobs.",
+                category: "technology",
+                categoryName: "Technology",
+                date: "November 2, 2023",
+                views: "25,890",
+                comments: 16,
+                image: "https://panafricanvisions.com/wp-content/uploads/2014/10/00281584-6d0f125b09a63253f47724fc5fd3592a-arc614x376-w614-us1.jpg",
+                author: "Sarah Mensah",
+                readTime: "6 min read"
+            },
+            {
+                id: 11,
+                title: "African Films Dominate Awards at Cannes, Toronto and Venice Festivals",
+                excerpt: "With 12 major awards this season, African cinema is experiencing a renaissance, telling authentic stories that resonate with global audiences and critics alike.",
+                category: "entertainment",
+                categoryName: "Entertainment",
+                date: "November 1, 2023",
+                views: "28,560",
+                comments: 42,
+                image: "https://thenet.ng/wp-content/uploads/2022/12/African-Films-Nollywood-1120x1120.jpg",
+                author: "Thando Nkosi",
+                readTime: "8 min read"
+            },
+            {
+                id: 12,
+                title: "STEM Education Enrollment Jumps 65% Across African Universities",
+                excerpt: "Driven by digital transformation initiatives, more African students are pursuing science and technology degrees, with women comprising 45% of the increase.",
+                category: "education",
+                categoryName: "Education",
+                date: "October 31, 2023",
+                views: "19,870",
+                comments: 21,
+                image: "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                author: "Dr. Kofi Anokye",
+                readTime: "7 min read"
+            },
+            {
+                id: 13,
+                title: "South Africa's Digital Rand Adoption Exceeds 2 Million Users",
+                excerpt: "The central bank digital currency sees rapid adoption with transactions exceeding $500 million in first quarter, signaling a shift in financial behavior.",
+                category: "technology",
+                categoryName: "Technology",
+                date: "October 30, 2023",
+                views: "24,560",
+                comments: 19,
+                image: "https://images.unsplash.com/photo-1518458028785-8fbcd101ebb9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                author: "David Okafor",
+                readTime: "5 min read"
+            },
+            {
+                id: 14,
+                title: "African Fashion Week Paris: Designers Secure $15M in Orders",
+                excerpt: "African designers showcased their latest collections at Paris Fashion Week, securing record orders and expanding their global footprint in the luxury market.",
+                category: "lifestyle",
+                categoryName: "Lifestyle",
+                date: "October 29, 2023",
+                views: "32,450",
+                comments: 38,
+                image: "https://images.unsplash.com/photo-1519474225-8c66363d72c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                author: "Thando Nkosi",
+                readTime: "6 min read"
+            },
+            {
+                id: 15,
+                title: "Kenyan Marathoner Breaks 2-Hour Barrier in Berlin Race",
+                excerpt: "Eliud Kipchoge's successor breaks the 2-hour marathon barrier in an unofficial race, signaling a new era in long-distance running dominance by African athletes.",
+                category: "sports",
+                categoryName: "Sports",
+                date: "October 28, 2023",
+                views: "45,230",
+                comments: 56,
+                image: "https://images.unsplash.com/photo-1552674605-db6ffd8facb5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                author: "Thando Nkosi",
+                readTime: "5 min read"
+            },
+            {
+                id: 16,
+                title: "Egypt's New Grand Museum Welcomes 1.5 Million Visitors",
+                excerpt: "The museum showcasing ancient Egyptian artifacts has become a major tourist attraction, revitalizing the country's cultural tourism sector post-pandemic.",
+                category: "culture",
+                categoryName: "Culture",
+                date: "October 27, 2023",
+                views: "28,760",
+                comments: 23,
+                image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                author: "Amina Jalloh",
+                readTime: "7 min read"
+            },
+            {
+                id: 17,
+                title: "Zimbabwe's Lithium Discovery Could Power Electric Car Revolution",
+                excerpt: "Massive lithium deposits discovered in Zimbabwe could position the country as a key player in the global transition to electric vehicles and renewable energy storage.",
+                category: "mining",
+                categoryName: "Mining",
+                date: "October 26, 2023",
+                views: "22,340",
+                comments: 17,
+                image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                author: "David Okafor",
+                readTime: "6 min read"
+            },
+            {
+                id: 18,
+                title: "African Designers Dominate Paris Fashion Week 2023",
+                excerpt: "From Nigeria to South Africa, African fashion designers showcased innovative collections that blended traditional techniques with contemporary design, earning critical acclaim.",
+                category: "lifestyle",
+                categoryName: "Lifestyle",
+                date: "October 25, 2023",
+                views: "38,920",
+                comments: 47,
+                image: "https://images.unsplash.com/photo-1519474225-8c66363d72c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                author: "Thando Nkosi",
+                readTime: "8 min read"
+            },
+            {
+                id: 19,
+                title: "African Space Agency Launches 5-Satellite Constellation",
+                excerpt: "The newly formed African Space Agency successfully launched its first satellite constellation, enhancing weather monitoring and communications across the continent.",
+                category: "technology",
+                categoryName: "Technology",
+                date: "October 24, 2023",
+                views: "26,780",
+                comments: 22,
+                image: "https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                author: "Sarah Mensah",
+                readTime: "7 min read"
+            },
+            {
+                id: 20,
+                title: "Conservation Success: Rhino Population Doubles in Kenya",
+                excerpt: "Through anti-poaching efforts and community-based conservation, Kenya's rhino population has doubled in the past decade, offering hope for endangered species protection.",
+                category: "environment",
+                categoryName: "Environment",
+                date: "October 23, 2023",
+                views: "24,560",
+                comments: 31,
+                image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                author: "Dr. Kofi Anokye",
+                readTime: "6 min read"
+            }
+        ];
+        
+        // Add the featured article (ID 6) to the beginning
+        const featuredArticle = {
+            id: 6,
+            title: "African Union Summit: Leaders Agree on New Governance Charter",
+            excerpt: "Heads of state from 55 African countries have adopted a new governance framework aimed at strengthening democracy and human rights protection across the continent.",
+            category: "politics",
+            categoryName: "Politics",
+            date: "November 7, 2023",
+            views: "28,450",
+            comments: 24,
+            image: "https://scontent.facc1-1.fna.fbcdn.net/v/t39.30808-6/583804962_1264560869034915_8143949430639595585_n.jpg?_nc_cat=110&_nc_cb=99be929b-ad57045b&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeGIiMFdFJ4fbHXJRXlImHoEkmJJUQgBxNqSYklRCAHE2jMHq_zSnpIR8j2EN-XTV9Le_P4xFW0jIP8fzXjnOqYX&_nc_ohc=EB6Kpf7U3JsQ7kNvwHZRfIJ&_nc_oc=Adkg0yMtkKq1zHzzCmqWV1ZPx8hnLDz4WY5pGIZ2Bq78AvZYHdue8FP9LPteMlmTqEU&_nc_zt=23&_nc_ht=scontent.facc1-1.fna&_nc_gid=NrSp2BiTXeJ4HXC4iup8Zg&oh=00_AfmwXrHbYoqnlGKRIiYD-FRIO_FADYgbgI_GmM4CsYzt_w&oe=6942E7C0",
+            author: "Amina Jalloh",
+            readTime: "9 min read"
+        };
+        
+        // All articles including featured
+        const allArticles = [featuredArticle, ...latestArticles];
+        
+        // Categories data
+        const categories = [
+            { id: "all", name: "All Categories", count: 25, icon: "fas fa-globe" },
+            { id: "politics", name: "Politics", count: 8, icon: "fas fa-landmark" },
+            { id: "business", name: "Business", count: 6, icon: "fas fa-chart-line" },
+            { id: "technology", name: "Technology", count: 7, icon: "fas fa-laptop-code" },
+            { id: "health", name: "Health", count: 5, icon: "fas fa-heartbeat" },
+            { id: "sports", name: "Sports", count: 4, icon: "fas fa-futbol" },
+            { id: "entertainment", name: "Entertainment", count: 3, icon: "fas fa-theater-masks" },
+            { id: "lifestyle", name: "Lifestyle", count: 4, icon: "fas fa-umbrella-beach" }
+        ];
+        
+        // Trending articles for sidebar
+        const trendingArticles = [
+            {
+                id: 6,
+                title: "AU Adopts Historic Governance Charter",
+                category: "politics",
+                date: "Nov 7",
+                image: "https://images.unsplash.com/photo-1588681664899-f142ff2dc9b1?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
+            },
+            {
+                id: 9,
+                title: "Rwanda's Drone Network Saves Thousands",
+                category: "healthcare",
+                date: "Nov 3",
+                image: "https://images.unsplash.com/photo-1576675466969-38eeae4b41f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
+            },
+            {
+                id: 15,
+                title: "Kenyan Breaks 2-Hour Marathon Barrier",
+                category: "sports",
+                date: "Oct 28",
+                image: "https://images.unsplash.com/photo-1552674605-db6ffd8facb5?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
+            },
+            {
+                id: 14,
+                title: "African Fashion Week Paris Success",
+                category: "lifestyle",
+                date: "Oct 29",
+                image: "https://images.unsplash.com/photo-1519474225-8c66363d72c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
+            }
+        ];
+        
+        // DOM elements
+        const articlesContainer = document.getElementById('articles-container');
+        const categoriesList = document.getElementById('categories-list');
+        const trendingContainer = document.getElementById('trending-articles');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const loadMoreBtn = document.getElementById('load-more-btn');
+        const totalArticlesEl = document.getElementById('total-articles');
+        
+        // Current state
+        let currentFilter = 'all';
+        let displayedCount = 6; // Start with 6 articles displayed
+        const articlesPerLoad = 6;
+        
+        // Initialize page
+        function initPage() {
+            // Set total articles count
+            totalArticlesEl.textContent = `${allArticles.length} Articles`;
+            
+            // Load categories
+            loadCategories();
+            
+            // Load trending articles
+            loadTrendingArticles();
+            
+            // Load initial articles
+            loadArticles();
+            
+            // Set up filter buttons
+            setupFilterButtons();
+            
+            // Set up load more button
+            setupLoadMoreButton();
+        }
+        
+        // Load categories into sidebar
+        function loadCategories() {
+            categories.forEach(category => {
+                const categoryItem = document.createElement('a');
+                categoryItem.className = 'category-item';
+                categoryItem.href = `category.html?cat=${category.id}`;
+                
+                categoryItem.innerHTML = `
+                    <div class="category-icon">
+                        <i class="${category.icon}"></i>
+                    </div>
+                    <div class="category-name">${category.name}</div>
+                    <div class="category-count">${category.count}</div>
+                `;
+                
+                categoriesList.appendChild(categoryItem);
+            });
+        }
+        
+        // Load trending articles into sidebar
+        function loadTrendingArticles() {
+            trendingArticles.forEach(article => {
+                const trendingItem = document.createElement('a');
+                trendingItem.className = 'trending-item';
+                trendingItem.href = `article.html?id=${article.id}`;
+                
+                trendingItem.innerHTML = `
+                    <div class="trending-img">
+                        <img src="${article.image}" alt="${article.title}">
+                    </div>
+                    <div class="trending-content">
+                        <h4>${article.title}</h4>
+                        <div class="trending-meta">
+                            <span>${article.category.toUpperCase()}</span> • 
+                            <span>${article.date}</span>
+                        </div>
+                    </div>
+                `;
+                
+                trendingContainer.appendChild(trendingItem);
+            });
+        }
+        
+        // Load articles based on current filter and count
+        function loadArticles() {
+            // Clear container (except featured article which is outside the grid)
+            articlesContainer.innerHTML = '';
+            
+            // Filter articles based on current filter
+            let filteredArticles = filterArticles(allArticles, currentFilter);
+            
+            // Limit to currently displayed count
+            const articlesToShow = filteredArticles.slice(0, displayedCount);
+            
+            // Remove the featured article from the grid (it's already displayed separately)
+            const articlesForGrid = articlesToShow.filter(article => article.id !== 6);
+            
+            // Add articles to container
+            articlesForGrid.forEach(article => {
+                const articleCard = document.createElement('div');
+                articleCard.className = 'article-card';
+                articleCard.setAttribute('data-aos', 'fade-up');
+                articleCard.onclick = () => window.location.href = `article.html?id=${article.id}`;
+                
+                articleCard.innerHTML = `
+                    <div class="article-img">
+                        <img src="${article.image}" alt="${article.title}">
+                    </div>
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span class="article-category">${article.categoryName.toUpperCase()}</span>
+                            <span class="article-date">${article.date}</span>
+                        </div>
+                        <h3>${article.title}</h3>
+                        <p>${article.excerpt}</p>
+                        <div class="article-stats">
+                            <span><i class="far fa-clock"></i> ${article.readTime}</span>
+                            <span><i class="far fa-eye"></i> ${article.views.toLocaleString()} views</span>
+                            <span><i class="far fa-comment"></i> ${article.comments} comments</span>
+                        </div>
+                        <a href="article.html?id=${article.id}" class="read-more">Read Full Story <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                `;
+                
+                articlesContainer.appendChild(articleCard);
+            });
+            
+            // Update load more button visibility
+            updateLoadMoreButton(filteredArticles.length);
+        }
+        
+        // Filter articles based on selected filter
+        function filterArticles(articles, filter) {
+            if (filter === 'all') return articles;
+            
+            // Date-based filters
+            const now = new Date();
+            if (filter === 'today') {
+                const today = now.toDateString();
+                return articles.filter(article => {
+                    const articleDate = new Date(article.date).toDateString();
+                    return articleDate === today;
+                });
+            }
+            
+            if (filter === 'week') {
+                const oneWeekAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
+                return articles.filter(article => {
+                    const articleDate = new Date(article.date);
+                    return articleDate >= oneWeekAgo;
+                });
+            }
+            
+            if (filter === 'month') {
+                const oneMonthAgo = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000);
+                return articles.filter(article => {
+                    const articleDate = new Date(article.date);
+                    return articleDate >= oneMonthAgo;
+                });
+            }
+            
+            // Category-based filters
+            return articles.filter(article => article.category === filter);
+        }
+        
+        // Set up filter buttons
+        function setupFilterButtons() {
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Update current filter
+                    currentFilter = this.getAttribute('data-filter');
+                    
+                    // Reset displayed count
+                    displayedCount = 6;
+                    
+                    // Reload articles
+                    loadArticles();
+                    
+                    // Scroll to top of articles
+                    window.scrollTo({
+                        top: articlesContainer.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        }
+        
+        // Set up load more button
+        function setupLoadMoreButton() {
+            loadMoreBtn.addEventListener('click', function() {
+                // Increase displayed count
+                displayedCount += articlesPerLoad;
+                
+                // Reload articles
+                loadArticles();
+                
+                // Scroll to newly loaded articles
+                const newArticles = document.querySelectorAll('.article-card');
+                if (newArticles.length > 0) {
+                    newArticles[newArticles.length - 1].scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'nearest'
+                    });
+                }
+            });
+        }
+        
+        // Update load more button visibility
+        function updateLoadMoreButton(totalFilteredArticles) {
+            if (displayedCount >= totalFilteredArticles) {
+                loadMoreBtn.style.display = 'none';
+            } else {
+                loadMoreBtn.style.display = 'inline-flex';
+            }
+        }
+        
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            initPage();
+            
+            // Add animation to article cards after a short delay
+            setTimeout(() => {
+                const articleCards = document.querySelectorAll('.article-card');
+                articleCards.forEach((card, index) => {
+                    card.style.animationDelay = `${index * 0.1}s`;
+                    card.classList.add('animate__animated', 'animate__fadeInUp');
+                });
+            }, 300);
+        });
+    </script>
+</body>
+</html>
