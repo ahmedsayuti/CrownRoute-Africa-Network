@@ -6,7 +6,7 @@
     <title>News Categories - CrownRoute Africa Network</title>
             <!-- Social Media Meta Tags - CrownRoute Africa Network -->
     <meta property="og:title" content="CrownRoute Africa Network | Africa's Premier News Source" />
-    <meta property="og:description" content="Trusted, in-depth journalism from across the African continent. Delivering breaking news, regional analysis, and transformative stories on politics, business, technology, and culture from our network of bureaus." />
+    <meta property="og:description" content="Trusted, in-depth journalism from across the African continent. Delivering breaking news, regional analysis, and transformative stories on politics, business, agriculture, technology, and culture from our network of bureaus." />    
     <meta property="og:image" content="assets/img/logo/linkimage.png" />
     <meta property="og:url" content="https://www.crownrouteafrica.com" />
     <meta property="og:type" content="website" />
@@ -988,6 +988,7 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="category.html?cat=politics">Politics</a></li>
                 <li><a href="category.html?cat=business">Business</a></li>
+                <li><a href="category.html?cat=agriculture">Agriculture</a></li>
                 <li><a href="category.html?cat=technology">Technology</a></li>
                 <li><a href="category.html?cat=health">Health</a></li>
                 <li><a href="category.html?cat=education">Education</a></li>
@@ -1021,6 +1022,7 @@
                     <option value="latest">Latest</option>
                     <option value="popular">Most Popular</option>
                     <option value="trending">Trending</option>
+                    <option value="agriculture">Agriculture Focus</option>
                 </select>
             </div>
         </div>
@@ -1126,6 +1128,7 @@
                 <ul>
                     <li><a href="category.html?cat=politics"><i class="fas fa-chevron-right"></i> Politics</a></li>
                     <li><a href="category.html?cat=business"><i class="fas fa-chevron-right"></i> Business</a></li>
+                    <li><a href="category.html?cat=agriculture"><i class="fas fa-chevron-right"></i> Agriculture</a></li>
                     <li><a href="category.html?cat=technology"><i class="fas fa-chevron-right"></i> Technology</a></li>
                     <li><a href="category.html?cat=health"><i class="fas fa-chevron-right"></i> Health</a></li>
                     <li><a href="category.html?cat=sports"><i class="fas fa-chevron-right"></i> Sports</a></li>
@@ -1234,6 +1237,12 @@
                 count: 6,
                 color: '#197872'
             },
+            'agriculture': {
+                name: 'Agriculture & Environment',
+                icon: 'fas fa-seedling',
+                count: 4,
+                color: '#197872'
+            },
             'technology': {
                 name: 'Technology & Innovation',
                 icon: 'fas fa-laptop-code',
@@ -1334,7 +1343,16 @@
                     date: "Nov 1, 2023",
                     views: "19,560",
                     image: "https://www.consilium.europa.eu/media/68475/5f8a479d-e3e7-45a4-a014-2f837f786c03_.jpg"
-                }
+                },
+                {
+                    id: 8,
+                    title: "Ghana's AI-Powered Farming Initiative Increases Cocoa Yield by 40%",
+                    excerpt: "Using drone technology and machine learning, farmers can now monitor crop health and predict yields with unprecedented accuracy, revolutionizing agriculture.",
+                    category: "agriculture",
+                    date: "Nov 4, 2023",
+                    views: "16,750",
+                    image: "https://plus.unsplash.com/premium_photo-1764687849762-6dc3c016b48a?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                },
             ],
             'politics': [
                 {
@@ -1401,6 +1419,54 @@
                     date: "Oct 25, 2023",
                     views: "16,780",
                     image: "https://worldbank.scene7.com/is/image/worldbankprod/afe-result-zim-education?wid=780&hei=439&qlt=85,0&resMode=sharp"
+                },
+                {
+                    id: 24,
+                    title: "Agricultural Exports Drive 18% Growth in East Africa's Trade Balance",
+                    excerpt: "Coffee, tea, and horticultural products account for 65% of export earnings, with Europe and Asia as major markets.",
+                    category: "business",
+                    date: "Oct 28, 2023",
+                    views: "11,230",
+                    image: "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                },
+            ],
+    
+            'agriculture': [
+                {
+                    id: 21,
+                    title: "Climate-Smart Agriculture Increases Crop Yields by 35% in Sub-Saharan Africa",
+                    excerpt: "New farming techniques and drought-resistant crops are helping African farmers adapt to climate change while improving food security and incomes.",
+                    category: "agriculture",
+                    date: "Nov 6, 2023",
+                    views: "14,890",
+                    image: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                },
+                {
+                    id: 8,
+                    title: "Ghana's AI-Powered Farming Initiative Increases Cocoa Yield by 40%",
+                    excerpt: "Using drone technology and machine learning, farmers can now monitor crop health and predict yields with unprecedented accuracy.",
+                    category: "agriculture",
+                    date: "Nov 4, 2023",
+                    views: "16,750",
+                    image: "https://plus.unsplash.com/premium_photo-1764687849762-6dc3c016b48a?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                },
+                {
+                    id: 22,
+                    title: "Ethiopia's Wheat Revolution: Self-Sufficiency Achieved After Decades",
+                    excerpt: "Strategic investments in irrigation and improved seed varieties have transformed Ethiopia from wheat importer to exporter.",
+                    category: "agriculture",
+                    date: "Nov 2, 2023",
+                    views: "12,340",
+                    image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                },
+                {
+                    id: 23,
+                    title: "Kenya's Avocado Exports to China Triple, Creating 50,000 New Jobs",
+                    excerpt: "Trade agreements and improved logistics have made Kenyan avocados the fastest-growing agricultural export to Asian markets.",
+                    category: "agriculture",
+                    date: "Oct 30, 2023",
+                    views: "10,890",
+                    image: "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
                 }
             ],
             'technology': [
@@ -1451,6 +1517,14 @@
                 date: "Nov 6, 2023",
                 views: "22,340",
                 image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80"
+            },
+            'agriculture': {
+                title: "Africa's Agritech Revolution: $2.3B Investment Transforms Farming",
+                excerpt: "From drone-powered crop monitoring to blockchain-enabled supply chains, African agriculture is undergoing a digital transformation. Smallholder farmers are seeing 40-60% yield increases through technology adoption.",
+                category: "agriculture",
+                date: "Nov 7, 2023",
+                views: "18,450",
+                image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
             },
             'technology': {
                 title: "Africa's Tech Startups Raise Record $3.5B in First Three Quarters",

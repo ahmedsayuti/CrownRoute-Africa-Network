@@ -6,7 +6,7 @@
     <title>Latest News - CrownRoute Africa Network</title>
             <!-- Social Media Meta Tags - CrownRoute Africa Network -->
     <meta property="og:title" content="CrownRoute Africa Network | Africa's Premier News Source" />
-    <meta property="og:description" content="Trusted, in-depth journalism from across the African continent. Delivering breaking news, regional analysis, and transformative stories on politics, business, technology, and culture from our network of bureaus." />
+    <meta property="og:description" content="Trusted, in-depth journalism from across the African continent. Delivering breaking news, regional analysis, and transformative stories on politics, business, agriculture, technology, and culture from our network of bureaus." />    
     <meta property="og:image" content="assets/img/logo/linkimage.png" />
     <meta property="og:url" content="https://www.crownrouteafrica.com" />
     <meta property="og:type" content="website" />
@@ -944,6 +944,7 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="category.html?cat=politics">Politics</a></li>
                 <li><a href="category.html?cat=business">Business</a></li>
+                <li><a href="category.html?cat=agriculture">Agriculture</a></li>
                 <li><a href="category.html?cat=technology">Technology</a></li>
                 <li><a href="category.html?cat=health">Health</a></li>
                 <li><a href="category.html?cat=education">Education</a></li>
@@ -992,6 +993,7 @@
                 <button class="filter-btn" data-filter="month">This Month</button>
                 <button class="filter-btn" data-filter="politics">Politics</button>
                 <button class="filter-btn" data-filter="business">Business</button>
+                <button class="filter-btn" data-filter="agriculture">Agriculture</button>
                 <button class="filter-btn" data-filter="technology">Technology</button>
             </div>
             
@@ -1085,6 +1087,7 @@
                 <ul>
                     <li><a href="category.html?cat=politics"><i class="fas fa-chevron-right"></i> Politics</a></li>
                     <li><a href="category.html?cat=business"><i class="fas fa-chevron-right"></i> Business</a></li>
+                    <li><a href="category.html?cat=agriculture"><i class="fas fa-chevron-right"></i> Agriculture</a></li>
                     <li><a href="category.html?cat=technology"><i class="fas fa-chevron-right"></i> Technology</a></li>
                     <li><a href="category.html?cat=health"><i class="fas fa-chevron-right"></i> Health</a></li>
                     <li><a href="category.html?cat=sports"><i class="fas fa-chevron-right"></i> Sports</a></li>
@@ -1357,7 +1360,47 @@
                 image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
                 author: "Dr. Kofi Anokye",
                 readTime: "6 min read"
-            }
+            },
+
+            {
+                id: 21,
+                title: "Climate-Smart Agriculture Increases Crop Yields by 35% in Sub-Saharan Africa",
+                excerpt: "New farming techniques and drought-resistant crops are helping African farmers adapt to climate change while improving food security and incomes.",
+                category: "agriculture",
+                categoryName: "Agriculture",
+                date: "November 6, 2023",
+                views: "14,890",
+                comments: 16,
+                image: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                author: "David Okafor",
+                readTime: "6 min read"
+            },
+            {
+                id: 22,
+                title: "Ethiopia's Wheat Revolution: Self-Sufficiency Achieved After Decades",
+                excerpt: "Strategic investments in irrigation and improved seed varieties have transformed Ethiopia from wheat importer to exporter in just five years.",
+                category: "agriculture",
+                categoryName: "Agriculture",
+                date: "November 1, 2023",
+                views: "12,340",
+                comments: 14,
+                image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                author: "Amina Jalloh",
+                readTime: "7 min read"
+            },
+            {
+                id: 23,
+                title: "Kenya's Avocado Exports to China Triple, Creating 50,000 New Jobs",
+                excerpt: "Trade agreements and improved logistics have made Kenyan avocados the fastest-growing agricultural export to Asian markets.",
+                category: "agriculture",
+                categoryName: "Agriculture",
+                date: "October 29, 2023",
+                views: "10,890",
+                comments: 12,
+                image: "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                author: "Sarah Mensah",
+                readTime: "5 min read"
+            },
         ];
         
         // Add the featured article (ID 6) to the beginning
@@ -1380,9 +1423,10 @@
         
         // Categories data
         const categories = [
-            { id: "all", name: "All Categories", count: 25, icon: "fas fa-globe" },
-            { id: "politics", name: "Politics", count: 8, icon: "fas fa-landmark" },
+            { id: "all", name: "All Categories", count: 28, icon: "fas fa-globe" },
+            { id: "politics", name: "Politics", count: 5, icon: "fas fa-landmark" },     
             { id: "business", name: "Business", count: 6, icon: "fas fa-chart-line" },
+            { id: "agriculture", name: "Agriculture", count: 6, icon: "fas fa-tractor" },
             { id: "technology", name: "Technology", count: 7, icon: "fas fa-laptop-code" },
             { id: "health", name: "Health", count: 5, icon: "fas fa-heartbeat" },
             { id: "sports", name: "Sports", count: 4, icon: "fas fa-futbol" },
@@ -1419,7 +1463,14 @@
                 category: "lifestyle",
                 date: "Oct 29",
                 image: "https://images.unsplash.com/photo-1519474225-8c66363d72c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
-            }
+            },
+            {
+                id: 8,
+                title: "Ghana's AI Farming Boosts Cocoa Yield 40%",
+                category: "agriculture",
+                date: "Nov 4",
+                image: "https://plus.unsplash.com/premium_photo-1764687849762-6dc3c016b48a?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
+            },
         ];
         
         // DOM elements
